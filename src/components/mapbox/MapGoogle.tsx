@@ -10,6 +10,7 @@ import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import { LocationContext } from "../LocationContext";
 import chevron from "../../icons/pin.svg";
 import activePin from "../../icons/active_pin.svg";
+import { SvgIcons } from "../../SvgIcon";
 
 /**
  * CSS class interface for the {@link GoogleMaps} component
@@ -50,7 +51,7 @@ let currentMapZoom = 0;
 
 const builtInCssClasses: Readonly<GoogleMapsCssClasses> = {
   googleMapsContainer:
-    "w-full  h-96 lg:h-[calc(100vh_-_0px)] xl:h-[calc(100vh_-_0px)]  top-0   2xl:h-[calc(100vh_-_0px)] order-1 lg:order-none z-[99]",
+    "w-full  h-[27.4rem] md:h-[27.5rem] lg:h-[31.5rem]  top-0 order-1 lg:order-none z-[99]",
 };
 
 /**
@@ -362,42 +363,30 @@ function UnwrappedGoogleMaps({
   function InfowindowContents(i: number, result: any): void {
     const MarkerContent = (
       <div className="markerContent  font-universpro font-normal text-darkgrey text-xs md:text-sm leading-6">
-        <div className="nameData font-bold text-sm md:text-base">
+        <div className="nameData text-base md:text-lg font-fontMyriadRegular text-primaryBlue mb-2">
           {result.name}
         </div>
-        <div className="addressData">
+        <div className="addressData flex justify-start gap-2 mb-2">
           <div>
-            <img
-              className="addressLogo absolute top-0 left-0 w-5"
-              src={"https://cdn-icons-png.flaticon.com/512/3082/3082383.png"}
-              width="5"
-              height="5"
-              alt=""
-            />
+           {SvgIcons.locationMarker}
           </div>
           <div className="address">
-            <div>{result.address?.line1}</div>
+            <p>{result.address?.line1}</p>
 
-            <div>{`${result.address?.city}, ${result.address?.region} `}</div>
-            <div>{result.address?.postalCode}</div>
+            <p>{`${result.address?.city}, ${result.address?.region} `}</p>
+            <p>{result.address?.postalCode}</p>
           </div>
         </div>
-
-        <div className="addressphone">
-          <img
-            className="addressLogo "
-            src={"https://cdn-icons-png.flaticon.com/512/455/455705.png"}
-            width="28"
-            height="28"
-            alt=""
-          />
+      
+        <div className="addressphone flex justify-start gap-2 mb-2">
+          {SvgIcons.locationPhone}
           <div className="phone ">
             <a id="address" className="" href={`tel:${result.mainPhone}`}>
               {result.mainPhone}
             </a>
           </div>
         </div>
-        <div className="button-bx map-card">
+        <div className="button-bx map-card ">
           <a
             className="ctaBtn"
             target="_blank"

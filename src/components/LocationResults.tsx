@@ -95,14 +95,14 @@ export default function LocationResults(data :props){
   if(isLoading===false){
   return (
    
-    <div className="flex">
+    <div className="locator-wrapper">
       <div
         ref={refLcation}
-        className={classNames('overflow-y-auto sm:overflow-auto sm:border lg:w-1/4', {
+        className={classNames('overflow-auto location-box', {
           hidden: state.showMap,
           'w-full': !state.showMap,
         })}
-        style={{ maxHeight: '580px' }}>
+        >
         {state.mapLocations && state.mapLocations.length > 0 && isLoading===false ? (
           <VerticalResultsDisplay
           results={entityResults}
@@ -119,7 +119,7 @@ export default function LocationResults(data :props){
           returnedAlternateVerticals
         )}
       </div>
-      <div className={classNames('w-full xl:w-3/4', { hidden: screenSize !== 'xl' && !state.showMap })}>
+      <div className={classNames('w-full map-box', { hidden: screenSize !== 'xl' && !state.showMap })}>
         {renderMap()}
       </div>
     </div>

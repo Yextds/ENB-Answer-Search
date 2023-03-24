@@ -82,7 +82,7 @@ export const getHeadConfig: GetHeadConfig<
     return {
       title: `Ephrata National Bank | AS`,
       charset: "UTF-8",
-      viewport: "width=device-width, initial-scale=1",
+      viewport: "width=device-width, initial-scale=1, maximum-scale=1",
       tags : [
         {
           type: "link",
@@ -142,8 +142,8 @@ const {
       <Header upperHeaderLinks={_site.c_upperPart} lowerHeaderLinks={_site.c_lowerPart}/>
       <SearchHeadlessProvider searcher={searcher}>
       <LocationProvider>
-        <div className="px-4 py-8">
-          <div className="mx-auto flex max-w-5xl flex-col">
+        <div className="py-4 xs:py-8">
+          <div className="container-custom px-5 py-4 xs:py-8 bg-white rounded">
             <SearchBar placeholder='Search...' />
             <Navigation />
             <DirectAnswer />

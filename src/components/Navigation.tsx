@@ -32,10 +32,10 @@ interface NavigationCssClasses {
 }
 
 const builtInCssClasses: NavigationCssClasses = {
-  nav: 'border-b border-gray-200 text-gray-600 flex space-x-6 font-medium mb-6',
-  navLinkContainer: 'whitespace-nowrap py-3 mt-1 font-medium text-md border-b-2 border-opacity-0 hover:border-gray-300',
-  navLink: 'py-3 px-2',
-  navLinkContainer___active: 'text-blue-600 border-blue-600 border-opacity-100 hover:border-blue-600',
+  nav: 'vertical-navigation',
+  navLinkContainer: 'vertical-navigation-item',
+  navLink: 'vertical-nav-link',
+  navLinkContainer___active: 'active',
   kebabIcon: 'pointer-events-none',
   menuButtonContainer: 'relative flex flex-grow justify-end mr-4',
   menuButton: 'flex items-center text-gray-600 font-medium text-md h-12 mt-1 p-3 border-opacity-0 rounded-md hover:bg-gray-200',
@@ -200,7 +200,7 @@ function updateParam(latestUserInput: any) {
 
   return (
     <nav className={cssClasses.nav} ref={navigationRef}>
-      
+      <ul>
       {visibleLinks.map((l, index) => renderLink(l, index === activeVisibleLinkIndex, cssClasses,navparmam))}
       {numOverflowLinks > 0 &&
         <div className={cssClasses.menuButtonContainer}>
@@ -222,6 +222,7 @@ function updateParam(latestUserInput: any) {
           }
         </div>
       }
+</ul>
     </nav>
   )
 }
@@ -239,14 +240,14 @@ function renderLink(
   return (
     <>
     
-    <div className={navLinkContainerClasses} key={to}>
+    <li className={navLinkContainerClasses} key={to}>
       <a
         className={cssClasses.navLink}
         href={`${to}?query=${navparmam}`}
       >
         {label}
       </a>
-    </div>
+    </li>
     </>
   )
 }
