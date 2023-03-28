@@ -61,14 +61,14 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1, maximum-scale=1",
     tags: [
-      {
-        type: "link",
-        attributes: {
-          rel: "icon",
-          type: "image/x-icon",
-          href: `https://www.epnb.com/wp-content/themes/epnb/img/logo/logo-full-no-tag.svg`,
-        },
-      },
+      // {
+      //   type: "link",
+      //   attributes: {
+      //     rel: "icon",
+      //     type: "image/x-icon",
+      //     href: `https://www.epnb.com/wp-content/themes/epnb/img/logo/logo-full-no-tag.svg`,
+      //   },
+      // },
       // Favicon
       // Meta Title and Description
       {
@@ -99,13 +99,7 @@ const ArticlesPage: Template<TemplateRenderProps> = ({
   document,
 }) => {
   const { _site } = document;
-  console.log(_site, "_site");
-  
-  // let headerProps = _site.c_header_links;
-  // console.log(_site.c_useful_links.headerLinksHeading,"Sites");
-  // const {
-  //   _site
-  // } = document;
+ 
 
   return (
     <>

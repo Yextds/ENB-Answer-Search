@@ -145,6 +145,8 @@ function updateParam(latestUserInput: any) {
     usePageSetupEffect(currentVertical, 6);
   }else if(currentVertical==="insurances"){
     usePageSetupEffect(currentVertical, 2);
+  }else if(currentVertical==="links"){
+    usePageSetupEffect(currentVertical, 5)
   }
   
   // Close the menu when clicking the document
