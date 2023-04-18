@@ -3,6 +3,7 @@ import { VerticalConfig } from '../components/UniversalResults';
 import { LocationCard } from '../components/cards/LocationCard';
 import LocationSection from '../sections/LocationSection';
 import { ProductsCard } from '../components/cards/ProductsCard';
+import { LinksCard } from '../components/cards/LinksCard';
 
 export type UniversalResultsConfig = Record<string, VerticalConfig>;
 export const universallimit = 3;
@@ -31,23 +32,14 @@ export const universalResultsConfig: UniversalResultsConfig = {
       CardComponent: ProductsCard,
       showOrdinal: false
     }
+  },
+  links: {
+    label: 'Links',
+    viewAllButton: true,
+    cardConfig: {
+      CardComponent: LinksCard,
+      showOrdinal: false
+    }
   }
-  // },
-  // video: {
-  //   label: 'Videos',
-  //   viewAllButton: true,
-  //   cardConfig: {
-  //     CardComponent: VideosCard,
-  //     showOrdinal: false
-  //   }
-  // },
-  // provider_switching: {
-  //   label: 'Provider Switching',
-  //   viewAllButton: true,
-  //   cardConfig: {
-  //     CardComponent: ProviderSwitchingCard,
-  //     showOrdinal: false
-  //   }
-  // }
-  //  
+ 
 }
