@@ -4,6 +4,8 @@ import { LocationCard } from '../components/cards/LocationCard';
 import LocationSection from '../sections/LocationSection';
 import { ProductsCard } from '../components/cards/ProductsCard';
 import { LinksCard } from '../components/cards/LinksCard';
+import { EnbCards } from '../components/cards/enbNewsCard';
+import { EventCard } from '../components/cards/EventCard';
 
 export type UniversalResultsConfig = Record<string, VerticalConfig>;
 export const universallimit = 3;
@@ -40,6 +42,21 @@ export const universalResultsConfig: UniversalResultsConfig = {
       CardComponent: LinksCard,
       showOrdinal: false
     }
+  },
+  enb_news: {
+    label: 'ENB News',
+    viewAllButton: true,
+    cardConfig: {
+      CardComponent: EnbCards,
+      showOrdinal: false
+    }
+  },
+  events: {
+    label: 'Events',
+    viewAllButton: true,
+    cardConfig: {
+      CardComponent: EventCard,
+      showOrdinal: false
+    }
   }
- 
 }
