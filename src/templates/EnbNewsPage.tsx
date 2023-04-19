@@ -56,7 +56,7 @@ export const config: TemplateConfig = {
 
 
 export const getPath: GetPath<TemplateProps> = () => {
-  return "/links";
+  return "/enbnews";
 };
 
 export const getHeadConfig: GetHeadConfig<

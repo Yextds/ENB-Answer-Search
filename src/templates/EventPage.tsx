@@ -56,7 +56,7 @@ export const config: TemplateConfig = {
 
 
 export const getPath: GetPath<TemplateProps> = () => {
-  return "/links";
+  return "/events";
 };
 
 export const getHeadConfig: GetHeadConfig<
