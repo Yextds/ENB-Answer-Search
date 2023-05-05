@@ -24,7 +24,7 @@ module.exports = {
       transparent: "transparent",
       white: "#ffffff",
       black: "#000000",
-      primaryRed: "#d21242",
+      primaryRed: "#D21243",
       primaryBlue: "#004990",
       footerBorder: "#a8d6e2",
       topbarHoverBG: "#800b28",

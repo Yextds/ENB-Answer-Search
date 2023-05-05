@@ -1,5 +1,6 @@
 import * as React from "react";
 import { SvgIcons } from "../../SvgIcon";
+import ENBLogo  from "../../Images/ENB_Core_Conversion.png";
 
 type props = {
   upperHeaderLinks: any;
@@ -87,7 +88,7 @@ export default function Header(data: props) {
             <div className="flex flex-col lg:flex-row justify-between lowerLabelLinks">
               <a href="javascript:void(0)" className="header-logo">
                 <img
-                  src="https://www.epnb.com/wp-content/themes/epnb/img/logo/logo-full-no-tag.svg"
+                  src={ENBLogo}
                   title="Ephrata National Bank"
                 />
               </a>
