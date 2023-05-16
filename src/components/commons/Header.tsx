@@ -11,6 +11,7 @@ type props = {
  * @returns HTML element
  */
 export default function Header(data: props) {
+  
   const upperLinks = data.upperHeaderLinks;
   const lowerLinks = data.lowerHeaderLinks;
   const [open, setOpen] = React.useState("");
@@ -26,16 +27,16 @@ export default function Header(data: props) {
   }
   const upperHeaderLabels = upperLinks
     ? upperLinks.map((res: any) => {
-        // console.log(res.label,"headerLinks");
+         
         return (
           <>
             <li> {/* Top Bar navigation List Item */}
               <a
-                href={res.link}
+                href="#"
                 className="course-accordion"
                 rel="noopener noreferrer"
               >
-                {res.label}
+                {res.name}
               </a>
             </li> {/* Top Bar navigation List Item */}
           </>
@@ -45,15 +46,17 @@ export default function Header(data: props) {
 
   const lowerHeaderLabels = lowerLinks
     ? lowerLinks.map((res: any) => {
+    
         return (
           <>
+
             <li> {/* Primary navigation List Item */}
               <a
-                href={res.link}
+                href="#"
                 className="course-accordion"
                 rel="noopener noreferrer"
               >
-                {res.label}
+                {res.name}
               </a>
             </li> {/* Primary navigation List Item */}
           </>
