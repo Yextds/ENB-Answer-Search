@@ -26,37 +26,5 @@ export const universalResultsConfig: UniversalResultsConfig = {
       CardComponent: FaqCard,
       showOrdinal: false
     }
-  },
-  insurances: {
-    label: 'Insurance',
-    viewAllButton: true,
-    cardConfig: {
-      CardComponent: ProductsCard,
-      showOrdinal: false
-    }
-  },
-  links: {
-    label: 'Links',
-    viewAllButton: true,
-    cardConfig: {
-      CardComponent: LinksCard,
-      showOrdinal: false
-    }
-  },
-  enb_news: {
-    label: 'ENB News',
-    viewAllButton: true,
-    cardConfig: {
-      CardComponent: EnbCards,
-      showOrdinal: false
-    }
-  },
-  events: {
-    label: 'Events',
-    viewAllButton: true,
-    cardConfig: {
-      CardComponent: EventCard,
-      showOrdinal: false
-    }
   }
 }

@@ -46,7 +46,7 @@ import { LocationProvider } from "../components/LocationContext";
 
 export const config: TemplateConfig = {
   stream: {
-    $id: "header-and-footer",
+    $id: "global-config",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
     fields: [
@@ -57,7 +57,7 @@ export const config: TemplateConfig = {
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
-      entityIds: ["header-and-footer"] 
+      entityIds: ["global-config"] 
     },
     // The entity language profiles that documents will be generated for.
     localization: {
@@ -139,7 +139,7 @@ const {
   
   return (
     <>
-      <Header upperHeaderLinks={_site.c_upperPart} lowerHeaderLinks={_site.c_lowerPart}/>
+      <Header upperHeaderLinks={_site.c_headerlinks} lowerHeaderLinks={_site.c_headerlinetwo}/>
       <SearchHeadlessProvider searcher={searcher}>
       <LocationProvider>
         <div className="py-4 xs:py-8">
@@ -161,7 +161,7 @@ const {
         </div>
         </LocationProvider>
       </SearchHeadlessProvider>
-      <Footer houseLender={_site.c_housingLender} office={_site.c_office} />
+      {/* <Footer houseLender={_site.c_housingLender} office={_site.c_office} /> */}
     </>
   );
 
