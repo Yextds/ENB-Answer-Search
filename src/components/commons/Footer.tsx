@@ -4,28 +4,33 @@ import { SvgIcons } from "../../SvgIcon";
 // import Scroll from "./Scroll"
 
 type props = {
-  houseLender?: any;
-  office?: any;
+  footerHeading?: any;
+  footerlinks?: any;
+  CopyrightText?: any;
+  FooterLabel?: any;
+  FooterAddress?: any;
+  number?: any;
+  
 };
 
 export default function Footer(data: props) {
   // Variables for House Lending Sections
-  const houseLenderData = data.houseLender;
-  const houseLenderHeading = houseLenderData.heading;
-  const houseLenderCopyrightText = houseLenderData.copyrightText;
-  const houseLenderSubMenus = houseLenderData.otherMenus.map((res: any) => {
+  
+  const houseLenderHeading = data.footerHeading;
+  const houseLenderCopyrightText = data.CopyrightText;
+  const houseLenderSubMenus = data.footerlinks.map((res: any) => {
     return (
       <>
-        <a href={res.lendingLink}>{res.lendingLabel} | </a>
+        <a href="#">{res.name} | </a>
       </>
     );
   });
   // Variables for House Lending Sections
   // Variables for Office data
-  const officeData = data.office;
-  const officeHeading = officeData.heading;
-  const officeLocation = officeData.address;
-  const officeNumber = officeData.phoneNumber;
+ 
+  const officeHeading = data.FooterLabel;
+  const officeLocation = data.FooterAddress;
+  const officeNumber = data.number;
 
   const [isSmallScreen, setIsSmallScreen] = React.useState(false);
   React.useEffect(() => {

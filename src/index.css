@@ -354,7 +354,7 @@ ul.mobile-callout-navigation li a {
 }
 
 .locator-wrapper .location-box {
-  @apply w-full order-2 max-h-full md:max-h-[27.5rem] lg:max-h-[31.5rem] pt-2.5 pb-4;
+  @apply w-full order-2 max-h-full md:max-h-[34rem] pt-2.5 pb-4;
 }
 .locator-wrapper .map-box {
   @apply w-full order-1;
@@ -382,7 +382,11 @@ ul.mobile-callout-navigation li a {
 }
 
 .result-card .location-CTA {
-  @apply text-center mt-2.5;
+  @apply text-center;
+}
+
+.result-card .location-CTA + .location-CTA{
+  @apply mt-2.5;
 }
 
 .vertical-navigation ul {

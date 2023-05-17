@@ -142,7 +142,7 @@ const ArticlesPage: Template<TemplateRenderProps> = ({
           <NewPagination />
         </div>
       </SearchHeadlessProvider>
-      {/* <Footer houseLender={_site.c_housingLender} office={_site.c_office} /> */}
+      <Footer footerHeading={_site.c_footerHeading} footerlinks={_site.c_footerlinks} CopyrightText={_site.c_copyrightText} FooterLabel={_site.c_footerLabel} FooterAddress={_site.c_footerAddress} number={_site.c_number}/>
     </>
   );
 };

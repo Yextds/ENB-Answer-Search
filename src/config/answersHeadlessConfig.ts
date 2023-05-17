@@ -6,35 +6,17 @@ import {
 } from "@yext/search-headless-react";
 
 export let answersHeadlessConfig: HeadlessConfig = {
-  apiKey: "66b85f972b5954a58a3b0ca88a3e4290",
-  experienceKey: "ephrata-answer-search",
+  apiKey: "91686d707ec23399ba065889efe9e7b5",
+  experienceKey: "ephrata_national_bank_answers",
   locale: "en",
   sessionTrackingEnabled: true,
-  endpoints: {
-    universalSearch: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/query",
-    verticalSearch: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/vertical/query",
-    questionSubmission: "https://liveapi-sandbox.yext.com/v2/accounts/me/createQuestion",
-    universalAutocomplete: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/autocomplete",
-    verticalAutocomplete: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/vertical/autocomplete",
-    filterSearch: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/filtersearch"
-  },
+  // endpoints: {
+  //   universalSearch: "https://liveapi.yext.com/v2/accounts/me/answers/query",
+  //   verticalSearch: "https://liveapi.yext.com/v2/accounts/me/answers/vertical/query",
+  //   questionSubmission: "https://liveapi.yext.com/v2/accounts/me/createQuestion",
+  //   universalAutocomplete: "https://liveapi.yext.com/v2/accounts/me/answers/autocomplete",
+  //   verticalAutocomplete: "https://liveapi.yext.com/v2/accounts/me/answers/vertical/autocomplete",
+  //   filterSearch: "https://liveapi.yext.com/v2/accounts/me/answers/filtersearch"
+  // },
 };
 
-/*
-type HeadlessProviderProps = Parameters<typeof AnswersHeadlessProvider>[0];
-
-export const answersHeadlessConfig: HeadlessProviderProps = {
-  apiKey: 'ecbf37a4304b6b390687f68f697210e5',
-  experienceKey: 'mgm-timber-m',
-  locale: 'en',
-  sessionTrackingEnabled: true,
-  endpoints: {
-    universalSearch: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/query",
-    verticalSearch: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/vertical/query",
-    questionSubmission: "https://liveapi-sandbox.yext.com/v2/accounts/me/createQuestion",
-    universalAutocomplete: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/autocomplete",
-    verticalAutocomplete: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/vertical/autocomplete",
-    filterSearch: "https://liveapi-sandbox.yext.com/v2/accounts/me/answers/filtersearch"
-  }
-};
-*/
