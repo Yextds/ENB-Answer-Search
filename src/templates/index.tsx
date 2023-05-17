@@ -13,34 +13,26 @@ import {
   SearchHeadlessProvider,
   provideHeadless,
 } from "@yext/search-headless-react";
-import {
-  SearchBar,
-  SpellCheck,
-  Pagination,
-} from "@yext/search-ui-react";
+import { SearchBar, SpellCheck, Pagination } from "@yext/search-ui-react";
 import DirectAnswer from "../components/DirectAnswer";
-import { universalResultsConfig } from '../config/universalResultsConfig';
-import UniversalResults from '../components/UniversalResults';
-import Navigation from '../components/Navigation';
-import { answersHeadlessConfig } from '../config/answersHeadlessConfig';
+import { universalResultsConfig } from "../config/universalResultsConfig";
+import UniversalResults from "../components/UniversalResults";
+import Navigation from "../components/Navigation";
+import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
 import Header from "../components/commons/Header";
 import Footer from "../components/commons/Footer";
-
+import ENBRoundLogo from "../Images/ENB-round-logo.svg";
+import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
 
 export const config: TemplateConfig = {
   stream: {
     $id: "global-config",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
-    fields: [
-      "id",
-      "uid",
-      "meta",
-      "name",
-    ],
+    fields: ["id", "uid", "meta", "name"],
     // Defines the scope of entities that qualify for this stream.
     filter: {
-      entityIds: ["global-config"] 
+      entityIds: ["global-config"],
     },
     // The entity language profiles that documents will be generated for.
     localization: {
@@ -51,19 +43,14 @@ export const config: TemplateConfig = {
 };
 
 const universalResultsFilterConfig = {
-  show: false
+  show: false,
 };
-
-
 
 export const getPath: GetPath<TemplateProps> = () => {
   return "/index.html";
 };
 
-
-export const getHeadConfig: GetHeadConfig<
-  TemplateRenderProps
-> = ({
+export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   relativePrefixToRoot,
   path,
   document,
@@ -72,78 +59,82 @@ export const getHeadConfig: GetHeadConfig<
     title: `Ephrata National Bank | AS`,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1, maximum-scale=1",
-    tags : [
-    //   {
-    //     type: "link",
-    //     attributes: {
-    //         rel: "icon",
-    //         type: "image/x-icon",
-    //         href: `https://www.epnb.com/wp-content/themes/epnb/img/logo/logo-full-no-tag.svg`,
-    //     },
-    // },
-    // Favicon
-    // Meta Title and Description
-    {
+    tags: [
+      //   {
+      //     type: "link",
+      //     attributes: {
+      //         rel: "icon",
+      //         type: "image/x-icon",
+      //         href: `https://www.epnb.com/wp-content/themes/epnb/img/logo/logo-full-no-tag.svg`,
+      //     },
+      // },
+      // Favicon
+      // Meta Title and Description
+      {
         type: "meta",
         attributes: {
-            name: "title",
-            content: `Answers | Ephrata National Bank`,
+          name: "title",
+          content: `Answers | Ephrata National Bank`,
         },
-    },
-    {
+      },
+      {
         type: "meta",
         attributes: {
-            name: "description",
-            content: `Answers | Ephrata National Bank`,
+          name: "description",
+          content: `Answers | Ephrata National Bank`,
         },
-    },
-    // Meta Title and Description
-    ]
+      },
+      // Meta Title and Description
+    ],
   };
 };
 
 const searcher = provideHeadless(answersHeadlessConfig);
 
-const IndexPage: Template<TemplateRenderProps> = ({
-  document
-}) => {
-
- const {
-  _site
- } = document
-
- 
-
-
-
-
-
-
+const IndexPage: Template<TemplateRenderProps> = ({ document }) => {
+  const { _site } = document;
 
   return (
     <>
-    <Header upperHeaderLinks={_site.c_headerlinks} lowerHeaderLinks={_site.c_headerlinetwo}/>
-    <SearchHeadlessProvider searcher={searcher}>
-     <div className="px-4 py-8">
-        <div className="mx-auto flex max-w-5xl flex-col">
-          <SearchBar placeholder='Search...' />
-          
-          <Navigation />
-          <SpellCheck />
-          <DirectAnswer />
-          <UniversalResults
-            appliedFiltersConfig={universalResultsFilterConfig}
-            verticalConfigs={universalResultsConfig}
-          />
+      <Header
+        upperHeaderLinks={_site.c_headerlinks}
+        lowerHeaderLinks={_site.c_headerlinetwo}
+      />
+      <SearchHeadlessProvider searcher={searcher}>
+        <div className="container-custom px-5 py-4 xs:py-[1.875rem]">
+          {/* Round Centered Logo */}
+          <div className="Round-logo">
+            <div className="centred-logo">
+              <img className="mx-auto" src={ENBRoundLogo} />
+            </div>
+          </div>
+          {/* Round Centered Logo */}
         </div>
-        <Pagination />
-      </div>
-    </SearchHeadlessProvider>
-    {/* <Footer houseLender={_site.c_housingLender} office={_site.c_office} /> */}
+        <div className="py-4 xs:pb-14 pt-0">
+          <div className="container-custom px-5 pb-4 xs:pb-8 pt-0 xs:px-[4.375rem] bg-white rounded">
+          <div className="polygon-logo mb-10">
+              <div className="polygon-centred">
+                <img className="mx-auto" src={ENBPolygonLogo} />
+              </div>
+            </div>
+            <div className="yext-search-bar">
+              <SearchBar placeholder="Search..." />
+            </div>
+
+            <Navigation />
+            <SpellCheck />
+            <DirectAnswer />
+            <UniversalResults
+              appliedFiltersConfig={universalResultsFilterConfig}
+              verticalConfigs={universalResultsConfig}
+            />
+          </div>
+          <Pagination />
+        </div>
+      </SearchHeadlessProvider>
+      {/* <Footer houseLender={_site.c_housingLender} office={_site.c_office} /> */}
     </>
   );
 };
 
 export default IndexPage;
-
-

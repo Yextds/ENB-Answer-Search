@@ -51,7 +51,7 @@ let currentMapZoom = 0;
 
 const builtInCssClasses: Readonly<GoogleMapsCssClasses> = {
   googleMapsContainer:
-    "w-full  h-[27.4rem] md:h-[27.5rem] lg:h-[31.5rem]  top-0 order-1 lg:order-none z-[99]",
+    "w-full  h-[16.563rem] top-0 order-1 lg:order-none z-[1]",
 };
 
 /**

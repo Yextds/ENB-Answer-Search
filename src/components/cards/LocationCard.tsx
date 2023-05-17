@@ -65,8 +65,7 @@ export interface LocationData {
 }
 
 const builtInCssClasses = {
-  container:
-    "result result-card",
+  container: "result result-card",
   header: "location-name",
   body: "location-address",
   descriptionContainer: "text-sm",
@@ -105,9 +104,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
     if (!address) return;
     return (
       <>
-        <div className="location-pin">
-          {SvgIcons.locationMarker}
-        </div>
+        <div className="location-pin">{SvgIcons.locationMarker}</div>
         <div className="address-content">
           <p>{location.address?.line1}</p>
           <p>{`${location.address?.city}, ${location.address?.region} ${location.address?.postalCode}`}</p>
@@ -163,28 +160,42 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
         {/* {configuration.showOrdinal && result.index && renderOrdinal(result.index)} */}
         {renderTitle(location.name || "")}
       </div>
-      <div className={cssClasses.body + ""}>
-        {renderAddress(location.address)}
-      </div>
-      <div className="location-phone">
-        <div className="phone-icon">
-          {SvgIcons.locationPhone}
+      <div className="location-seprator">
+      <div className="left-content">
+        {/* Location Address */}
+        <div className="address-wrapper">
+          <div className={cssClasses.body + ""}>
+            {renderAddress(location.address)}
+          </div>
+          <div className="open-close-status">
+            <div className="flex items-center gap-3">
+              {SvgIcons.ClockIcon}
+              <span>Open 24 Hours</span>
+            </div>
+          </div>
         </div>
-        <div className="phone-content">
-          <a target="_blank" href={`tel:${PhoneNumber}`}>
-            <span>{PhoneNumber}</span>
+        {/* Location Address */}
+        <div className="location-phone">
+          <div className="phone-icon">{SvgIcons.locationPhone}</div>
+          <div className="phone-content">
+            <a target="_blank" href={`tel:${PhoneNumber}`}>
+              <span>{PhoneNumber}</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="right-buttons">
+        <div className="location-CTA">
+          <a
+            target="_blank"
+            className="button"
+            href={`https://www.google.com/maps/dir/?api=1&destination=${CtaAddress}`}
+            onClick={() => pagesAnalyticsCtaClick()}
+          >
+            <span className="">Get Direction</span>
           </a>
         </div>
       </div>
-      <div className="location-CTA">
-        <a
-          target="_blank"
-          className="button"
-          href={`https://www.google.com/maps/dir/?api=1&destination=${CtaAddress}`}
-          onClick={() => pagesAnalyticsCtaClick()}
-        >
-          <span className="">Get Direction</span>
-        </a>
       </div>
     </div>
   );

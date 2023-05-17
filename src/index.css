@@ -4,43 +4,96 @@
 
 @font-face {
   font-family: "Myriad Pro";
-  src: url("Fonts/Myriad-Pro-Bold.ttf") format("woff");
-  font-weight: 700;
-  font-style: normal;
+  src: url("Fonts/MyriadPro-BoldCondIt.woff2") format("woff2"),
+    url("Fonts/MyriadPro-BoldCondIt.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
   font-display: swap;
 }
+
 @font-face {
-  font-family: "Myriad Pro Condensed";
-  src: url("Fonts/Myriad-Pro-Condensed.ttf") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Myriad Pro Light Condensed";
-  src: url("Fonts/Myriad-Pro-Semibold-Condensed.otf") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Myriad Pro Regular";
-  src: url("Fonts/Myriad-Pro-Regular.ttf") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Myriad Pro Light";
-  src: url("Fonts/Myriad-Pro-Semibold.ttf") format("woff");
-  font-weight: 300;
+  font-family: "Myriad Pro";
+  src: url("Fonts/MyriadPro-BoldCond.woff2") format("woff2"),
+    url("Fonts/MyriadPro-BoldCond.woff") format("woff");
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("Fonts/MyriadPro-Bold.woff2") format("woff2"),
+    url("Fonts/MyriadPro-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("Fonts/MyriadPro-CondIt.woff2") format("woff2"),
+    url("Fonts/MyriadPro-CondIt.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("Fonts/MyriadPro-BoldIt.woff2") format("woff2"),
+    url("Fonts/MyriadPro-BoldIt.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("Fonts/MyriadPro-It.woff2") format("woff2"),
+    url("Fonts/MyriadPro-It.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("Fonts/MyriadPro-Cond.woff2") format("woff2"),
+    url("Fonts/MyriadPro-Cond.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("Fonts/MyriadPro-Semibold.woff2") format("woff2"),
+    url("Fonts/MyriadPro-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("Fonts/MyriadPro-SemiboldIt.woff2") format("woff2"),
+    url("Fonts/MyriadPro-SemiboldIt.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Myriad Pro";
+  src: url("Fonts/MyriadPro-Regular.woff2") format("woff2"),
+    url("Fonts/MyriadPro-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 body {
-  @apply font-normal font-fontMyriadRegular text-sm lg:text-base min-h-[100vh] bg-bodyBG;
+  @apply font-normal font-myriad text-sm lg:text-base min-h-[100vh] bg-bodyBG;
 }
 body.menu-opened {
   @apply overflow-hidden lg:overflow-auto;
@@ -94,7 +147,7 @@ h5 {
 }
 
 .button {
-  @apply inline-flex align-top w-full justify-center items-center bg-primaryBlue text-white text-base font-normal font-fontMyriadRegular px-[1.125rem] py-3.5 h-10 transition-all duration-300 hover:no-underline hover:bg-white hover:text-primaryBlue hover:border border-primaryBlue;
+  @apply inline-flex align-top w-full justify-center items-center bg-primaryBlue text-white text-[1rem] leading-5 uppercase font-semibold font-myriad px-[1.125rem] py-3.5 h-[35px] transition-all duration-300 hover:no-underline hover:bg-white hover:text-primaryBlue hover:border border-primaryBlue;
 }
 
 .centered-container {
@@ -167,20 +220,23 @@ h5 {
 /* Header - Start */
 /* Top-bar Start */
 
-.labelLinks.top-bar{
+.labelLinks.top-bar {
   @apply bg-primaryRed;
 }
-.topbar-navigation ul li a{
-  @apply text-white font-semibold font-fontMyriadCondensed text-base leading-4;
+.topbar-navigation ul li a {
+  @apply text-white font-semibold font-myriad text-base leading-4;
 }
-.topbar-navigation ul li{
-  @apply hover:bg-topbarHoverBG px-4 py-2;
+.topbar-navigation ul li {
+  @apply hover:bg-topbarHoverBG py-2 last:pr-2.5;
+}
+.topbar-navigation ul li + li {
+  @apply pl-[15px];
 }
 
 /* Top-bar End */
 
 /* Lower-bar Start */
-.lower-bar .header-logo{
+.lower-bar .header-logo {
   @apply max-w-[18.125rem] lg:max-w-[21.375rem] ml-5 lg:ml-0 my-2.5;
 }
 /* nav.primary-navigation{
@@ -190,40 +246,35 @@ nav.primary-navigation.open{
   @apply flex absolute top-24 left-0 right-0 z-[100] translate-y-0 transition-all duration-700 ease-in-out;
 } */
 
-nav.primary-navigation{
+nav.primary-navigation {
   /* transition: all 0.3s ease-in-out; */
   @apply bg-white lg:bg-transparent max-h-0 lg:max-h-full overflow-hidden transition-all duration-700 ease-in-out;
 }
-nav.primary-navigation.open{
+nav.primary-navigation.open {
   /* transition: all 0.3s ease-in-out; */
   @apply bg-white lg:bg-transparent max-h-[37.5rem] transition-all duration-700 ease-in-out;
 }
 
-
-
-
-
-nav.primary-navigation ul li{
-  @apply flex items-center hover:bg-white;
+nav.primary-navigation ul li {
+  @apply flex items-center py-4 lg:py-0;
 }
-nav.primary-navigation ul li a{
-  @apply text-lg leading-[1.125rem] w-full font-semibold font-fontMyriadCondensed text-primaryBlue lg:text-white px-5 py-4 lg:py-6 hover:text-primaryBlue;
+nav.primary-navigation ul li a {
+  @apply text-lg leading-[1.125rem] w-full font-semibold font-myriad text-primaryBlue lg:text-white px-2.5;
 }
 
 /* Lower-bar End */
 
 /* Mobile Callout Buttons */
 
-.mobile-callout ul.mobile-callout-navigation{
+.mobile-callout ul.mobile-callout-navigation {
   @apply table w-full pt-0.5;
 }
-ul.mobile-callout-navigation li{
+ul.mobile-callout-navigation li {
   @apply table-cell text-center w-2/4 odd:pr-px even:pl-px;
 }
-ul.mobile-callout-navigation li a{
-  @apply text-white text-2xl leading-6 font-fontMyriadCondensed font-semibold pt-5 pb-4 bg-primaryRed hover:bg-topbarHoverBG;
+ul.mobile-callout-navigation li a {
+  @apply text-white text-2xl leading-6 font-myriad font-semibold pt-5 pb-4 bg-primaryRed hover:bg-topbarHoverBG;
 }
-
 
 /* Mobile Callout Buttons */
 
@@ -231,62 +282,66 @@ ul.mobile-callout-navigation li a{
 
 /* Footer Css - Starts */
 
-.footer-section{
-  @apply bg-primaryBlue py-[1.875rem] lg:py-[4.688rem] text-white text-lg leading-6 font-semibold font-fontMyriadCondensed border-t-[11px] border-t-footerBorder;
+.footer-section {
+  @apply bg-primaryBlue py-[1.875rem] lg:py-[4.688rem] text-white text-lg leading-6 font-semibold font-myriad border-t-[11px] border-t-footerBorder;
 }
-.footer-section .legal img{
+.footer-section .legal img {
   @apply max-w-[3.75rem] mb-4;
 }
-.footer-nav-links{
+.footer-section .legal h3,
+.footer-section .legal p {
+  @apply font-normal;
+}
+.footer-nav-links {
   @apply my-1;
 }
-.footer-nav-links ul li{
+.footer-nav-links ul li {
   @apply flex justify-center lg:justify-start;
 }
-.footer-nav-links ul li a{
-  @apply text-white underline hover:text-footerBorder;
+.footer-nav-links ul li a {
+  @apply text-white underline hover:text-footerBorder border-r border-r-white pr-1 mr-1 leading-5 last:border-0;
 }
 .legal,
-.social, 
-.corporate{
+.social,
+.corporate {
   @apply w-full lg:w-1/3 block lg:inline-block;
 }
-.legal{
+.legal {
   @apply text-center lg:text-left;
 }
 
-.footer-section .social svg:hover path{
+.footer-section .social svg:hover path {
   @apply fill-footerBorder;
 }
-.social .social-headline{
-  @apply text-4xl font-bold font-fontMyriadBold text-center lg:text-right mb-4;
+.social .social-headline {
+  @apply text-4xl font-semibold font-myriad text-center lg:text-right mb-4;
 }
 
-.corporate .corporate-logo{
+.corporate .corporate-logo {
   @apply max-w-[12.5rem] mb-5 mx-auto table;
 }
-.corporate .corporate-logo img{
+.corporate .corporate-logo img {
   @apply w-full;
 }
-.corporate-address{
+.corporate-address {
   @apply text-center;
 }
 
-.corporate-address .corporate-location-phone{
+.corporate-address .corporate-location-phone {
   @apply flex items-center justify-center;
 }
-.corporate-address .corporate-location-phone a{
+.corporate-address .corporate-location-phone a {
   @apply text-white hover:text-footerBorder;
 }
-.footer-section .powered-by-title{
+.footer-section .powered-by-title {
   @apply flex justify-center lg:justify-end gap-1.5 mt-4;
 }
-.footer-section .powered-by-title a{
-  @apply text-white font-fontMyriadRegular text-xs font-normal;
+.footer-section .powered-by-title a {
+  @apply text-white font-myriad text-xs font-normal;
 }
 
 .footer-section .powered-by-title a:hover,
-.footer-section .powered-by-title a:hover + a svg path{
+.footer-section .powered-by-title a:hover + a svg path {
   @apply fill-footerBorder text-footerBorder;
 }
 
@@ -294,78 +349,93 @@ ul.mobile-callout-navigation li a{
 
 /* Main Section Start */
 
-.locator-wrapper{
-  @apply flex flex-col gap-y-5 md:flex-row mb-4;
+.locator-wrapper {
+  @apply flex flex-col;
 }
 
-.locator-wrapper .location-box{
-  @apply w-full md:w-[21rem] lg:w-[25rem] max-h-full md:max-h-[27.5rem] lg:max-h-[31.5rem];
+.locator-wrapper .location-box {
+  @apply w-full order-2 max-h-full md:max-h-[27.5rem] lg:max-h-[31.5rem] pt-2.5 pb-4;
 }
-.locator-wrapper .map-box{
-  @apply w-full md:w-[calc(100%_-_21rem)] lg:w-[calc(100%_-_25rem)] md:pl-4;
-}
-
-.location-box .result-card{
-  @apply flex flex-col justify-between border border-primaryBlue mb-4 rounded last:mb-0 p-4 hover:bg-resultCardHover;
+.locator-wrapper .map-box {
+  @apply w-full order-1;
 }
 
-.result-card .location-name h2{
-  @apply flex text-lg font-normal text-primaryBlue mb-3 cursor-pointer;
-}
-.result-card .location-address{
-  @apply flex gap-3 mb-3;
-}
-.location-address .address-content{
-  @apply text-base font-normal text-primaryBlue;
-}
-.result-card .location-phone{
-  @apply flex gap-3 mb-3;
-}
-.location-phone .phone-content a{
-  @apply text-base font-normal text-primaryBlue hover:underline;
+.location-box .result-card {
+  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.08);
+  @apply flex flex-col justify-between mb-4 border-r-2 border-r-borderColor border-l-2 border-l-borderColor last:mb-0 px-5 py-[15px] min-h-[10.313rem];
 }
 
-.result-card .location-CTA{
-  @apply text-center;
+.result-card .location-name h2 {
+  @apply flex text-xl  font-normal text-textRed mb-4 cursor-pointer;
+}
+.result-card .location-address {
+  @apply flex gap-3 mb-5 max-w-[12.5rem] w-[12.5rem];
+}
+.location-address .address-content {
+  @apply text-[1rem] leading-5 font-normal text-black;
+}
+.result-card .location-phone {
+  @apply flex gap-3;
+}
+.location-phone .phone-content a {
+  @apply text-base font-normal text-black hover:underline;
 }
 
-.result-card .location-CTA .button{
-  @apply lg:w-3/4;
+.result-card .location-CTA {
+  @apply text-center mt-2.5;
 }
 
-.vertical-navigation ul{
-  @apply flex font-medium mb-6 bg-footerBorder;
+.vertical-navigation ul {
+  @apply flex justify-center font-normal mb-[1.875rem] border-b border-b-[#CCCCCC];
 }
 
-.vertical-navigation li.vertical-navigation-item{
-  @apply px-5 py-4;
+
+.vertical-navigation li.vertical-navigation-item {
+  @apply px-4 mx-4 pb-1.5;
 }
 
-.markerContent{
+/* li.vertical-navigation-item {
+  @apply hidden;
+} */
+/* li.vertical-navigation-item:nth-child(1),
+li.vertical-navigation-item:nth-child(2),
+li.vertical-navigation-item:nth-child(3) {
+  @apply block;
+} */
+.vertical-navigation li.vertical-navigation-item a {
+  @apply uppercase text-[1rem] leading-5;
+}
+.vertical-navigation li.vertical-navigation-item.active {
+  @apply border-b border-b-textRed;
+}
+.vertical-navigation li.vertical-navigation-item.active a {
+  @apply text-textRed font-semibold;
+}
+
+.markerContent {
   @apply w-[18.875rem];
 }
-.markerContent .button-bx{
+.markerContent .button-bx {
   @apply flex flex-col xs:flex-row w-full;
 }
 
-.markerContent .button-bx a{ 
+.markerContent .button-bx a {
   @apply w-full xs:w-2/4 text-center px-4 py-2 even:mt-2.5 xs:even:mt-0 xs:even:ml-2.5 bg-primaryBlue text-white border border-primaryBlue hover:bg-white hover:text-primaryBlue transition-all duration-300;
 }
-.gm-style-iw-d{
+.gm-style-iw-d {
   @apply !max-h-[290px];
 }
 
-.gm-style-iw-d + button.gm-ui-hover-effect{
+.gm-style-iw-d + button.gm-ui-hover-effect {
   @apply !top-0 !right-1.5;
 }
-.gm-style-iw-d + button.gm-ui-hover-effect span{
+.gm-style-iw-d + button.gm-ui-hover-effect span {
   @apply !w-5 !h-5;
 }
 
-.gm-style-iw-c{
+.gm-style-iw-c {
   @apply !max-h-[270px] !max-w-full;
 }
-
 
 /* Main Section End */
 
@@ -377,7 +447,7 @@ ul.mobile-callout-navigation li a{
   @apply bg-primaryBlue;
 }
 
-.FooterDiv {  
+.FooterDiv {
   background-color: #004990;
 }
 
@@ -401,21 +471,125 @@ ul.mobile-callout-navigation li a{
   display: block;
 }
 
+.yext-search-bar > div > div {
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.08);
+  @apply border-0 rounded-md;
+}
+.yext-search-bar input {
+  @apply text-[0.875rem] leading-5 text-[#141414];
+}
+
+.vertical-heading {
+  @apply bg-primaryBlue px-4 py-2.5 mb-5 flex items-center justify-between;
+}
+.label-wrapper {
+  @apply flex items-center gap-3;
+}
+.label-wrapper h2 {
+  @apply text-[1.375rem] font-semibold leading-[1.625rem] text-white;
+}
+
+.location-seprator {
+  @apply flex justify-between;
+}
+.location-seprator .left-content {
+  @apply grow;
+}
+.right-buttons {
+  @apply min-w-[160px];
+}
+.address-wrapper {
+  @apply flex justify-start items-start gap-[100px];
+}
+
+.vertical-view-more .view-more-btn {
+  @apply flex items-center justify-center gap-3;
+}
+.vertical-view-more .view-more-btn span {
+  @apply text-textRed text-[1rem] leading-5;
+}
+.vertical-view-more {
+  @apply p-2.5 border-b border-b-borderColor mb-[3.125rem];
+}
+
+.vertical-card {
+  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.08);
+  @apply bg-white py-[15px] pl-5 pr-[2.625rem] border-r-2 border-r-borderColor border-l-2 border-l-borderColor mb-5;
+}
+
+.faq-block .vertical-card-heading h2 {
+  @apply relative after:absolute after:bg-arrowDown after:content-[""] after:w-6 after:h-5 after:block after:right-0 after:top-2/4 after:-translate-y-2/4;
+}
+.faq-block.opened .vertical-card-heading h2 {
+  @apply after:bg-arrowUP;
+}
+
+.vertical-card-heading h2 {
+  @apply text-[1.25rem] leading-6 font-semibold text-textRed mb-4;
+}
+
+.vertical-card-content {
+  @apply mb-5;
+}
+
+.vertical-card-button .button {
+  text-transform: none;
+  @apply max-w-[160px] px-5 py-2 leading-4;
+}
+
+.locator-wrapper + div span {
+  @apply text-[1rem] text-black leading-5 font-normal first:text-primaryBlue first:font-semibold;
+}
+.locator-wrapper + div div {
+  @apply text-[1rem] text-textRed underline hover:no-underline leading-5;
+}
+
+/* FAQ Section*/
+
+.pagination-button {
+  @apply z-0 inline-flex items-center px-4 py-2 text-sm font-semibold border border-primaryBlue;
+}
+
+.active-pagination-buton{
+ @apply z-10 inline-flex items-center px-4 py-2 text-sm font-semibold border border-primaryBlue bg-primaryBlue text-white;
+}
+.first-pagination-button{
+  @apply inline-flex items-center px-3.5 py-2 border border-primaryBlue rounded-l-md;
+}
+.last-pagination-button{
+  @apply inline-flex items-center px-3.5 py-2 border border-primaryBlue rounded-r-md;
+}
+
 /* Media Queries */
 
-
-@media screen and (max-width: 1140px){
-  .mobile-pad{
+@media screen and (max-width: 1140px) {
+  .mobile-pad {
     @apply px-5;
-  }  
+  }
 }
-@media screen and (max-width: 1024px){
-  .footer-section .legal img{
+@media screen and (max-width: 1024px) {
+  .footer-section .legal img {
     @apply mx-auto;
   }
 }
-@media screen and (max-width: 420px){
-  .social ul{
+@media screen and (max-width: 767px) {
+  .location-seprator {
+    @apply flex-col;
+  }
+}
+@media screen and (max-width: 576px) {
+  .address-wrapper {
+    @apply flex-col gap-0 mb-3;
+  }
+  .centred-logo img{
+    @apply max-h-[4.625rem];
+  }
+  .polygon-centred img{
+    @apply max-h-[3.125rem];
+  }
+}
+@media screen and (max-width: 420px) {
+  .social ul {
     @apply w-full justify-between;
   }
 }

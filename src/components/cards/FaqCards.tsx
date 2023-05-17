@@ -1,6 +1,6 @@
 import { useSearchActions } from "@yext/search-headless-react";
-import { useContext } from 'react';
-import { CardProps } from '../../models/cardComponent';
+import { useContext } from "react";
+import { CardProps } from "../../models/cardComponent";
 import { useEffect, useState } from "react";
 import * as React from "react";
 
@@ -66,40 +66,41 @@ export function FaqCard(props: TrainerCardProps): JSX.Element {
   const { result } = props;
   const trainer = result.rawData as unknown as TrainerData;
   const FaqVertical: any = result.rawData;
-  const FaqLandingPage = FaqVertical.landingPageUrl ? FaqVertical.landingPageUrl : '#';
+  const FaqLandingPage = FaqVertical.landingPageUrl
+    ? FaqVertical.landingPageUrl
+    : "#";
   //   const screenSize = useContext(ResponsiveContext);/
   const [faqClass, setFaqClass] = useState("");
 
   const cssClasses = builtInCssClasses;
 
   function renderName(name?: string) {
-    return <div className={cssClasses.name}>{name}</div>;
+    return <h2 className={cssClasses.name}>{name}</h2>;
   }
 
   function renderQuote(quote?: string) {
-    return <div className={cssClasses.descriptionContainer}>{quote}</div>;
+    return <p>{quote}</p>;
   }
-
-
 
   /**
    * This function helps FAQ accordion to open ones at a time
    * @param e - Elements of the Div
    * @param index - Ordinal of the elements
    */
-  const isShowContent = (e: any, index: any) => { // alert('Hello');
+  const isShowContent = (e: any, index: any) => {
+    // alert('Hello');
 
     let parent = e.target.parentNode.parentNode;
     console.log(parent, "parent");
     if (parent.classList.contains("opened")) {
       setFaqClass("");
-      // console.log(e.target.parentNode.parentNode.classList); 
+      // console.log(e.target.parentNode.parentNode.classList);
     } else {
       var acc = document.getElementsByClassName("faq-block"); // alert(acc.length);
       for (let s = 0; s < acc.length; s++) {
         acc[s].classList.remove("opened");
       }
-      // console.log(e.target.parentNode.parentNode.classList);  
+      // console.log(e.target.parentNode.parentNode.classList);
       setFaqClass("opened");
       parent.classList.add("opened");
     }
@@ -107,16 +108,22 @@ export function FaqCard(props: TrainerCardProps): JSX.Element {
 
   return (
     <>
-      <div className={'faq-block ' + trainer.id + ' ' + faqClass} >
-        <div onClick={(e) => isShowContent(e, trainer.id)} className="FaqQuestion">{renderName(trainer.name)}</div>
-        <div className={cssClasses.ctaButton + ' faq-content'}>
+      <div className={"faq-block vertical-card " + trainer.id + " " + faqClass}>
+        <div
+          onClick={(e) => isShowContent(e, trainer.id)}
+          className="vertical-card-heading"
+        >
+          {renderName(trainer.name)}
+        </div>
+        <div className="faq-content vertical-card-content">
           {renderQuote(trainer.answer)}
-          <a href={FaqLandingPage}>
-            <div className={cssClasses.ctaButtonText}>Read more</div>
+        </div>
+        <div className="vertical-card-button">
+          <a href={FaqLandingPage} className="button">
+            Read more
           </a>
         </div>
       </div>
     </>
-
   );
 }

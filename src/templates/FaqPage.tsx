@@ -28,6 +28,8 @@ import Footer from "../components/commons/Footer";
 import { FaqCard } from "../components/cards/FaqCards";
 import VerticalResults from "../components/VerticalResults";
 import NewPagination from "../components/commons/PaginationComponent";
+import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
+import ENBRoundLogo from "../Images/ENB-round-logo.svg";
 
 export const config: TemplateConfig = {
   stream: {
@@ -99,7 +101,6 @@ const ArticlesPage: Template<TemplateRenderProps> = ({
   document,
 }) => {
   const { _site } = document;
- 
 
   return (
     <>
@@ -108,9 +109,25 @@ const ArticlesPage: Template<TemplateRenderProps> = ({
         lowerHeaderLinks={_site.c_headerlinetwo}
       />
       <SearchHeadlessProvider searcher={searcher}>
-        <div className="px-4 py-8">
-          <div className="mx-auto flex max-w-5xl flex-col">
-            <SearchBar placeholder="Search..." />
+        <div className="container-custom px-5 py-4 xs:py-[1.875rem]">
+          {/* Round Centered Logo */}
+          <div className="Round-logo">
+            <div className="centred-logo">
+              <img className="mx-auto" src={ENBRoundLogo} />
+            </div>
+          </div>
+          {/* Round Centered Logo */}
+        </div>
+        <div className="py-4 xs:pb-14 pt-0 FAQ-page">
+          <div className="container-custom px-5 pb-4 xs:pb-8 pt-0 xs:px-[4.375rem] bg-white rounded">
+            <div className="polygon-logo mb-10">
+              <div className="polygon-centred">
+                <img className="mx-auto" src={ENBPolygonLogo} />
+              </div>
+            </div>
+            <div className="yext-search-bar">
+              <SearchBar placeholder="Search..." />
+            </div>
             <Navigation />
             <DirectAnswer />
             <SpellCheck />

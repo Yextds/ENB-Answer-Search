@@ -24,12 +24,14 @@ module.exports = {
       transparent: "transparent",
       white: "#ffffff",
       black: "#000000",
-      primaryRed: "#d21242",
+      primaryRed: "#D21243",
+      textRed: "#D11242",
       primaryBlue: "#004990",
       footerBorder: "#a8d6e2",
       topbarHoverBG: "#800b28",
       submenuBorder: "#80a3c6",
       resultCardHover: "#f4f5f7",
+      borderColor: "rgba(0, 73, 144, 0.5)",
       // primary: "var(--primary-color, #2563eb)",
       // "primary-light": "var(--primary-color-light, #dbeafe)",
       // "primary-dark": "var(--primary-color-dark, #1e40af)",
@@ -37,15 +39,15 @@ module.exports = {
       // "neutral-light": "var(--neutral-color-light, #9ca3af)",
       // "neutral-dark": "var(--neutral-color-dark, #1f2937)",
     },
-    fontFamily: {
-       fontMyriadBold: ['"Myriad Pro", Georgia, sans-serif'],    
-       fontMyriadCondensed: ['"Myriad Pro Condensed", Georgia, sans-serif'],    
-       fontMyriadRegular: ['"Myriad Pro Regular", Georgia, sans-serif'],    
+    fontFamily: {          
+       myriad: ['"Myriad Pro", Georgia, sans-serif'],    
     },
     extend: {
       backgroundImage: {
         // plus: "url('images/plus.svg')",
-        bodyBG: "url('images/epnb-background.png')",       
+        bodyBG: "url('Images/epnb-background.png')",       
+        arrowUP: "url('Images/Arrow-up.svg')",       
+        arrowDown: "url('Images/Arrow-down.svg')",       
       },
       borderRadius: {
         cta: "var(--cta-border-radius, 1rem)",
