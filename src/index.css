@@ -227,10 +227,7 @@ h5 {
   @apply text-white font-semibold font-myriad text-base leading-4;
 }
 .topbar-navigation ul li {
-  @apply hover:bg-topbarHoverBG py-2 last:pr-2.5;
-}
-.topbar-navigation ul li + li {
-  @apply pl-[15px];
+  @apply hover:bg-topbarHoverBG py-2 px-[0.469rem];
 }
 
 /* Top-bar End */
@@ -248,7 +245,7 @@ nav.primary-navigation.open{
 
 nav.primary-navigation {
   /* transition: all 0.3s ease-in-out; */
-  @apply bg-white lg:bg-transparent max-h-0 lg:max-h-full overflow-hidden transition-all duration-700 ease-in-out;
+  @apply lg:flex bg-white lg:bg-transparent max-h-0 lg:max-h-full overflow-hidden transition-all duration-700 ease-in-out;
 }
 nav.primary-navigation.open {
   /* transition: all 0.3s ease-in-out; */
@@ -385,14 +382,13 @@ ul.mobile-callout-navigation li a {
   @apply text-center;
 }
 
-.result-card .location-CTA + .location-CTA{
+.result-card .location-CTA + .location-CTA {
   @apply mt-2.5;
 }
 
 .vertical-navigation ul {
   @apply flex justify-center font-normal mb-[1.875rem] border-b border-b-[#CCCCCC];
 }
-
 
 .vertical-navigation li.vertical-navigation-item {
   @apply px-4 mx-4 pb-1.5;
@@ -540,7 +536,9 @@ li.vertical-navigation-item:nth-child(3) {
   text-transform: none;
   @apply max-w-[160px] px-5 py-2 leading-4;
 }
-
+.locator-wrapper + div {
+  @apply mt-4;
+}
 .locator-wrapper + div span {
   @apply text-[1rem] text-black leading-5 font-normal first:text-primaryBlue first:font-semibold;
 }
@@ -551,16 +549,16 @@ li.vertical-navigation-item:nth-child(3) {
 /* FAQ Section*/
 
 .pagination-button {
-  @apply z-0 inline-flex items-center px-4 py-2 text-sm font-semibold border border-primaryBlue;
+  @apply z-0 inline-flex items-center px-4 py-2 text-sm text-primaryBlue font-semibold border border-primaryBlue;
 }
 
-.active-pagination-buton{
- @apply z-10 inline-flex items-center px-4 py-2 text-sm font-semibold border border-primaryBlue bg-primaryBlue text-white;
+.active-pagination-buton {
+  @apply z-10 inline-flex items-center px-4 py-2 text-sm font-semibold border border-primaryBlue bg-primaryBlue text-white;
 }
-.first-pagination-button{
+.first-pagination-button {
   @apply inline-flex items-center px-3.5 py-2 border border-primaryBlue rounded-l-md;
 }
-.last-pagination-button{
+.last-pagination-button {
   @apply inline-flex items-center px-3.5 py-2 border border-primaryBlue rounded-r-md;
 }
 
@@ -585,10 +583,10 @@ li.vertical-navigation-item:nth-child(3) {
   .address-wrapper {
     @apply flex-col gap-0 mb-3;
   }
-  .centred-logo img{
+  .centred-logo img {
     @apply max-h-[4.625rem];
   }
-  .polygon-centred img{
+  .polygon-centred img {
     @apply max-h-[3.125rem];
   }
 }

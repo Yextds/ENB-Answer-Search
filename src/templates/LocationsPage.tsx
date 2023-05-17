@@ -44,6 +44,7 @@ import LocationResults from "../components/LocationResults";
 import { LocationProvider } from "../components/LocationContext";
 import ENBRoundLogo from "../Images/ENB-round-logo.svg";
 import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
+import NewPagination from "../components/commons/PaginationComponent";
 
 export const config: TemplateConfig = {
   stream: {
@@ -163,7 +164,7 @@ const LocationsPage: Template<TemplateRenderProps> = ({
               />
               <LocationBias />
             </div>
-            <Pagination />
+            <NewPagination />
           </div>
         </LocationProvider>
       </SearchHeadlessProvider>

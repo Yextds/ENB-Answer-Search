@@ -114,7 +114,7 @@ interface PaginationCssClasses {
 
 const builtInPaginationCssClasses: PaginationCssClasses = {
   container: 'flex justify-center mb-4',
-  labelContainer: 'inline-flex shadow-sm -space-x-px',
+  labelContainer: 'inline-flex shadow-sm -space-x-px one',
   label: 'z-0 inline-flex items-center px-4 py-2 text-sm font-semibold border border-gray-300 text-gray-500',
   selectedLabel: 'z-10 inline-flex items-center px-4 py-2 text-sm font-semibold border border-blue-600 text-blue-600 bg-blue-50',
   leftIconContainer: 'inline-flex items-center px-3.5 py-2 border border-gray-300 rounded-l-md',
