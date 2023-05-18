@@ -11,6 +11,8 @@ import {
 } from "@yext/analytics";
 import * as React from "react";
 import { SvgIcons } from "../../SvgIcon";
+import OpenCloseStatus from "../OpenCloseStatus";
+
 
 //prettier-ignore
 export interface LocationCardConfig {
@@ -85,7 +87,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
   const load: any = result.rawData;
   const addressLine1: any = load.address.line1;
   const AddressCity: any = load.address.city;
-
+  const StoreHours: number = load.hours;
   const CtaAddress = addressLine1 + "," + AddressCity;
   const PhoneNumber = load.mainPhone;
   const LandingPage = load.landingPageUrl;
@@ -124,11 +126,6 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
 
   const conversionTracker = provideConversionTrackingAnalytics();
 
-  const searchAnalytics = provideSearchAnalytics({
-    experienceKey: "prezzo-answer-experience",
-    experienceVersion: "PRODUCTION",
-    businessId: 3180300, // this comes from the url of your Yext account
-  });
 
   /**
    * This function is for Analytics - When someone click on Button then this fire.
@@ -170,7 +167,8 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
           <div className="open-close-status">
             <div className="flex items-center gap-3">
               {SvgIcons.ClockIcon}
-              <span>Open 24 Hours</span>
+             
+              <span><OpenCloseStatus hours={StoreHours}/></span>
             </div>
           </div>
         </div>
@@ -195,6 +193,21 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
             <span className="">Get Direction</span>
           </a>
         </div>
+        
+      </div>
+      <br></br>
+      <div className="right-buttons">
+        <div className="location-CTA">
+          <a
+            target="_blank"
+            className="button"
+            href={`tel:${PhoneNumber}`}
+            onClick={() => pagesAnalyticsCtaClick()}
+          >
+            <span className="">CALL</span>
+          </a>
+        </div>
+        
       </div>
       </div>
     </div>

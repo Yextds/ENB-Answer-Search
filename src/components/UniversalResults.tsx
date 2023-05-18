@@ -49,10 +49,10 @@ export default function UniversalResults({
 }: UniversalResultsProps): JSX.Element | null {
   const cssClasses = useComposedCssClasses(builtInCssClasses, customCssClasses, cssCompositionMethod);
   const resultsFromAllVerticals = useSearchState(state => state?.universal?.verticals) || [];
-  // console.log(resultsFromAllVerticals,"resultsFromAllVerticals");
+   console.log(resultsFromAllVerticals,"resultsFromAllVerticals");
   const isLoading = useSearchState(state => state.searchStatus.isLoading);
   console.log(isLoading,"isLoading");
-  //  UseEffect - Starts  - Code to get Default Initial Search 
+  //UseEffect - Starts  - Code to get Default Initial Search 
   const searchAction = useSearchActions();
   useEffect(() => {
     searchAction.executeUniversalQuery();
@@ -60,7 +60,7 @@ export default function UniversalResults({
   }, [])
 
   // UseEffect - Ends  - Code to get Default Initial Search 
-  if (isLoading === false && resultsFromAllVerticals.length === 0) {
+  if (resultsFromAllVerticals.length === 0) {
     return (
       <>
           <div className="mb-6 pb-6 mt-6 pt-6">

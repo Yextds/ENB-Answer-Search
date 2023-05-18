@@ -1,5 +1,5 @@
 import { Wrapper } from "@googlemaps/react-wrapper";
-// import { useSearchState, Result } from "@yext/search-headless-react";
+//  import { useSearchState, Result } from "@yext/search-headless-react";
 import * as React from "react";
 import { useRef, useEffect, useState, useContext } from "react";
 import {
@@ -186,7 +186,7 @@ function UnwrappedGoogleMaps({
   let index = 0;
 
   for (const result of locationResults) {
-    // console.log('state.result', result.yextDisplayCoordinate);
+   
     const position = getPosition(result);
     const markerLabel = Number(index + 1);
     const marker = new google.maps.Marker({
@@ -353,7 +353,7 @@ function UnwrappedGoogleMaps({
   infoWindow.addListener("closeclick", () => {
     infoWindow.close();
     removeActiveGrid();
-    console.log(searchZoom, "searchZoom2");
+    
     map?.setZoom(8);
     map?.fitBounds(bounds);
 
@@ -361,6 +361,7 @@ function UnwrappedGoogleMaps({
   });
 
   function InfowindowContents(i: number, result: any): void {
+   
     const MarkerContent = (
       <div className="markerContent  font-universpro font-normal text-darkgrey text-xs md:text-sm leading-6">
         <div className="nameData text-base md:text-lg font-fontMyriadRegular text-primaryBlue mb-2">

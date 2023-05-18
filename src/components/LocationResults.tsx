@@ -60,6 +60,7 @@ export default function LocationResults(data :props){
             id: enities.id ?? "",
             name: location.name,
             address: location.address,
+            mainPhone: location.mainPhone,
             yextDisplayCoordinate: {
               latitude: location.yextDisplayCoordinate.latitude,
               longitude: location.yextDisplayCoordinate.longitude,

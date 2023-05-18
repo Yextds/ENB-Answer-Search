@@ -10,13 +10,13 @@ export let answersHeadlessConfig: HeadlessConfig = {
   experienceKey: "ephrata_national_bank_answers",
   locale: "en",
   sessionTrackingEnabled: true,
-  // endpoints: {
-  //   universalSearch: "https://liveapi.yext.com/v2/accounts/me/answers/query",
-  //   verticalSearch: "https://liveapi.yext.com/v2/accounts/me/answers/vertical/query",
-  //   questionSubmission: "https://liveapi.yext.com/v2/accounts/me/createQuestion",
-  //   universalAutocomplete: "https://liveapi.yext.com/v2/accounts/me/answers/autocomplete",
-  //   verticalAutocomplete: "https://liveapi.yext.com/v2/accounts/me/answers/vertical/autocomplete",
-  //   filterSearch: "https://liveapi.yext.com/v2/accounts/me/answers/filtersearch"
-  // },
+  endpoints: {
+    universalSearch: "https://liveapi.yext.com/v2/accounts/me/answers/query",
+    verticalSearch: "https://liveapi.yext.com/v2/accounts/me/answers/vertical/query",
+    questionSubmission: "https://liveapi.yext.com/v2/accounts/me/createQuestion",
+    universalAutocomplete: "https://liveapi.yext.com/v2/accounts/me/answers/autocomplete",
+    verticalAutocomplete: "https://liveapi.yext.com/v2/accounts/me/answers/vertical/autocomplete",
+    filterSearch: "https://liveapi.yext.com/v2/accounts/me/answers/filtersearch"
+  },
 };
 

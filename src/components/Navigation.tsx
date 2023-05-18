@@ -142,9 +142,9 @@ function updateParam(latestUserInput: any) {
   const cssClasses = useComposedCssClasses(builtInCssClasses, customCssClasses, cssCompositionMethod);
   const currentVertical = useSearchState(state => state.vertical.verticalKey);
   if(currentVertical==="faqs"){
-    usePageSetupEffect(currentVertical, 6);
-  }else if(currentVertical==="insurances"){
-    usePageSetupEffect(currentVertical, 2);
+    usePageSetupEffect(currentVertical, 10);
+  }else if(currentVertical==="locations"){
+    usePageSetupEffect(currentVertical, 10);
   }else if(currentVertical==="links"){
     usePageSetupEffect(currentVertical, 5)
   }

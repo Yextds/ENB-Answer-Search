@@ -16,6 +16,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYXBhdmxpY2siLCJhIjoiY2t5NHJkODFvMGV3ZDJ0bzRnN
 
 // prettier-ignore
 export interface MapLocationData extends LocationData {
+  mainPhone: any;
   yextDisplayCoordinate?: {
     latitude: number,
     longitude: number
