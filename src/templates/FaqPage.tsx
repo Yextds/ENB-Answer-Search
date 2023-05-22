@@ -104,10 +104,10 @@ const ArticlesPage: Template<TemplateRenderProps> = ({
 
   return (
     <>
-      <Header
+      {/* <Header
         upperHeaderLinks={_site.c_headerlinks}
         lowerHeaderLinks={_site.c_headerlinetwo}
-      />
+      /> */}
       <SearchHeadlessProvider searcher={searcher}>
         <div className="container-custom px-5 py-4 xs:py-[1.875rem]">
           {/* Round Centered Logo */}
