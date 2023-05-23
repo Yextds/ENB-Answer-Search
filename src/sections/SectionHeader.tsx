@@ -15,6 +15,8 @@ import { DisplayableFilter } from "../models/displayableFilter";
 import classNames from "classnames";
 import locationMarker from "../Images/heading-marker.svg";
 import faqMarker from "../Images/faq-marker.svg";
+import * as React from "react";
+import faqicon from "../icons/faq.svg";
 
 interface SectionHeaderCssClasses extends AppliedFiltersCssClasses {
   sectionHeaderContainer?: string;
@@ -91,7 +93,8 @@ export default function SectionHeader(props: SectionHeaderConfig): JSX.Element {
       {/* </div> */}
       <div className="vertical-label">
         <div className="label-wrapper">
-          <img src={locationMarker} />
+          {verticalKey=="locations" ? <>< img src={locationMarker}/></> :<>< img src={faqicon}/></> }
+         
           <h2>{label}</h2>
         </div>
       </div>
@@ -108,8 +111,7 @@ export default function SectionHeader(props: SectionHeaderConfig): JSX.Element {
         <div className={cssClasses.viewMoreContainer}>
           <a
             className={cssClasses.viewMoreLink}
-            href={`/${verticalKey}?query=${latestQuery}`}
-          >
+            href={`/${verticalKey}?query=${latestQuery}`}>
             View all
           </a>
         </div>

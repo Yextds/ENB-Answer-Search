@@ -107,13 +107,7 @@ const LocationsPage: Template<TemplateRenderProps> = ({
   document,
 }) => {
   const { _site } = document;
-  // let footerHelpMenu = _site.c_useful_links.headerLinksHeading;
-  // let footerHElpSubMenus = _site.c_useful_links.links;
-  // let headerProps = _site.c_header_links;
-  // console.log(_site.c_useful_links.headerLinksHeading,"Sites");
-  // const {
-  //   _site
-  // } = document;
+  
 
   return (
     <>

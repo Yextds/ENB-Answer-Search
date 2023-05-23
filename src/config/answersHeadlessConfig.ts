@@ -10,7 +10,8 @@ export let answersHeadlessConfig: HeadlessConfig = {
   experienceKey: "ephrata_national_bank_answers",
   locale: "en",
   experienceVersion: "STAGING",
-  sessionTrackingEnabled: true,
+  
+  // sessionTrackingEnabled: true,
   endpoints: {
     universalSearch: "https://liveapi.yext.com/v2/accounts/me/answers/query",
     verticalSearch: "https://liveapi.yext.com/v2/accounts/me/answers/vertical/query",

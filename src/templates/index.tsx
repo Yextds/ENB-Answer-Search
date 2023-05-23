@@ -13,7 +13,7 @@ import {
   SearchHeadlessProvider,
   provideHeadless,
 } from "@yext/search-headless-react";
-import { SearchBar, SpellCheck, Pagination } from "@yext/search-ui-react";
+import { SearchBar, SpellCheck, Pagination, LocationBias } from "@yext/search-ui-react";
 import DirectAnswer from "../components/DirectAnswer";
 import { universalResultsConfig } from "../config/universalResultsConfig";
 import UniversalResults from "../components/UniversalResults";
@@ -128,6 +128,7 @@ const IndexPage: Template<TemplateRenderProps> = ({ document }) => {
               appliedFiltersConfig={universalResultsFilterConfig}
               verticalConfigs={universalResultsConfig}
             />
+             <LocationBias />
           </div>
           <Pagination />
         </div>
