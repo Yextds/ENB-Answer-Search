@@ -118,7 +118,7 @@ const IndexPage: Template<TemplateRenderProps> = ({ document }) => {
               </div>
             </div>
             <div className="yext-search-bar">
-              <SearchBar placeholder="Search..." />
+              <SearchBar placeholder="Location Near Me" />
             </div>
 
             <Navigation />
