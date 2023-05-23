@@ -21,7 +21,7 @@ export default function Footer(data: props) {
   const houseLenderSubMenus = data.footerlinks.map((res: any) => {
     return (
       <>
-        <a href="#">{res.name} | </a>
+        <li><a href="#">{res.name}</a></li>
       </>
     );
   });
@@ -71,7 +71,7 @@ export default function Footer(data: props) {
               <div className="footer-nav-links">
                 <nav>
                   <ul>
-                    <li>{houseLenderSubMenus}</li>
+                    {houseLenderSubMenus}
                   </ul>
                 </nav>
               </div>
