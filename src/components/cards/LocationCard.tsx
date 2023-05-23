@@ -12,6 +12,7 @@ import {
 import * as React from "react";
 import { SvgIcons } from "../../SvgIcon";
 import OpenCloseStatus from "../OpenCloseStatus";
+import { formatPhoneNumber } from 'react-phone-number-input'
 
    const metersToMiles = (meters: number) => {
      const miles = meters * 0.000621371;
@@ -185,7 +186,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
             <div className="phone-icon">{SvgIcons.locationPhone}</div>
             <div className="phone-content">
               <a target="_blank" href={`tel:${PhoneNumber}`}>
-                <span>{PhoneNumber}</span>
+                <span>{formatPhoneNumber(PhoneNumber)}</span>
               </a>
             </div>
           </div>

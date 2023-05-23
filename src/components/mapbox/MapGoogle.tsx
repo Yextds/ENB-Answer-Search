@@ -194,7 +194,7 @@ function UnwrappedGoogleMaps({
       map,
       icon: marker_icon,
       label: {
-        text: String(markerLabel),
+       
         color: "#fff",
       },
     });
