@@ -13,7 +13,6 @@ import * as React from "react";
 import { SvgIcons } from "../../SvgIcon";
 import OpenCloseStatus from "../OpenCloseStatus";
 
-
 //prettier-ignore
 export interface LocationCardConfig {
   showOrdinal?: boolean
@@ -126,7 +125,6 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
 
   const conversionTracker = provideConversionTrackingAnalytics();
 
-
   /**
    * This function is for Analytics - When someone click on Button then this fire.
    */
@@ -158,57 +156,54 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
         {renderTitle(location.name || "")}
       </div>
       <div className="location-seprator">
-      <div className="left-content">
-        {/* Location Address */}
-        <div className="address-wrapper">
-          <div className={cssClasses.body + ""}>
-            {renderAddress(location.address)}
+        <div className="left-content">
+          {/* Location Address */}
+          <div className="address-wrapper">
+            <div className={cssClasses.body + ""}>
+              {renderAddress(location.address)}
+            </div>
+            <div className="open-close-status">
+              <div className="flex items-center gap-3">
+                {SvgIcons.ClockIcon}
+
+                <span>
+                  <OpenCloseStatus hours={StoreHours} />
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="open-close-status">
-            <div className="flex items-center gap-3">
-              {SvgIcons.ClockIcon}
-             
-              <span><OpenCloseStatus hours={StoreHours}/></span>
+          {/* Location Address */}
+          <div className="location-phone">
+            <div className="phone-icon">{SvgIcons.locationPhone}</div>
+            <div className="phone-content">
+              <a target="_blank" href={`tel:${PhoneNumber}`}>
+                <span>{PhoneNumber}</span>
+              </a>
             </div>
           </div>
         </div>
-        {/* Location Address */}
-        <div className="location-phone">
-          <div className="phone-icon">{SvgIcons.locationPhone}</div>
-          <div className="phone-content">
-            <a target="_blank" href={`tel:${PhoneNumber}`}>
-              <span>{PhoneNumber}</span>
+        <div className="right-buttons">
+          <div className="call-CTA">
+            <a
+              target="_blank"
+              className="button"
+              href={`tel:${PhoneNumber}`}
+              onClick={() => pagesAnalyticsCtaClick()}
+            >
+              <span className="">CALL</span>
+            </a>
+          </div>
+          <div className="location-CTA">
+            <a
+              target="_blank"
+              className="button"
+              href={`https://www.google.com/maps/dir/?api=1&destination=${CtaAddress}`}
+              onClick={() => pagesAnalyticsCtaClick()}
+            >
+              <span className="">Get Direction</span>
             </a>
           </div>
         </div>
-      </div>
-      <div className="right-buttons">
-        <div className="location-CTA">
-          <a
-            target="_blank"
-            className="button"
-            href={`https://www.google.com/maps/dir/?api=1&destination=${CtaAddress}`}
-            onClick={() => pagesAnalyticsCtaClick()}
-          >
-            <span className="">Get Direction</span>
-          </a>
-        </div>
-        
-      </div>
-      <br></br>
-      <div className="right-buttons">
-        <div className="location-CTA">
-          <a
-            target="_blank"
-            className="button"
-            href={`tel:${PhoneNumber}`}
-            onClick={() => pagesAnalyticsCtaClick()}
-          >
-            <span className="">CALL</span>
-          </a>
-        </div>
-        
-      </div>
       </div>
     </div>
   );

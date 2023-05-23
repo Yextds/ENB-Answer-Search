@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('fonts/MyriadPro-Regular.woff2') format('woff2'),
+      url('fonts/MyriadPro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('fonts/MyriadPro-Bold.woff2') format('woff2'),
+      url('fonts/MyriadPro-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url('fonts/MyriadPro-Semibold.woff2') format('woff2'),
+      url('fonts/MyriadPro-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+/* 
+
 @font-face {
   font-family: "Myriad Pro";
   src: url("Fonts/MyriadPro-BoldCondIt.woff2") format("woff2"),
@@ -71,7 +100,7 @@
     url("Fonts/MyriadPro-Semibold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
-  font-display: swap;
+  font-display: swap; 
 }
 
 @font-face {
@@ -90,7 +119,7 @@
   font-weight: normal;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 body {
   @apply font-normal font-myriad text-sm lg:text-base min-h-[100vh] bg-bodyBG;
@@ -147,7 +176,7 @@ h5 {
 }
 
 .button {
-  @apply inline-flex align-top w-full justify-center items-center bg-primaryBlue text-white text-[1rem] leading-5 uppercase font-semibold font-myriad px-[1.125rem] py-3.5 h-[35px] transition-all duration-300 hover:no-underline hover:bg-white hover:text-primaryBlue hover:border border-primaryBlue;
+  @apply inline-flex align-top w-full justify-center items-center bg-primaryBlue text-white text-[1rem] leading-[23px] uppercase font-semibold font-myriad px-[1.125rem] pt-[7px] pb-[3px] transition-all duration-300 hover:no-underline hover:bg-white hover:text-primaryBlue border border-primaryBlue;
 }
 
 .centered-container {
@@ -290,18 +319,21 @@ ul.mobile-callout-navigation li a {
   @apply font-normal;
 }
 .footer-nav-links {
-  @apply my-1;
+  @apply my-2.5;
 }
-.footer-nav-links ul li {
+.footer-nav-links ul{
   @apply flex justify-center lg:justify-start;
 }
+.footer-nav-links ul li {
+  @apply border-r border-r-white pr-1 mr-1 last:border-0 last:pr-0 last:mr-0;
+}
 .footer-nav-links ul li a {
-  @apply text-white underline hover:text-footerBorder border-r border-r-white pr-1 mr-1 leading-5 last:border-0;
+  @apply text-white underline hover:text-footerBorder leading-[22px];
 }
 .legal,
 .social,
 .corporate {
-  @apply w-full lg:w-1/3 block lg:inline-block;
+  @apply w-full lg:w-1/3 block lg:inline-block leading-[22px];
 }
 .legal {
   @apply text-center lg:text-left;
@@ -328,7 +360,7 @@ ul.mobile-callout-navigation li a {
   @apply flex items-center justify-center;
 }
 .corporate-address .corporate-location-phone a {
-  @apply text-white hover:text-footerBorder;
+  @apply text-white hover:text-footerBorder underline;
 }
 .footer-section .powered-by-title {
   @apply flex justify-center lg:justify-end gap-1.5 mt-4;
@@ -375,7 +407,7 @@ ul.mobile-callout-navigation li a {
   @apply flex gap-3;
 }
 .location-phone .phone-content a {
-  @apply text-base font-normal text-black hover:underline;
+  @apply text-base font-normal text-black underline hover:no-underline;
 }
 
 .result-card .location-CTA {
@@ -498,6 +530,9 @@ li.vertical-navigation-item:nth-child(3) {
 .right-buttons {
   @apply min-w-[160px];
 }
+.right-buttons .location-CTA{
+  @apply mt-2.5
+}
 .address-wrapper {
   @apply flex justify-start items-start gap-[100px];
 }
@@ -534,7 +569,7 @@ li.vertical-navigation-item:nth-child(3) {
 
 .vertical-card-button .button {
   text-transform: none;
-  @apply max-w-[160px] px-5 py-2 leading-4;
+  @apply max-w-[160px] px-5;
 }
 .locator-wrapper + div {
   @apply mt-4;
