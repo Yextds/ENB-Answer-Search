@@ -533,6 +533,14 @@ li.vertical-navigation-item:nth-child(3) {
 .right-buttons .location-CTA{
   @apply mt-2.5
 }
+
+.right-buttons .miles{
+  @apply flex items-center text-sm leading-[17px] mb-6 text-right justify-end text-primaryBlue
+}
+.right-buttons .miles svg{
+  @apply mr-2
+}
+
 .address-wrapper {
   @apply flex justify-start items-start gap-[100px];
 }
@@ -595,6 +603,30 @@ li.vertical-navigation-item:nth-child(3) {
 }
 .last-pagination-button {
   @apply inline-flex items-center px-3.5 py-2 border border-primaryBlue rounded-r-md;
+}
+
+
+.viewMore{
+  @apply text-center py-2.5 leading-[22px] border-b border-borderColor !mt-5
+}
+.viewMore a{
+  @apply text-textRed inline-flex items-baseline hover:underline
+}
+.viewMore a svg{
+  @apply ml-3.5
+}
+
+.location-info div{
+  @apply text-base
+}
+.location-info div span:first-child{
+  @apply font-semibold text-primaryBlue
+}
+.location-info .yextLogo{
+  @apply w-10 h-10 my-[30px] mx-auto 
+}
+.location-info button{
+  @apply text-textRed underline hover:no-underline
 }
 
 /* Media Queries */

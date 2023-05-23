@@ -12,12 +12,12 @@ import {
 import * as React from "react";
 import { SvgIcons } from "../../SvgIcon";
 import OpenCloseStatus from "../OpenCloseStatus";
-import { formatPhoneNumber } from 'react-phone-number-input'
+import { formatPhoneNumber } from "react-phone-number-input";
 
-   const metersToMiles = (meters: number) => {
-     const miles = meters * 0.000621371;
-     return miles.toFixed(2);
-   }
+const metersToMiles = (meters: number) => {
+  const miles = meters * 0.000621371;
+  return miles.toFixed(2);
+};
 
 //prettier-ignore
 export interface LocationCardConfig {
@@ -96,7 +96,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
   const CtaAddress = addressLine1 + "," + AddressCity;
   const PhoneNumber = load.mainPhone;
   const distance = result.distance;
-   console.log(result.distance, "distance");
+  console.log(result.distance, "distance");
   const cssClasses = useComposedCssClasses(builtInCssClasses);
 
   const screenSize = "sm";
@@ -131,7 +131,6 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
 
   const conversionTracker = provideConversionTrackingAnalytics();
 
-
   /**
    * This function is for Analytics - When someone click on Button then this fire.
    */
@@ -151,8 +150,6 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
     });
   };
 
-
-
   return (
     <div
       id={"result-" + location.id}
@@ -160,12 +157,12 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
       // onMouseOver={() => setHoveredLocation()}
       // onMouseLeave={() => clearHoveredLocation()}
     >
-      <div className={cssClasses.header}>
-        {/* {configuration.showOrdinal && result.index && renderOrdinal(result.index)} */}
-        {renderTitle(location.name || "")}
-      </div>
       <div className="location-seprator">
         <div className="left-content">
+          <div className={cssClasses.header}>
+            {/* {configuration.showOrdinal && result.index && renderOrdinal(result.index)} */}
+            {renderTitle(location.name || "")}
+          </div>
           {/* Location Address */}
           <div className="address-wrapper">
             <div className={cssClasses.body + ""}>
@@ -191,8 +188,22 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
             </div>
           </div>
         </div>
-       {metersToMiles(distance ?? 0)} mi
         <div className="right-buttons">
+          <div className="miles">
+            <svg
+              width="8"
+              height="13"
+              viewBox="0 0 8 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0H1.19922V12.06H0V0ZM7.19531 4.221L2.39844 7.5978V0.8442L7.19531 4.221Z"
+                fill="currentColor"
+              />
+            </svg>
+            {metersToMiles(distance ?? 0)} mi
+          </div>
           <div className="call-CTA">
             <a
               target="_blank"
@@ -208,7 +219,8 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
               target="_blank"
               className="button"
               href={`https://www.google.com/maps/dir/?api=1&destination=${CtaAddress}`}
-              onClick={() => pagesAnalyticsCtaClick()}>
+              onClick={() => pagesAnalyticsCtaClick()}
+            >
               <span className="">Get Direction</span>
             </a>
           </div>

@@ -13,7 +13,12 @@ import {
   SearchHeadlessProvider,
   provideHeadless,
 } from "@yext/search-headless-react";
-import { SearchBar, SpellCheck, Pagination, LocationBias } from "@yext/search-ui-react";
+import {
+  SearchBar,
+  SpellCheck,
+  Pagination,
+  LocationBias,
+} from "@yext/search-ui-react";
 import DirectAnswer from "../components/DirectAnswer";
 import { universalResultsConfig } from "../config/universalResultsConfig";
 import UniversalResults from "../components/UniversalResults";
@@ -24,7 +29,7 @@ import Footer from "../components/commons/Footer";
 import ENBRoundLogo from "../Images/ENB-round-logo.svg";
 import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
 import favicon from "../Images/favicon.png";
-import yext_logo from "../icons/yext_logo.svg"
+import yext_logo from "../icons/yext_logo.svg";
 
 export const config: TemplateConfig = {
   stream: {
@@ -62,15 +67,15 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1, maximum-scale=1",
     tags: [
-        {
-          type: "link",
-          attributes: {
-              rel: "icon",
-              type: "image/x-icon",
-              href: favicon,
-          },
+      {
+        type: "link",
+        attributes: {
+          rel: "icon",
+          type: "image/x-icon",
+          href: favicon,
+        },
       },
-    
+
       {
         type: "meta",
         attributes: {
@@ -113,7 +118,7 @@ const IndexPage: Template<TemplateRenderProps> = ({ document }) => {
         </div>
         <div className="py-4 xs:pb-14 pt-0">
           <div className="container-custom px-5 pb-4 xs:pb-8 pt-0 xs:px-[4.375rem] bg-white rounded">
-          <div className="polygon-logo mb-10">
+            <div className="polygon-logo mb-10">
               <div className="polygon-centred">
                 <img className="mx-auto" src={ENBPolygonLogo} />
               </div>
@@ -129,14 +134,22 @@ const IndexPage: Template<TemplateRenderProps> = ({ document }) => {
               appliedFiltersConfig={universalResultsFilterConfig}
               verticalConfigs={universalResultsConfig}
             />
-            
-            <img src={yext_logo}/>
-             <LocationBias />
+            <div className="location-info">
+              <img className="yextLogo" src={yext_logo} />
+              <LocationBias />
+            </div>
           </div>
           <Pagination />
         </div>
       </SearchHeadlessProvider>
-      <Footer footerHeading={_site.c_footerHeading} footerlinks={_site.c_footerlinks} CopyrightText={_site.c_copyrightText} FooterLabel={_site.c_footerLabel} FooterAddress={_site.c_footerAddress} number={_site.c_number}/>
+      <Footer
+        footerHeading={_site.c_footerHeading}
+        footerlinks={_site.c_footerlinks}
+        CopyrightText={_site.c_copyrightText}
+        FooterLabel={_site.c_footerLabel}
+        FooterAddress={_site.c_footerAddress}
+        number={_site.c_number}
+      />
     </>
   );
 };
