@@ -30,6 +30,8 @@ import VerticalResults from "../components/VerticalResults";
 import NewPagination from "../components/commons/PaginationComponent";
 import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
 import ENBRoundLogo from "../Images/ENB-round-logo.svg";
+import favicon from "../Images/favicon.png"
+
 
 export const config: TemplateConfig = {
   stream: {
@@ -63,16 +65,15 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1, maximum-scale=1",
     tags: [
-      // {
-      //   type: "link",
-      //   attributes: {
-      //     rel: "icon",
-      //     type: "image/x-icon",
-      //     href: `https://www.epnb.com/wp-content/themes/epnb/img/logo/logo-full-no-tag.svg`,
-      //   },
-      // },
-      // Favicon
-      // Meta Title and Description
+       {
+         type: "link",
+         attributes: {
+           rel: "icon",
+           type: "image/x-icon",
+           href: favicon,
+         },
+       },
+
       {
         type: "meta",
         attributes: {

@@ -12,30 +12,20 @@ import "../index.css";
 import {
   SearchHeadlessProvider,
   provideHeadless,
-  HeadlessConfig,
-  SandboxEndpoints,
-  useSearchState,
+  
 } from "@yext/search-headless-react";
-import {
-  LocationBiasMethod,
-  SearchTypeEnum,
-  useAnswersActions,
-  useAnswersState,
-} from "@yext/answers-headless-react";
+
 import {
   SearchBar,
-  StandardCard,
-  VerticalResults,
+  
   SpellCheck,
   ResultsCount,
-  Pagination,
-  AlternativeVerticals,
+  
   AppliedFilters,
   LocationBias,
 } from "@yext/search-ui-react";
 import DirectAnswer from "../components/DirectAnswer";
 import Navigation from "../components/Navigation";
-import PageLayout from "../components/PageLayout";
 import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
 import Header from "../components/commons/Header";
 import Footer from "../components/commons/Footer";
@@ -45,6 +35,7 @@ import { LocationProvider } from "../components/LocationContext";
 import ENBRoundLogo from "../Images/ENB-round-logo.svg";
 import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
 import NewPagination from "../components/commons/PaginationComponent";
+import favicon from "../Images/favicon.png";
 
 export const config: TemplateConfig = {
   stream: {
@@ -78,16 +69,15 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1, maximum-scale=1",
     tags: [
-      //   {
-      //     type: "link",
-      //     attributes: {
-      //         rel: "icon",
-      //         type: "image/x-icon",
-      //         href: `https://www.epnb.com/wp-content/themes/epnb/img/logo/logo-full-no-tag.svg`,
-      //     },
-      // },
-      // Favicon
-      // Meta Title and Description
+         {
+           type: "link",
+           attributes: {
+               rel: "icon",
+               type: "image/x-icon",
+               href: favicon,
+           },
+       },
+     
       {
         type: "meta",
         attributes: {
@@ -102,7 +92,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `Answers | Ephrata National Bank`,
         },
       },
-      // Meta Title and Description
+    
     ],
   };
 };
