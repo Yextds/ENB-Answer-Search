@@ -107,7 +107,8 @@ export default function SectionHeader(props: SectionHeaderConfig): JSX.Element {
           cssClasses={cssClasses}
         />
       )}
-      {viewAllButton && (
+ <div>
+ {/* {viewAllButton && (
         <div className={cssClasses.viewMoreContainer}>
           <a
             className={cssClasses.viewMoreLink}
@@ -115,7 +116,10 @@ export default function SectionHeader(props: SectionHeaderConfig): JSX.Element {
             View all
           </a>
         </div>
-      )}
+      )} */}
     </div>
+    </div>
+   
+        
   );
 }

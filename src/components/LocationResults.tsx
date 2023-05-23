@@ -110,7 +110,7 @@ export default function LocationResults(data :props){
           CardComponent={cardComponent}
           {...(cardConfig && { cardConfig })}
           customCssClasses={{ container: 'px-4 sm:px-0' }}
-        />
+    />
 
         ) : state.noGymsMessage ? (
           <div className="flex h-full items-center justify-center">

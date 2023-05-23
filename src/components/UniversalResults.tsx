@@ -91,6 +91,8 @@ interface VerticalSectionsProps extends UniversalResultsProps {
  */
 function renderVerticalSections(props: VerticalSectionsProps): JSX.Element {
   const { resultsFromAllVerticals, verticalConfigs } = props;
+  // const latestQuery = useSearchState((state) => state.query.mostRecentSearch);
+
   return <>
     {resultsFromAllVerticals
       .filter(verticalResults => verticalResults.results)
@@ -112,20 +114,18 @@ function renderVerticalSections(props: VerticalSectionsProps): JSX.Element {
           resultsCount: verticalResults.resultsCount,
           resultsLength: results.length
         };
-       
-        return <SectionComponent
+        return <><SectionComponent
           results={results}
           verticalKey={verticalKey}
-          header={<SectionHeader {...{ 
-            label, 
+          header={<SectionHeader {...{
+            label,
             resultsCountConfig,
             appliedFiltersConfig,
             verticalKey,
-            viewAllButton: verticalConfig.viewAllButton 
-          }}/>}
+            viewAllButton: verticalConfig.viewAllButton
+          }} />}
           cardConfig={verticalConfig.cardConfig}
-          key={verticalKey}
-        />
+          key={verticalKey} /><a href={`/${verticalKey}`} >view all</a></>
       })
     }
   </>;

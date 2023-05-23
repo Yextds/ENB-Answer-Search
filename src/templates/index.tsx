@@ -23,7 +23,8 @@ import Header from "../components/commons/Header";
 import Footer from "../components/commons/Footer";
 import ENBRoundLogo from "../Images/ENB-round-logo.svg";
 import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
-import favicon from "../Images/favicon.png"
+import favicon from "../Images/favicon.png";
+import yext_logo from "../icons/yext_logo.svg"
 
 export const config: TemplateConfig = {
   stream: {
@@ -128,6 +129,8 @@ const IndexPage: Template<TemplateRenderProps> = ({ document }) => {
               appliedFiltersConfig={universalResultsFilterConfig}
               verticalConfigs={universalResultsConfig}
             />
+            
+            <img src={yext_logo}/>
              <LocationBias />
           </div>
           <Pagination />

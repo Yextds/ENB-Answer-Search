@@ -13,6 +13,11 @@ import * as React from "react";
 import { SvgIcons } from "../../SvgIcon";
 import OpenCloseStatus from "../OpenCloseStatus";
 
+   const metersToMiles = (meters: number) => {
+     const miles = meters * 0.000621371;
+     return miles.toFixed(2);
+   }
+
 //prettier-ignore
 export interface LocationCardConfig {
   showOrdinal?: boolean
@@ -89,8 +94,8 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
   const StoreHours: number = load.hours;
   const CtaAddress = addressLine1 + "," + AddressCity;
   const PhoneNumber = load.mainPhone;
-  const LandingPage = load.landingPageUrl;
-  // console.log(CtaAddress, "Data");
+  const distance = result.distance;
+   console.log(result.distance, "distance");
   const cssClasses = useComposedCssClasses(builtInCssClasses);
 
   const screenSize = "sm";
@@ -125,6 +130,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
 
   const conversionTracker = provideConversionTrackingAnalytics();
 
+
   /**
    * This function is for Analytics - When someone click on Button then this fire.
    */
@@ -143,6 +149,8 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
       queryId: "0184cd25-a8b8-bfc5-0bec-9b8bf538a2de",
     });
   };
+
+
 
   return (
     <div
@@ -182,6 +190,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
             </div>
           </div>
         </div>
+       {metersToMiles(distance ?? 0)} mi
         <div className="right-buttons">
           <div className="call-CTA">
             <a
@@ -198,8 +207,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
               target="_blank"
               className="button"
               href={`https://www.google.com/maps/dir/?api=1&destination=${CtaAddress}`}
-              onClick={() => pagesAnalyticsCtaClick()}
-            >
+              onClick={() => pagesAnalyticsCtaClick()}>
               <span className="">Get Direction</span>
             </a>
           </div>
