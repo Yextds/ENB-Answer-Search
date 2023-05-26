@@ -24,7 +24,7 @@ import { universalResultsConfig } from "../config/universalResultsConfig";
 import UniversalResults from "../components/UniversalResults";
 import Navigation from "../components/Navigation";
 import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
-import Header from "../components/commons/Header";
+
 import Footer from "../components/commons/Footer";
 import ENBRoundLogo from "../Images/ENB-round-logo.svg";
 import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
@@ -53,15 +53,12 @@ const universalResultsFilterConfig = {
   show: false,
 };
 
+
 export const getPath: GetPath<TemplateProps> = () => {
   return "/index.html";
 };
 
-export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
-  document,
-}): HeadConfig => {
+export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (): HeadConfig => {
   return {
     title: `Ephrata National Bank | AS`,
     charset: "UTF-8",
@@ -96,16 +93,28 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
 };
 
 const searcher = provideHeadless(answersHeadlessConfig);
+export interface SiteData{
+c_number: number;
+c_footerAddress: string;
+c_footerLabel: string;
+c_copyrightText: string;
+c_footerlinks: string;
+c_footerHeading: string;
+id: number;
+}
+interface IndexData {
+  _site : SiteData
+}
+interface IndexPage extends TemplateRenderProps{
+  document : IndexData
+}
 
-const IndexPage: Template<TemplateRenderProps> = ({ document }) => {
+const IndexPage: Template<IndexPage> = ({ document }) => {
   const { _site } = document;
 
   return (
     <>
-      {/* <Header
-        upperHeaderLinks={_site.c_headerlinks}
-        lowerHeaderLinks={_site.c_headerlinetwo}
-      /> */}
+      
       <SearchHeadlessProvider searcher={searcher}>
         <div className="container-custom px-5 py-4 xs:py-[1.875rem]">
           {/* Round Centered Logo */}
@@ -143,7 +152,7 @@ const IndexPage: Template<TemplateRenderProps> = ({ document }) => {
         </div>
       </SearchHeadlessProvider>
       <Footer
-        footerHeading={_site.c_footerHeading}
+        footerHeading={document._site.c_footerHeading}
         footerlinks={_site.c_footerlinks}
         CopyrightText={_site.c_copyrightText}
         FooterLabel={_site.c_footerLabel}

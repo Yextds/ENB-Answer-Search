@@ -1,5 +1,5 @@
 import { Result, VerticalResults, UniversalLimit } from '@yext/search-headless-react';
-import { universallimit } from '../../config/universalResultsConfig';
+
 import { isValidElement, ReactNode } from 'react';
 import recursivelyMapChildren from '../utils/recursivelyMapChildren';
 
@@ -17,9 +17,7 @@ interface EntityPreviewsProps {
  * You can optionally specify a limit for the results. This limit will be shared between
  * instances of EntityPreviews with the same verticalKey.
  */
-export default function EntityPreviews(_: EntityPreviewsProps) {
-  return null;
-}
+
 
 /**
  * Recursively passes vertical results into instances of EntityPreview.

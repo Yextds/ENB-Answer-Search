@@ -41,11 +41,10 @@ type UnwrappedGoogleMapsProps = Omit<GoogleMapsProps, "apiKey" | "locale">;
 
 let mapMarkerClusterer: { clearMarkers: () => void } | null = null;
 let infoWindow: any = null;
-let openMapCenter: any = "";
-let openMapZoom: any = "";
+
 let openInfoWindow: any = false;
 let searchCenter: any = null;
-const searchZoom: any = null;
+
 let stopAnimation = false;
 let currentMapZoom = 0;
 
@@ -188,7 +187,7 @@ function UnwrappedGoogleMaps({
   for (const result of locationResults) {
    
     const position = getPosition(result);
-    const markerLabel = Number(index + 1);
+    
     const marker = new google.maps.Marker({
       position,
       map,
