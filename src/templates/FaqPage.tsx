@@ -23,7 +23,7 @@ import {
 import DirectAnswer from "../components/DirectAnswer";
 import Navigation from "../components/Navigation";
 import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
-import Header from "../components/commons/Header";
+
 import Footer from "../components/commons/Footer";
 import { FaqCard } from "../components/cards/FaqCards";
 import VerticalResults from "../components/VerticalResults";
@@ -55,11 +55,7 @@ export const getPath: GetPath<TemplateProps> = () => {
   return "/faqs";
 };
 
-export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
-  document,
-}): HeadConfig => {
+export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (): HeadConfig => {
   return {
     title: `Ephrata National Bank | AS`,
     charset: "UTF-8",
@@ -97,18 +93,14 @@ answersHeadlessConfig.verticalKey = "faqs";
 const searcher = provideHeadless(answersHeadlessConfig);
 
 const ArticlesPage: Template<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
+ 
   document,
 }) => {
   const { _site } = document;
 
   return (
     <>
-      {/* <Header
-        upperHeaderLinks={_site.c_headerlinks}
-        lowerHeaderLinks={_site.c_headerlinetwo}
-      /> */}
+     
       <SearchHeadlessProvider searcher={searcher}>
         <div className="container-custom px-5 py-4 xs:py-[1.875rem]">
           {/* Round Centered Logo */}

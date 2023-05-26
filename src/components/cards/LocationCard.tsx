@@ -1,13 +1,10 @@
 import { useComposedCssClasses } from "../../hooks/useComposedCssClasses";
 import { CardProps } from "../../models/cardComponent";
-import { useContext } from "react";
-import { LocationContext } from "../LocationContext";
-import { LocationActionTypes } from "../locationReducers";
+
 import {
-  providePagesAnalytics,
-  CtaClick,
+
   provideConversionTrackingAnalytics,
-  provideSearchAnalytics,
+ 
 } from "@yext/analytics";
 import * as React from "react";
 import { SvgIcons } from "../../SvgIcon";
@@ -99,9 +96,9 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
   console.log(result.distance, "distance");
   const cssClasses = useComposedCssClasses(builtInCssClasses);
 
-  const screenSize = "sm";
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { state, dispatch } = useContext(LocationContext);
+ 
 
   function renderTitle(title: string) {
     return <h2>{title}</h2>;
@@ -120,14 +117,9 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
     );
   }
 
-  const setHoveredLocation = () =>
-    dispatch({
-      type: LocationActionTypes.SetHoveredLocation,
-      payload: { hoveredLocation: location },
-    });
 
-  const clearHoveredLocation = () =>
-    dispatch({ type: LocationActionTypes.ClearHoveredLocation, payload: {} });
+
+
 
   const conversionTracker = provideConversionTrackingAnalytics();
 
@@ -154,8 +146,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
     <div
       id={"result-" + location.id}
       className={cssClasses.container}
-      // onMouseOver={() => setHoveredLocation()}
-      // onMouseLeave={() => clearHoveredLocation()}
+    
     >
       <div className="location-seprator">
         <div className="left-content">
@@ -182,7 +173,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
           <div className="location-phone">
             <div className="phone-icon">{SvgIcons.locationPhone}</div>
             <div className="phone-content">
-              <a target="_blank" href={`tel:${PhoneNumber}`}>
+              <a target="_blank"  rel="noreferrer" href={`tel:${PhoneNumber}`}>
                 <span>{formatPhoneNumber(PhoneNumber)}</span>
               </a>
             </div>
@@ -208,6 +199,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
             <a
               target="_blank"
               className="button"
+              rel="noreferrer"
               href={`tel:${PhoneNumber}`}
               onClick={() => pagesAnalyticsCtaClick()}
             >
@@ -218,6 +210,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
             <a
               target="_blank"
               className="button"
+              rel="noreferrer"
               href={`https://www.google.com/maps/dir/?api=1&destination=${CtaAddress}`}
               onClick={() => pagesAnalyticsCtaClick()}
             >

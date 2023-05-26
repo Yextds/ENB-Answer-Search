@@ -2,6 +2,7 @@ import { useSearchActions, useSearchState, Filter, Matcher } from '@yext/search-
 import { CompositionMethod, useComposedCssClasses } from '../hooks/useComposedCssClasses';
 import { isDuplicateFilter } from '../utils/filterutils';
 import renderCheckboxOption, { CheckboxOptionCssClasses } from './utils/renderCheckboxOption';
+import * as React from 'react';
 
 interface FilterOption {
   fieldId: string,
@@ -39,7 +40,7 @@ export default function StaticFilters(props: StaticFiltersProps): JSX.Element {
   const selectableFilters = useSearchState(state =>  state.filters.static);
   const getOptionSelectStatus = (option: FilterOption): boolean => {
     const foundFilter = selectableFilters?.find(storedSelectableFilter => {
-      const { selected, ...storedFilter } = storedSelectableFilter;
+      const { ...storedFilter } = storedSelectableFilter;
       const targetFilter = {
         fieldId: option.fieldId,
         matcher: Matcher.Equals,

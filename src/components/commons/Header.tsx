@@ -67,11 +67,7 @@ export default function Header(data: props) {
   React.useEffect(() => {
     document.body.setAttribute("id", "body");
   });
-  const toggle = () => {
-    (document.getElementById("body") as HTMLInputElement).classList.toggle(
-      "menu-opened"
-    );
-  };
+
 
   return (
     <>      

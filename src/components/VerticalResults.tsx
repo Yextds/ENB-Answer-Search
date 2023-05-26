@@ -2,7 +2,7 @@ import { CardComponent, CardConfigTypes } from "../models/cardComponent";
 import {
   useSearchState,
   Result,
-  useSearchActions,
+ 
 } from "@yext/search-headless-react";
 import classNames from "classnames";
 import {
@@ -11,7 +11,7 @@ import {
 } from "../hooks/useComposedCssClasses";
 // import { ReactComponent as PageNavigationIcon } from '../icons/chevron.svg';
 import * as React from "react";
-import AlternativeVerticals from "./AlternativeVerticals";
+
 
 interface VerticalResultsCssClasses extends PaginationCssClasses {
   results___loading?: string;
@@ -95,18 +95,18 @@ function renderResult(
 interface VerticalResultsProps {
   CardComponent: CardComponent;
   cardConfig?: CardConfigTypes;
-  displayAllOnNoResults?: boolean;
+ 
   customCssClasses?: VerticalResultsCssClasses;
   cssCompositionMethod?: CompositionMethod;
-  allowPagination?: boolean;
+ 
 }
 
 export default function VerticalResults(
   props: VerticalResultsProps
 ): JSX.Element | null {
   const {
-    displayAllOnNoResults = true,
-    allowPagination = true,
+   
+    
     ...otherProps
   } = props;
 /**

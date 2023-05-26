@@ -1,5 +1,5 @@
 import { processTranslation } from './utils/processTranslation';
-import { ReactComponent as Star } from '../icons/star.svg';
+
 import { useSearchState, VerticalResults } from '@yext/search-headless-react';
 import { CompositionMethod, useComposedCssClasses } from '../hooks/useComposedCssClasses';
 import classNames from 'classnames';

@@ -27,7 +27,7 @@ import {
 import DirectAnswer from "../components/DirectAnswer";
 import Navigation from "../components/Navigation";
 import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
-import Header from "../components/commons/Header";
+
 import Footer from "../components/commons/Footer";
 import { LocationCard } from "../components/cards/LocationCard";
 import LocationResults from "../components/LocationResults";
@@ -60,9 +60,7 @@ export const getPath: GetPath<TemplateProps> = () => {
 };
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
-  document,
+  
 }): HeadConfig => {
   return {
     title: `Ephrata National Bank | AS`,
@@ -102,8 +100,7 @@ answersHeadlessConfig.verticalKey = "locations";
 const searcher = provideHeadless(answersHeadlessConfig);
 
 const LocationsPage: Template<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
+ 
   document,
 }) => {
   const { _site } = document;
@@ -111,10 +108,7 @@ const LocationsPage: Template<TemplateRenderProps> = ({
 
   return (
     <>
-      {/* <Header
-        upperHeaderLinks={_site.c_headerlinks}
-        lowerHeaderLinks={_site.c_headerlinetwo}
-      /> */}
+     
       <SearchHeadlessProvider searcher={searcher}>
         <LocationProvider>
           <div className="container-custom px-5 py-4 xs:py-[1.875rem]">

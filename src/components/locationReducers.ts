@@ -54,8 +54,8 @@ type LocationPayload = {
   [LocationActionTypes.SetSelectedLocation]: {
     selectedLocation: MapLocationData
   },
-  [LocationActionTypes.ClearHoveredLocation]: {},
-  [LocationActionTypes.ClearSelectedLocation]: {},
+  [LocationActionTypes.ClearHoveredLocation]: Record<string, unknown>,
+  [LocationActionTypes.ClearSelectedLocation]: Record<string, unknown>,
   [LocationActionTypes.SetMapLocations]: {
     mapLocations: MapLocationData[]
   },

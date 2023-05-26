@@ -1,7 +1,5 @@
-import { useSearchActions } from "@yext/search-headless-react";
-import { useContext } from "react";
 import { CardProps } from "../../models/cardComponent";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import * as React from "react";
 
 //prettier-ignore
@@ -87,16 +85,16 @@ export function FaqCard(props: TrainerCardProps): JSX.Element {
    * @param e - Elements of the Div
    * @param index - Ordinal of the elements
    */
-  const isShowContent = (e: any, index: any) => {
+  const isShowContent = (e: any) => {
     // alert('Hello');
 
-    let parent = e.target.parentNode.parentNode;
+    const parent = e.target.parentNode.parentNode;
     console.log(parent, "parent");
     if (parent.classList.contains("opened")) {
       setFaqClass("");
       // console.log(e.target.parentNode.parentNode.classList);
     } else {
-      var acc = document.getElementsByClassName("faq-block"); // alert(acc.length);
+      const acc = document.getElementsByClassName("faq-block"); // alert(acc.length);
       for (let s = 0; s < acc.length; s++) {
         acc[s].classList.remove("opened");
       }

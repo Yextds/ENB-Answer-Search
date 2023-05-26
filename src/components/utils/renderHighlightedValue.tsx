@@ -1,4 +1,5 @@
 import { HighlightedValue } from "@yext/search-headless-react";
+import * as React from "react";
 
 const defaultCssClasses: HighlightedValueCssClasses = {
   highlighted: 'font-bold'
@@ -21,7 +22,7 @@ export default function renderHighlightedValue ({ value = '', matchedSubstrings 
   substrings.sort((a, b) => a.offset - b.offset);
   const highlightedJSX = []
   let curr = 0;
-  for (let { offset, length } of substrings) {
+  for (const { offset, length } of substrings) {
     if (offset > curr) {
       highlightedJSX.push(<span key={curr}>{value.substring(curr, offset)}</span>)
     }

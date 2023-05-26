@@ -54,14 +54,12 @@ export default function Facet(props: FacetProps): JSX.Element {
   const answersUtilities = useSearchActions();
   const hasSelectedFacet = !!facet.options.find(o => o.selected);
   const [ filterValue, setFilterValue ] = useState('');
-  const { getCollapseProps, getToggleProps, isExpanded } = useCollapse({
+  const { getCollapseProps, getToggleProps } = useCollapse({
     defaultExpanded: hasSelectedFacet || defaultExpanded
   });
   
   cssClasses.labelIcon = cssClasses.labelIcon ?? '';
-  const modifiedLabelIconCssClasses = isExpanded
-    ? cssClasses.labelIcon
-    : cssClasses.labelIcon + ' transform rotate-180';
+
 
   const facetOptions = searchable
     ? answersUtilities.searchThroughFacet(facet, filterValue).options

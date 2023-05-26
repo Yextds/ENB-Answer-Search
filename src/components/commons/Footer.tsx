@@ -1,7 +1,6 @@
 import * as React from "react";
 import { SvgIcons } from "../../SvgIcon";
-// import Footeraccordian from "./Footeraccordian";
-// import Scroll from "./Scroll"
+
 
 type props = {
   footerHeading?: any;
@@ -14,7 +13,7 @@ type props = {
 };
 
 export default function Footer(data: props) {
-  // Variables for House Lending Sections
+ 
   
   const houseLenderHeading = data.footerHeading;
   const houseLenderCopyrightText = data.CopyrightText;
@@ -25,8 +24,7 @@ export default function Footer(data: props) {
       </>
     );
   });
-  // Variables for House Lending Sections
-  // Variables for Office data
+ 
  
   const officeHeading = data.FooterLabel;
   const officeLocation = data.FooterAddress;
@@ -50,12 +48,7 @@ export default function Footer(data: props) {
       setIsSmallScreen(false);
     }
   };
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth", // for smoothly scrolling
-    });
-  };
+ 
   return (
     <>
       <footer id="footer" className="footer-section">
@@ -98,7 +91,7 @@ export default function Footer(data: props) {
             </div>
             <div className="social order-1">
               <h6 className="social-headline">
-                Connect with us
+                Connect with us!
               </h6>
               <div className="flex justify-center lg:justify-end">
                 <ul className="flex items-center gap-5">

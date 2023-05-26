@@ -3,6 +3,7 @@ import { useSearchState, Result, useSearchActions } from '@yext/search-headless-
 import classNames from 'classnames';
 import { CompositionMethod, useComposedCssClasses } from '../hooks/useComposedCssClasses';
 import { ReactComponent as PageNavigationIcon } from '../icons/chevron.svg';
+import * as React from 'react';
 
 interface VerticalResultsCssClasses extends PaginationCssClasses {
   results___loading?: string

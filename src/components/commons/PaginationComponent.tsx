@@ -1,6 +1,6 @@
 import { useSearchState, useSearchActions } from '@yext/search-headless-react';
 import * as React from 'react';
-import { CompositionMethod, useComposedCssClasses } from '../../hooks/useComposedCssClasses';
+import {  useComposedCssClasses } from '../../hooks/useComposedCssClasses';
 // import {PageNavigationIcon } from '../../icons/chevron.svg';
 
 
@@ -24,11 +24,7 @@ const builtInPaginationCssClasses: PaginationCssClasses = {
   icon: 'w-3 text-gray-500'
 }
 
-interface PaginationProps {
-  numResults?: any,
-  customCssClasses?: PaginationCssClasses,
-  cssCompositionMethod?: CompositionMethod
-}
+
 
 
 
@@ -55,9 +51,9 @@ function generatePaginationLabels(pageNumber: number, maxPageCount: number): str
 
 
 
-export default function NewPagination(props: PaginationProps): JSX.Element | null  {
+export default function NewPagination(): JSX.Element | null  {
 
-    const { numResults } = props;
+    
     const cssClasses = useComposedCssClasses(builtInPaginationCssClasses);
     const answersAction = useSearchActions();
     const offset = useSearchState(state => state.vertical.offset) || 0;

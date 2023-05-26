@@ -1,6 +1,7 @@
 import { useSearchActions, useSearchState, LocationBiasMethod } from '@yext/search-headless-react';
 import { executeSearch, getUserLocation  } from '../utils/search-operations';
 import { CompositionMethod, useComposedCssClasses } from '../hooks/useComposedCssClasses';
+import * as React from 'react';
 
 interface LocationBiasCssClasses {
   container?: string,

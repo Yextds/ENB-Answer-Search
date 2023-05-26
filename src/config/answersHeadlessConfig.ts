@@ -1,13 +1,11 @@
 
 import {
-  provideHeadless,
   HeadlessConfig,
-  SandboxEndpoints,
 } from "@yext/search-headless-react";
 
-export let answersHeadlessConfig: HeadlessConfig = {
+export const answersHeadlessConfig: HeadlessConfig = {
   apiKey: "91686d707ec23399ba065889efe9e7b5",
-  experienceKey: "ephrata_national_bank_answers",
+  experienceKey: "ephrata-national-bank-answers-react",
   locale: "en",
   experienceVersion: "STAGING",
   

@@ -9,12 +9,12 @@ import {
   useComposedCssClasses,
   CompositionMethod,
 } from "../hooks/useComposedCssClasses";
-import { ReactComponent as CollectionIcon } from "../icons/collection.svg";
+
 import { useSearchState } from "@yext/search-headless-react";
 import { DisplayableFilter } from "../models/displayableFilter";
 import classNames from "classnames";
 import locationMarker from "../Images/heading-marker.svg";
-import faqMarker from "../Images/faq-marker.svg";
+
 import * as React from "react";
 import faqicon from "../icons/faq.svg";
 
@@ -48,14 +48,14 @@ interface SectionHeaderConfig {
   customCssClasses?: SectionHeaderCssClasses;
   cssCompositionMethod?: CompositionMethod;
   verticalKey: string;
-  viewAllButton?: boolean;
+
 }
 
 export default function SectionHeader(props: SectionHeaderConfig): JSX.Element {
   const {
     label,
     verticalKey,
-    viewAllButton = false,
+ 
     appliedFiltersConfig,
     customCssClasses,
     cssCompositionMethod,
@@ -65,7 +65,7 @@ export default function SectionHeader(props: SectionHeaderConfig): JSX.Element {
     customCssClasses,
     cssCompositionMethod
   );
-  const latestQuery = useSearchState((state) => state.query.mostRecentSearch);
+
   const displayableFilters =
     appliedFiltersConfig?.appliedQueryFilters?.map(
       (appliedQueryFilter): DisplayableFilter => {
@@ -98,9 +98,7 @@ export default function SectionHeader(props: SectionHeaderConfig): JSX.Element {
           <h2>{label}</h2>
         </div>
       </div>
-      {/* TODO (cea2aj): Add support for ResultsCountDisplay once we get the mocks from UX
-        {resultsCountConfig &&
-           <ResultsCountDisplay resultsLength={resultsCountConfig.resultsLength} resultsCount={resultsCountConfig.resultsCount} />} */}
+      
       {appliedFiltersConfig && (
         <AppliedFiltersDisplay
           displayableFilters={displayableFilters}
@@ -108,15 +106,7 @@ export default function SectionHeader(props: SectionHeaderConfig): JSX.Element {
         />
       )}
  <div>
- {/* {viewAllButton && (
-        <div className={cssClasses.viewMoreContainer}>
-          <a
-            className={cssClasses.viewMoreLink}
-            href={`/${verticalKey}?query=${latestQuery}`}>
-            View all
-          </a>
-        </div>
-      )} */}
+ 
     </div>
     </div>
    

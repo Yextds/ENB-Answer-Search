@@ -5,6 +5,7 @@ import { ReactComponent as CloseXIcon } from '../icons/x.svg';
 import Facets from "./Facets";
 import StaticFilters, { Divider } from "./StaticFilters";
 import recursivelyMapChildren from "./utils/recursivelyMapChildren";
+import * as React from "react";
 
 interface FilterDisplayManagerCssClasses {
   container___desktop?: string,
@@ -23,7 +24,7 @@ const builtInCssClasses: FilterDisplayManagerCssClasses = {
 interface Props {
   customCssClasses?: FilterDisplayManagerCssClasses,
   cssCompositionMethod?: CompositionMethod
-};
+}
 
 /**
  * Responsible for managing how filters are displayed based on the current PageView

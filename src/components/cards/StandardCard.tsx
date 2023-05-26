@@ -1,3 +1,4 @@
+import * as React from "react";
 import {
   CompositionMethod,
   useComposedCssClasses,
@@ -90,7 +91,7 @@ export function StandardCard(props: StandardCardProps): JSX.Element {
   }
 
   // TODO (cea2aj) Update this to render the ordinal once we get mocks from UX
-  function renderOrdinal(index: number) {
+  function renderOrdinal() {
     // return (
     //   <div className={cssClasses.ordinal}>{index}</div>
     // );

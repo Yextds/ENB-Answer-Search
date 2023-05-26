@@ -1,3 +1,5 @@
+import * as React from "react";
+
 export function renderSelectedLocation(name?: string, addressLine1?: string, addressLine2?: string) {
   return (
     <div className="absolute bottom-2 left-0 right-0 mx-auto flex w-96  rounded-xl bg-white">

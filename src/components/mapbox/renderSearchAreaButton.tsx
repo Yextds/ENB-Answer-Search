@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { ReactComponent as MagnifyingGlassIcon } from '../../icons/magnifying_glass.svg';
 
 export function renderSearchAreaButton(handleOnClick: () => void) {

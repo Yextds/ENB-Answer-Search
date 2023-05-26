@@ -5,17 +5,17 @@ export const svgIcons = {
         <svg xmlns="http://www.w3.org/2000/svg" width="20.249" height="17.995" viewBox="0 0 20.249 17.995">
   <defs>
     <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#c81162"/>
-      <stop offset="0.1" stop-color="#cd205d"/>
-      <stop offset="0.2" stop-color="#d22f58"/>
-      <stop offset="0.3" stop-color="#d63d53"/>
-      <stop offset="0.4" stop-color="#db4c4d"/>
-      <stop offset="0.5" stop-color="#df5a48"/>
-      <stop offset="0.6" stop-color="#e46843"/>
-      <stop offset="0.7" stop-color="#e8763e"/>
-      <stop offset="0.8" stop-color="#ec8439"/>
-      <stop offset="0.9" stop-color="#f19134"/>
-      <stop offset="1" stop-color="#f49e2f"/>
+      <stop offset="0" stopColor="#c81162"/>
+      <stop offset="0.1" stopColor="#cd205d"/>
+      <stop offset="0.2" stopColor="#d22f58"/>
+      <stop offset="0.3" stopColor="#d63d53"/>
+      <stop offset="0.4" stopColor="#db4c4d"/>
+      <stop offset="0.5" stopColor="#df5a48"/>
+      <stop offset="0.6" stopColor="#e46843"/>
+      <stop offset="0.7" stopColor="#e8763e"/>
+      <stop offset="0.8" stopColor="#ec8439"/>
+      <stop offset="0.9" stopColor="#f19134"/>
+      <stop offset="1" stopColor="#f49e2f"/>
     </linearGradient>
   </defs>
   <g id="broadband" transform="translate(-13.995 -14.933)">
@@ -34,17 +34,17 @@ export const svgIcons = {
         <svg xmlns="http://www.w3.org/2000/svg"  width="19.8" height="18" viewBox="0 0 19.8 18">
         <defs>
           <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-            <stop offset="0" stop-color="#c81162"/>
-            <stop offset="0.1" stop-color="#cd205d"/>
-            <stop offset="0.2" stop-color="#d22f58"/>
-            <stop offset="0.3" stop-color="#d63d53"/>
-            <stop offset="0.4" stop-color="#db4c4d"/>
-            <stop offset="0.5" stop-color="#df5a48"/>
-            <stop offset="0.6" stop-color="#e46843"/>
-            <stop offset="0.7" stop-color="#e8763e"/>
-            <stop offset="0.8" stop-color="#ec8439"/>
-            <stop offset="0.9" stop-color="#f19134"/>
-            <stop offset="1" stop-color="#f49e2f"/>
+            <stop offset="0" stopColor="#c81162"/>
+            <stop offset="0.1" stopColor="#cd205d"/>
+            <stop offset="0.2" stopColor="#d22f58"/>
+            <stop offset="0.3" stopColor="#d63d53"/>
+            <stop offset="0.4" stopColor="#db4c4d"/>
+            <stop offset="0.5" stopColor="#df5a48"/>
+            <stop offset="0.6" stopColor="#e46843"/>
+            <stop offset="0.7" stopColor="#e8763e"/>
+            <stop offset="0.8" stopColor="#ec8439"/>
+            <stop offset="0.9" stopColor="#f19134"/>
+            <stop offset="1" stopColor="#f49e2f"/>
           </linearGradient>
         </defs>
         <g id="TV" transform="translate(-14.222 -14.928)">
@@ -58,17 +58,17 @@ export const svgIcons = {
         <svg xmlns="http://www.w3.org/2000/svg" width="17.969" height="18.001" viewBox="0 0 17.969 18.001">
         <defs>
           <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-            <stop offset="0" stop-color="#c81162"/>
-            <stop offset="0.1" stop-color="#cd205d"/>
-            <stop offset="0.2" stop-color="#d22f58"/>
-            <stop offset="0.3" stop-color="#d63d53"/>
-            <stop offset="0.4" stop-color="#db4c4d"/>
-            <stop offset="0.5" stop-color="#df5a48"/>
-            <stop offset="0.6" stop-color="#e46843"/>
-            <stop offset="0.7" stop-color="#e8763e"/>
-            <stop offset="0.8" stop-color="#ec8439"/>
-            <stop offset="0.9" stop-color="#f19134"/>
-            <stop offset="1" stop-color="#f49e2f"/>
+            <stop offset="0" stopColor="#c81162"/>
+            <stop offset="0.1" stopColor="#cd205d"/>
+            <stop offset="0.2" stopColor="#d22f58"/>
+            <stop offset="0.3" stopColor="#d63d53"/>
+            <stop offset="0.4" stopColor="#db4c4d"/>
+            <stop offset="0.5" stopColor="#df5a48"/>
+            <stop offset="0.6" stopColor="#e46843"/>
+            <stop offset="0.7" stopColor="#e8763e"/>
+            <stop offset="0.8" stopColor="#ec8439"/>
+            <stop offset="0.9" stopColor="#f19134"/>
+            <stop offset="1" stopColor="#f49e2f"/>
           </linearGradient>
         </defs>
         <g id="Calls" transform="translate(-1322.124 -1482.995)">
@@ -83,17 +83,17 @@ export const svgIcons = {
         <svg xmlns="http://www.w3.org/2000/svg" width="13.483" height="18.001" viewBox="0 0 13.483 18.001">
         <defs>
           <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-            <stop offset="0" stop-color="#c81162"/>
-            <stop offset="0.1" stop-color="#cd205d"/>
-            <stop offset="0.2" stop-color="#d22f58"/>
-            <stop offset="0.3" stop-color="#d63d53"/>
-            <stop offset="0.4" stop-color="#db4c4d"/>
-            <stop offset="0.5" stop-color="#df5a48"/>
-            <stop offset="0.6" stop-color="#e46843"/>
-            <stop offset="0.7" stop-color="#e8763e"/>
-            <stop offset="0.8" stop-color="#ec8439"/>
-            <stop offset="0.9" stop-color="#f19134"/>
-            <stop offset="1" stop-color="#f49e2f"/>
+            <stop offset="0" stopColor="#c81162"/>
+            <stop offset="0.1" stopColor="#cd205d"/>
+            <stop offset="0.2" stopColor="#d22f58"/>
+            <stop offset="0.3" stopColor="#d63d53"/>
+            <stop offset="0.4" stopColor="#db4c4d"/>
+            <stop offset="0.5" stopColor="#df5a48"/>
+            <stop offset="0.6" stopColor="#e46843"/>
+            <stop offset="0.7" stopColor="#e8763e"/>
+            <stop offset="0.8" stopColor="#ec8439"/>
+            <stop offset="0.9" stopColor="#f19134"/>
+            <stop offset="1" stopColor="#f49e2f"/>
           </linearGradient>
         </defs>
         <g id="Deals" transform="translate(-16.999 -13.928)">
@@ -106,17 +106,17 @@ export const svgIcons = {
         <svg xmlns="http://www.w3.org/2000/svg"  width="15.75" height="17.997" viewBox="0 0 15.75 17.997">
         <defs>
           <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-            <stop offset="0" stop-color="#c81162"/>
-            <stop offset="0.1" stop-color="#cd205d"/>
-            <stop offset="0.2" stop-color="#d22f58"/>
-            <stop offset="0.3" stop-color="#d63d53"/>
-            <stop offset="0.4" stop-color="#db4c4d"/>
-            <stop offset="0.5" stop-color="#df5a48"/>
-            <stop offset="0.6" stop-color="#e46843"/>
-            <stop offset="0.7" stop-color="#e8763e"/>
-            <stop offset="0.8" stop-color="#ec8439"/>
-            <stop offset="0.9" stop-color="#f19134"/>
-            <stop offset="1" stop-color="#f49e2f"/>
+            <stop offset="0" stopColor="#c81162"/>
+            <stop offset="0.1" stopColor="#cd205d"/>
+            <stop offset="0.2" stopColor="#d22f58"/>
+            <stop offset="0.3" stopColor="#d63d53"/>
+            <stop offset="0.4" stopColor="#db4c4d"/>
+            <stop offset="0.5" stopColor="#df5a48"/>
+            <stop offset="0.6" stopColor="#e46843"/>
+            <stop offset="0.7" stopColor="#e8763e"/>
+            <stop offset="0.8" stopColor="#ec8439"/>
+            <stop offset="0.9" stopColor="#f19134"/>
+            <stop offset="1" stopColor="#f49e2f"/>
           </linearGradient>
         </defs>
         <path id="why_choose_us" data-name="why choose us" d="M15.75,8.438v3.375a1.406,1.406,0,0,1-.037.322l-1.125,4.781A1.406,1.406,0,0,1,13.219,18H5.906a1.406,1.406,0,0,1-1.137-.579l-4.5-6.188A1.406,1.406,0,0,1,2.544,9.579l1.113,1.53v-9.7a1.407,1.407,0,0,1,2.813,0V8.438h.28V7.031a1.406,1.406,0,1,1,2.813,0V8.438h.281V7.594a1.406,1.406,0,1,1,2.812,0v.844h.281a1.406,1.406,0,1,1,2.813,0Zm-9,2.813H6.469v3.375H6.75Zm3.094,0H9.562v3.375h.281Zm3.094,0h-.281v3.375h.281Z" transform="translate(0 -0.003)" fill="url(#linear-gradient)"/>

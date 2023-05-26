@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { PageView, PageViewContext } from '../context/PageViewContext';
 import { CompositionMethod, useComposedCssClasses } from '../hooks/useComposedCssClasses';
 import { ReactComponent as FiltersIcon } from '../icons/filters.svg';
+import * as React from 'react';
 
 interface ViewFiltersButtonCssClasses {
   container?: string,
@@ -18,8 +19,7 @@ interface Props {
   cssCompositionMethod?: CompositionMethod
 }
 
-interface Props {
-}
+
 
 export default function ViewFiltersButton ({ customCssClasses, cssCompositionMethod }: Props) {
   const { setPageView } = useContext(PageViewContext);

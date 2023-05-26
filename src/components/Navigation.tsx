@@ -184,7 +184,7 @@ function updateParam(latestUserInput: any) {
         setNumOverflowLinks(0);
         handleResize()
       }, 50)
-    };
+    }
     window.addEventListener('resize', resizeListener);
     return () => window.removeEventListener('resize', resizeListener);
   }, [handleResize]);
