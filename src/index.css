@@ -5,8 +5,8 @@
 
 @font-face {
   font-family: 'Myriad Pro';
-  src: url('fonts/MyriadPro-Regular.woff2') format('woff2'),
-      url('fonts/MyriadPro-Regular.woff') format('woff');
+  src: url('Fonts/MyriadPro-Regular.woff2') format('woff2'),
+      url('Fonts/MyriadPro-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -14,8 +14,8 @@
 
 @font-face {
   font-family: 'Myriad Pro';
-  src: url('fonts/MyriadPro-Bold.woff2') format('woff2'),
-      url('fonts/MyriadPro-Bold.woff') format('woff');
+  src: url('Fonts/MyriadPro-Bold.woff2') format('woff2'),
+      url('Fonts/MyriadPro-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -23,103 +23,40 @@
 
 @font-face {
   font-family: 'Myriad Pro';
-  src: url('fonts/MyriadPro-Semibold.woff2') format('woff2'),
-      url('fonts/MyriadPro-Semibold.woff') format('woff');
+  src: url('Fonts/MyriadPro-Semibold.woff2') format('woff2'),
+      url('Fonts/MyriadPro-Semibold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
-/* 
-
 @font-face {
-  font-family: "Myriad Pro";
-  src: url("Fonts/MyriadPro-BoldCondIt.woff2") format("woff2"),
-    url("Fonts/MyriadPro-BoldCondIt.woff") format("woff");
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Myriad Pro";
-  src: url("Fonts/MyriadPro-BoldCond.woff2") format("woff2"),
-    url("Fonts/MyriadPro-BoldCond.woff") format("woff");
+  font-family: 'myriad-pro-condensed';
+  src: url('Fonts/MyriadPro-BoldCond.woff2') format('woff2'),
+      url('Fonts/MyriadPro-BoldCond.woff') format('woff');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Myriad Pro";
-  src: url("Fonts/MyriadPro-Bold.woff2") format("woff2"),
-    url("Fonts/MyriadPro-Bold.woff") format("woff");
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Myriad Pro";
-  src: url("Fonts/MyriadPro-CondIt.woff2") format("woff2"),
-    url("Fonts/MyriadPro-CondIt.woff") format("woff");
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Myriad Pro";
-  src: url("Fonts/MyriadPro-BoldIt.woff2") format("woff2"),
-    url("Fonts/MyriadPro-BoldIt.woff") format("woff");
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Myriad Pro";
-  src: url("Fonts/MyriadPro-It.woff2") format("woff2"),
-    url("Fonts/MyriadPro-It.woff") format("woff");
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Myriad Pro";
-  src: url("Fonts/MyriadPro-Cond.woff2") format("woff2"),
-    url("Fonts/MyriadPro-Cond.woff") format("woff");
+  font-family: 'myriad-pro-condensed';
+  src: url('Fonts/MyriadPro-Cond.woff2') format('woff2'),
+      url('Fonts/MyriadPro-Cond.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Myriad Pro";
-  src: url("Fonts/MyriadPro-Semibold.woff2") format("woff2"),
-    url("Fonts/MyriadPro-Semibold.woff") format("woff");
+  font-family: 'myriad-pro-condensed';
+  src: url('Fonts/MyriadPro-SemiboldCond.woff2') format('woff2'),
+      url('Fonts/MyriadPro-SemiboldCond.woff') format('woff');
   font-weight: 600;
   font-style: normal;
-  font-display: swap; 
-}
-
-@font-face {
-  font-family: "Myriad Pro";
-  src: url("Fonts/MyriadPro-SemiboldIt.woff2") format("woff2"),
-    url("Fonts/MyriadPro-SemiboldIt.woff") format("woff");
-  font-weight: 600;
-  font-style: italic;
   font-display: swap;
 }
 
-@font-face {
-  font-family: "Myriad Pro";
-  src: url("Fonts/MyriadPro-Regular.woff2") format("woff2"),
-    url("Fonts/MyriadPro-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-} */
+
 
 body {
   @apply font-normal font-myriad text-sm lg:text-base min-h-[100vh] bg-bodyBG;
@@ -309,26 +246,24 @@ ul.mobile-callout-navigation li a {
 /* Footer Css - Starts */
 
 .footer-section {
-  @apply bg-primaryBlue py-[1.875rem] lg:py-[4.688rem] text-white text-lg leading-6 font-semibold font-myriad border-t-[11px] border-t-footerBorder;
+  @apply bg-primaryBlue py-[1.875rem] lg:py-[4.6875rem] text-white text-lg leading-6 font-semibold font-myriadCondened border-t-[11px] border-t-footerBorder;
 }
 .footer-section .legal img {
-  @apply max-w-[3.75rem] mb-4;
+  @apply max-w-[3.75rem] mb-[1.375rem];
 }
 .footer-section .legal h3,
 .footer-section .legal p {
-  @apply font-normal;
+  @apply font-semibold leading-6;
 }
-.footer-nav-links {
-  @apply my-2.5;
-}
+
 .footer-nav-links ul{
   @apply flex justify-center lg:justify-start;
 }
 .footer-nav-links ul li {
-  @apply border-r border-r-white pr-1 mr-1 last:border-0 last:pr-0 last:mr-0;
+  @apply inline-flex items-center last:after:content-none after:content-["|"] after:inline-block after:text-white after:mr-1;
 }
 .footer-nav-links ul li a {
-  @apply text-white underline hover:text-footerBorder leading-[22px];
+  @apply text-white underline hover:text-footerBorder leading-[30px] mr-1;
 }
 .legal,
 .social,
@@ -343,7 +278,7 @@ ul.mobile-callout-navigation li a {
   @apply fill-footerBorder;
 }
 .social .social-headline {
-  @apply text-4xl font-semibold font-myriad text-center lg:text-right mb-4;
+  @apply text-4xl font-bold font-myriad text-center lg:text-right mb-3;
 }
 
 .corporate .corporate-logo {
@@ -360,10 +295,10 @@ ul.mobile-callout-navigation li a {
   @apply flex items-center justify-center;
 }
 .corporate-address .corporate-location-phone a {
-  @apply text-white hover:text-footerBorder underline;
+  @apply text-white hover:text-footerBorder hover:underline;
 }
 .footer-section .powered-by-title {
-  @apply flex justify-center lg:justify-end gap-1.5 mt-4;
+  @apply flex justify-center lg:justify-end gap-1.5 mt-[0.9375rem];
 }
 .footer-section .powered-by-title a {
   @apply text-white font-myriad text-xs font-normal;
@@ -372,6 +307,12 @@ ul.mobile-callout-navigation li a {
 .footer-section .powered-by-title a:hover,
 .footer-section .powered-by-title a:hover + a svg path {
   @apply fill-footerBorder text-footerBorder;
+}
+.social ul li{
+  @apply last:ml-[0.9375rem];
+}
+.social ul li + li{
+  @apply ml-5;
 }
 
 /* Footer Css - Ends  */
@@ -557,11 +498,11 @@ li.vertical-navigation-item:nth-child(3) {
 
 .vertical-card {
   box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.08);
-  @apply bg-white py-[15px] pl-5 pr-[2.625rem] border-r-2 border-r-borderColor border-l-2 border-l-borderColor mb-5;
+  @apply bg-white py-[15px] pl-5 pr-5 md:pr-[2.625rem] border-r-2 border-r-borderColor border-l-2 border-l-borderColor mb-5;
 }
 
 .faq-block .vertical-card-heading h2 {
-  @apply relative after:absolute after:bg-arrowDown after:content-[""] after:w-6 after:h-5 after:block after:right-0 after:top-2/4 after:-translate-y-2/4;
+  @apply flex justify-between items-start after:bg-arrowDown after:bg-no-repeat after:content-[""] after:w-6 after:h-5 after:block after:flex-none;
 }
 .faq-block.opened .vertical-card-heading h2 {
   @apply after:bg-arrowUP;
@@ -573,6 +514,9 @@ li.vertical-navigation-item:nth-child(3) {
 
 .vertical-card-content {
   @apply mb-5;
+}
+.faq-content.vertical-card-content{
+  @apply break-words;
 }
 
 .vertical-card-button .button {

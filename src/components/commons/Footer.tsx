@@ -94,7 +94,7 @@ export default function Footer(data: props) {
                 Connect with us!
               </h6>
               <div className="flex justify-center lg:justify-end">
-                <ul className="flex items-center gap-5">
+                <ul className="flex items-center">
                   <li>
                     <a target="_blank" href="#">
                       {SvgIcons.faceBook}

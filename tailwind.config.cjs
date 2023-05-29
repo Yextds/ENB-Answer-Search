@@ -41,6 +41,7 @@ module.exports = {
     },
     fontFamily: {          
        myriad: ['"Myriad Pro", Georgia, sans-serif'],    
+       myriadCondened: ['"myriad-pro-condensed", Georgia, sans-serif'],    
     },
     extend: {
       backgroundImage: {

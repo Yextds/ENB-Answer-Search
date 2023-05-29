@@ -2,6 +2,7 @@ import { useSearchState, useSearchActions } from '@yext/search-headless-react';
 import * as React from 'react';
 import {  useComposedCssClasses } from '../../hooks/useComposedCssClasses';
 // import {PageNavigationIcon } from '../../icons/chevron.svg';
+import arrowIcon from '../../Images/Arrow-down.svg';
 
 
 interface PaginationCssClasses {
@@ -87,6 +88,7 @@ export default function NewPagination(): JSX.Element | null  {
             onClick={() => executeSearchWithNewOffset(offset - limit)} disabled={pageNumber === 1}
           >
             {/* <PageNavigationIcon className={cssClasses.icon + ' transform -rotate-90'} /> */}
+            <img className='w-4 transform rotate-90' src={arrowIcon}/>
           </button>}
           
           {paginationLabels.map((label, index) => {
@@ -105,6 +107,7 @@ export default function NewPagination(): JSX.Element | null  {
             onClick={() => executeSearchWithNewOffset(offset + limit)} disabled={pageNumber === maxPageCount}
           >
             {/* <PageNavigationIcon className={cssClasses.icon + ' transform rotate-90'} /> */}
+            <img className='w-4 transform -rotate-90' src={arrowIcon}/>
           </button>}
           
         </nav>
