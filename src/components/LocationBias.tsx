@@ -51,11 +51,12 @@ export default function LocationBias({
     }
     executeSearch(answersActions, isVertical);
   }
-
+console.log(locationBias,'locationBias')
   return (
     <div className={cssClasses.container}>
       <span className={cssClasses.location}>
         {locationBias.displayName}
+    
       </span>
       <span className={cssClasses.source}>
         {attributionMessage}

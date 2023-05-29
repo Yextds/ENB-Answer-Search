@@ -10,6 +10,7 @@ import * as React from "react";
 import { SvgIcons } from "../../SvgIcon";
 import OpenCloseStatus from "../OpenCloseStatus";
 import { formatPhoneNumber } from "react-phone-number-input";
+import { useSearchActions, useSearchState } from "@yext/search-headless-react";
 
 const metersToMiles = (meters: number) => {
   const miles = meters * 0.000621371;
@@ -98,8 +99,9 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
 
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
- 
-
+  const answersActions = useSearchActions();
+  const query = useSearchState(state => state.query.input);
+  console.log(query,'query')
   function renderTitle(title: string) {
     return <h2>{title}</h2>;
   }
@@ -143,15 +145,14 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
   };
 
   return (
-    <div
-      id={"result-" + location.id}
-      className={cssClasses.container}
-    
-    >
+    // 
+      // 
+      <>
+      <div className={cssClasses.container}>
       <div className="location-seprator">
         <div className="left-content">
           <div className={cssClasses.header}>
-            {/* {configuration.showOrdinal && result.index && renderOrdinal(result.index)} */}
+         
             {renderTitle(location.name || "")}
           </div>
           {/* Location Address */}
@@ -181,6 +182,9 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
         </div>
         <div className="right-buttons">
           <div className="miles">
+           
+            {query === undefined || query.length === 0?  "": <>
+             
             <svg
               width="8"
               height="13"
@@ -188,12 +192,15 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
+              
               <path
                 d="M0 0H1.19922V12.06H0V0ZM7.19531 4.221L2.39844 7.5978V0.8442L7.19531 4.221Z"
                 fill="currentColor"
               />
             </svg>
-            {metersToMiles(distance ?? 0)} mi
+            {metersToMiles(distance ?? 0)} mi</>}
+          
+
           </div>
           <div className="call-CTA">
             <a
@@ -218,7 +225,10 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
             </a>
           </div>
         </div>
-      </div>
-    </div>
+        </div> 
+        </div>
+        </>
+       
+    // {/* </div> */}
   );
 }

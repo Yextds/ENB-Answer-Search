@@ -17,7 +17,7 @@ import {
   SearchBar,
   SpellCheck,
   Pagination,
-  LocationBias,
+ 
 } from "@yext/search-ui-react";
 import DirectAnswer from "../components/DirectAnswer";
 import { universalResultsConfig } from "../config/universalResultsConfig";
@@ -30,6 +30,7 @@ import ENBRoundLogo from "../Images/ENB-round-logo.svg";
 import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
 import favicon from "../Images/favicon.png";
 import yext_logo from "../icons/yext_logo.svg";
+import LocationBias from "../components/LocationBias";
 
 export const config: TemplateConfig = {
   stream: {
