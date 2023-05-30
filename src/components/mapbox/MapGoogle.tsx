@@ -378,11 +378,11 @@ function UnwrappedGoogleMaps({
             <p>{result.address?.postalCode}</p>
           </div>
         </div>
-      
+        <div className="phone ">
         <div className="addressphone flex justify-start gap-2 mb-2">
           {SvgIcons.locationPhone}
-          <div className="phone ">
-            <a id="address" className="" href={`tel:${result.mainPhone}`}>
+         
+            <a  className="phone" target="_blank"  rel="noreferrer" >
               {result.mainPhone}
             </a>
           </div>

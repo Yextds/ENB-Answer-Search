@@ -71,7 +71,7 @@ export default function Footer(data: props) {
               <p>{houseLenderCopyrightText}</p>
             </div>
             <div className="corporate mt-10 lg:mt-0 order-2">
-              <a href="javascript:void(0)" className="corporate-logo">
+              <a href="https://www.epnb.com/" className="corporate-logo">
                 <img
                   src="https://www.epnb.com/wp-content/themes/epnb/img/logo/logo-without-tagline.svg"
                   height={"70"}
@@ -150,8 +150,8 @@ export default function Footer(data: props) {
         </div>
         <div className="container-custom mobile-pad">
           <div className="powered-by-title">
-            <a href="javascript:void(0)">Site by Scheffey</a>
-            <a href="javascript:void(0)">{SvgIcons.scheffeyLogo}</a>
+            <a href="https://www.scheffey.com/">Site by Scheffey</a>
+            <a href="https://www.scheffey.com/">{SvgIcons.scheffeyLogo}</a>
           </div>
         </div>
       </footer>
