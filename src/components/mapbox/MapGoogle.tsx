@@ -334,20 +334,7 @@ function UnwrappedGoogleMaps({
       openInfoWindow = true;
     });
 
-    // markerPins.current[i]?.addListener("mouseover", () => {
-    //   markerPins.current[i].setIcon(marker_hover_icon);
-    //   addActiveGrid(i);
-    // });
-
-    // markerPins.current[i]?.addListener("mouseout", () => {
-    //   markerPins.current[i].setIcon(marker_icon);
-    //   const markerLabel = Number(i + 1).toString();
-
-    //   markerPins.current[i].setLabel({
-    //     text: markerLabel,
-    //     color: "#fff",
-    //   });
-    // });
+    
   }
 
   infoWindow.addListener("closeclick", () => {

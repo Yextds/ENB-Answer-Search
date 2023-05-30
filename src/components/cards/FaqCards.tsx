@@ -89,16 +89,16 @@ export function FaqCard(props: TrainerCardProps): JSX.Element {
     // alert('Hello');
 
     const parent = e.target.parentNode.parentNode;
-    console.log(parent, "parent");
+  
     if (parent.classList.contains("opened")) {
       setFaqClass("");
-      // console.log(e.target.parentNode.parentNode.classList);
+  
     } else {
       const acc = document.getElementsByClassName("faq-block"); // alert(acc.length);
       for (let s = 0; s < acc.length; s++) {
         acc[s].classList.remove("opened");
       }
-      // console.log(e.target.parentNode.parentNode.classList);
+  
       setFaqClass("opened");
       parent.classList.add("opened");
     }

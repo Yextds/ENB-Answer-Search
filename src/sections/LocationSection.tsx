@@ -24,7 +24,7 @@ const LocationSection: SectionComponent = function (props: LocationSectionConfig
   const cssClasses = builtInCssClasses;
   const { results, cardConfig, header } = props;
 
-  console.log(results,"results");
+
 //   const screenSize = useContext(ResponsiveContext);
 
   if (results.length === 0) {

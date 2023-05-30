@@ -59,9 +59,9 @@ export default function UniversalResults({
   );
   const resultsFromAllVerticals =
     useSearchState((state) => state?.universal?.verticals) || [];
-  console.log(resultsFromAllVerticals, "resultsFromAllVerticals");
+ 
   const isLoading = useSearchState((state) => state.searchStatus.isLoading);
-  console.log(isLoading, "isLoading");
+ 
   //UseEffect - Starts  - Code to get Default Initial Search
   const searchAction = useSearchActions();
   useEffect(() => {

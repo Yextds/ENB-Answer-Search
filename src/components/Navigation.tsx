@@ -78,7 +78,7 @@ const answersActions = useSearchActions();
 
 
 useEffect(() => {
-  console.log(getQueryParam(),"product")
+  
   if (getQueryParam() != null) {
     answersActions.setQuery(getQueryParam())
   }

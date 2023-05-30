@@ -62,10 +62,10 @@ export function ProductsCard(props: StandardCardProps): JSX.Element {
   * @returns The variable containing the truncated Description.
   */
 
-  // console.log(result, "result");
+ 
 
   const Products: any = result.rawData;
-  // console.log(Products, "Products");
+
   
   const productName = Products.name; // Name of the products
   const produtSector = Products.c_sector;

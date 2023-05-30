@@ -76,7 +76,7 @@ export function calculateUniversalLimit(children: ReactNode): UniversalLimit {
   });
   return Object.keys(universallimit).reduce<UniversalLimit>((limitWithDefaults, verticalKey) => {
     limitWithDefaults[verticalKey] = universallimit[verticalKey] ?? 5;
-    console.log(limitWithDefaults,'limitWithDefaults')
+   
     return limitWithDefaults;
   }, {})
 }

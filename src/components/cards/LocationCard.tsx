@@ -94,14 +94,14 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
   const CtaAddress = addressLine1 + "," + AddressCity;
   const PhoneNumber = load.mainPhone;
   const distance = result.distance;
-  console.log(result.distance, "distance");
+
   const cssClasses = useComposedCssClasses(builtInCssClasses);
 
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const answersActions = useSearchActions();
   const query = useSearchState(state => state.query.input);
-  console.log(query,'query')
+  
   function renderTitle(title: string) {
     return <h2>{title}</h2>;
   }

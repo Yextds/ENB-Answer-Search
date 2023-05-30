@@ -115,7 +115,7 @@ const LocationsPage: Template<TemplateRenderProps> = ({
             {/* Round Centered Logo */}
             <div className="Round-logo">
               <div className="centred-logo">
-                <img className="mx-auto" src={ENBRoundLogo} />
+                <img className="mx-auto" src={ENBRoundLogo} alt="logo"/>
               </div>
             </div>
             {/* Round Centered Logo */}
@@ -124,7 +124,7 @@ const LocationsPage: Template<TemplateRenderProps> = ({
             <div className="container-custom px-5 pb-4 xs:pb-8 pt-0 xs:px-[4.375rem] bg-white rounded">
               <div className="polygon-logo mb-10">
                 <div className="polygon-centred">
-                  <img className="mx-auto" src={ENBPolygonLogo} />
+                  <img className="mx-auto" src={ENBPolygonLogo} alt="logo"/>
                 </div>
               </div>
               <div className="yext-search-bar">

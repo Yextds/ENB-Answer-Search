@@ -31,7 +31,7 @@ export default function LocationResults(data :props){
     (state) => state.vertical.noResults?.alternativeVerticals
   );
   const isLoading = useSearchState(state => state.searchStatus.isLoading);
-  console.log(isLoading,"isLoading");
+  
    const filterVariable = aleternateVerticals?.filter(filtredResulta => filtredResulta.resultsCount > 0) || [];
     const filterVariableLength = filterVariable.length;
     const returnedAlternateVerticals = filterVariableLength> 0 &&  isLoading===false ? filterVariable.map((res:any)=>{
