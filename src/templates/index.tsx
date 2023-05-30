@@ -145,7 +145,7 @@ const IndexPage: Template<IndexPage> = ({ document }) => {
               verticalConfigs={universalResultsConfig}
             />
             <div className="location-info">
-              <img className="yextLogo" src={yext_logo} />
+              <img className="yextLogo" src={yext_logo} alt="footer logo"/>
               <LocationBias />
             </div>
           </div>

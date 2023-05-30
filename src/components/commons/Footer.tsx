@@ -59,6 +59,7 @@ export default function Footer(data: props) {
                 src="https://www.epnb.com/wp-content/themes/epnb/img/logo/equal-housing-lender.svg"
                 height={"70"}
                 width={"70"}
+                alt="footer"
               />
               <h3>{houseLenderHeading}</h3>
               <div className="footer-nav-links">
@@ -76,6 +77,7 @@ export default function Footer(data: props) {
                   src="https://www.epnb.com/wp-content/themes/epnb/img/logo/logo-without-tagline.svg"
                   height={"70"}
                   width={"150"}
+                  alt="footer"
                 />
               </a>
               <div className="corporate-address">
