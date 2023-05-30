@@ -12,6 +12,7 @@ import classNames from "classnames";
 import * as React from "react";
 import { useSearchActions } from "@yext/search-headless-react";
 import { useEffect } from "react";
+import LoadingSpinner from "./commons/LoadingSpinner";
 
 interface UniversalResultsCssClasses {
   container?: string;
@@ -71,10 +72,12 @@ export default function UniversalResults({
   if (resultsFromAllVerticals.length === 0) {
     return (
       <>
-        <div className="mb-6 pb-6 mt-6 pt-6">
-          <p className="text-2xl font-bold">No results found</p>
-        </div>
-      </>
+      {isLoading == true ? <LoadingSpinner /> : <>
+      <div className="mb-6 pb-6 mt-6 pt-6">
+        <p className="text-2xl font-bold">No results found</p>
+      </div>
+    </>}
+    </>
     );
   }
 

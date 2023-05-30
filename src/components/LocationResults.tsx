@@ -9,6 +9,8 @@ import {GoogleMaps} from "./mapbox/MapGoogle";
 import * as React from 'react';
 import { Result, useSearchState } from '@yext/search-headless-react';
 import { CardConfig } from '../models/cardComponent';
+import { Loader } from 'rsuite';
+import LoadingSpinner from './commons/LoadingSpinner';
 
 type props = {
   results?: Result[],
@@ -129,7 +131,8 @@ export default function LocationResults(data :props){
   return (
    
     <div className="flex">
-      <div
+       <LoadingSpinner />
+      {/* <div
         ref={refLcation}
         className={classNames('overflow-y-auto sm:overflow-auto sm:border lg:w-1/4', {
           hidden: state.showMap,
@@ -151,10 +154,10 @@ export default function LocationResults(data :props){
         ) : (
           null
         )}
-      </div>
-      <div className={classNames('w-full xl:w-3/4', { hidden: screenSize !== 'xl' && !state.showMap })}>
+      </div> */}
+      {/* <div className={classNames('w-full xl:w-3/4', { hidden: screenSize !== 'xl' && !state.showMap })}>
         {renderMap()}
-      </div>
+      </div> */}
     </div>
   );
   

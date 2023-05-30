@@ -3,6 +3,7 @@ import * as React from 'react';
 import {  useComposedCssClasses } from '../../hooks/useComposedCssClasses';
 // import {PageNavigationIcon } from '../../icons/chevron.svg';
 import arrowIcon from '../../Images/Arrow-down.svg';
+import LoadingSpinner from './LoadingSpinner';
 
 
 interface PaginationCssClasses {
@@ -59,7 +60,7 @@ export default function NewPagination(): JSX.Element | null  {
     const answersAction = useSearchActions();
     const offset = useSearchState(state => state.vertical.offset) || 0;
     const limit = useSearchState(state => state.vertical.limit) || 10;
-  
+    const isLoading = useSearchState(state => state.searchStatus.isLoading);
     const executeSearchWithNewOffset = (newOffset: number) => {
       answersAction.setOffset(newOffset);
       answersAction.executeVerticalQuery();
@@ -78,8 +79,13 @@ export default function NewPagination(): JSX.Element | null  {
     }
     const pageNumber = (offset / limit) + 1;
     const paginationLabels: string[] = generatePaginationLabels(pageNumber, maxPageCount);
-  
+    if(isLoading == true){
+      return(<LoadingSpinner />)
+    }
+  else{
     return (
+
+      
       <div className={cssClasses.container}>
         <nav className={cssClasses.labelContainer} aria-label="Pagination">
             {pageNumber===1 ? null : <button
@@ -113,4 +119,5 @@ export default function NewPagination(): JSX.Element | null  {
         </nav>
       </div>
     );
+  }
   }
