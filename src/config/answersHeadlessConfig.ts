@@ -2,7 +2,7 @@
 import {
   HeadlessConfig,
 } from "@yext/search-headless-react";
-
+export const baseUrl = "https://gainfully-sweeping-puffin.pgsdemo.com"
 export const answersHeadlessConfig: HeadlessConfig = {
   apiKey: "91686d707ec23399ba065889efe9e7b5",
   experienceKey: "ephrata-national-bank-answers-react",

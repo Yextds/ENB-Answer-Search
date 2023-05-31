@@ -26,7 +26,7 @@ import {
 } from "@yext/search-ui-react";
 import DirectAnswer from "../components/DirectAnswer";
 import Navigation from "../components/Navigation";
-import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
+import { answersHeadlessConfig, baseUrl } from "../config/answersHeadlessConfig";
 
 import Footer from "../components/commons/Footer";
 import { LocationCard } from "../components/cards/LocationCard";
@@ -58,7 +58,8 @@ export const config: TemplateConfig = {
 export const getPath: GetPath<TemplateProps> = () => {
   return "/locations";
 };
-
+const metaTitle = "Ephrata National Bank | Locations"
+const metaDescription = "Ephrata National Bank | Find all branch details, ATMs timings and Locations here."
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   
 }): HeadConfig => {
@@ -67,29 +68,109 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1, maximum-scale=1",
     tags: [
-         {
-           type: "link",
-           attributes: {
-               rel: "icon",
-               type: "image/x-icon",
-               href: favicon,
-           },
-       },
-     
       {
-        type: "meta",
+        type: "link",
         attributes: {
-          name: "title",
-          content: `Answers | Ephrata National Bank`,
+            rel: "icon",
+            type: "image/x-icon",
+            href: favicon,
         },
-      },
-      {
-        type: "meta",
-        attributes: {
-          name: "description",
-          content: `Answers | Ephrata National Bank`,
-        },
-      },
+    },
+  
+   {
+     type: "meta",
+     attributes: {
+       name: "title",
+       content: `Ephrata National Bank | Locations`,
+     },
+   },
+   {
+     type: "meta",
+     attributes: {
+       name: "description",
+       content: `Ephrata National Bank | Find all branch details, ATMs timings and Locations here.`,
+     },
+   },
+   {
+     type: "meta",
+     attributes: {
+       name: "author",
+       content: "Ephrata National Bank",
+     },
+   },
+   {
+     type: "link",
+     attributes: {
+       rel: "canonical",
+       href: baseUrl + "locations",
+     },
+   },
+   {
+     type: "meta",
+     attributes: {
+       property: "og:title",
+       content: `${metaTitle}`,
+     },
+   },
+   {
+     type: "meta",
+     attributes: {
+       property: "og:description",
+       content: `${metaDescription}`,
+     },
+   },
+   {
+     type: "meta",
+     attributes: {
+       property: "og:url",
+       content: baseUrl,
+     },
+   },
+  
+   {
+     type: "meta",
+     attributes: {
+       property: "og:image",
+       content: `${ENBRoundLogo}`,
+     },
+   },
+   {
+     type: "meta",
+     attributes: {
+       property: "twitter:title",
+       content: `${metaTitle}`,
+     },
+   },
+   {
+     type: "meta",
+     attributes: {
+       name: "twitter:card",
+       content: "summary",
+     },
+   },
+   {
+     type: "meta",
+     attributes: {
+       name: "twitter:url",
+       content: baseUrl,
+     },
+   },
+  
+   {
+     type: "meta",
+     attributes: {
+       name: "twitter:description",
+       content: `${metaDescription}`,
+     },
+   },
+  
+   {
+     type: "meta",
+     attributes: {
+       name: "twitter:image",
+       content: `${ENBRoundLogo}`,
+     },
+   },
     
     ],
   };

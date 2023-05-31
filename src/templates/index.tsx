@@ -17,14 +17,14 @@ import {
   SearchBar,
   SpellCheck,
   Pagination,
- 
+
 } from "@yext/search-ui-react";
 import DirectAnswer from "../components/DirectAnswer";
 import { universalResultsConfig } from "../config/universalResultsConfig";
 import UniversalResults from "../components/UniversalResults";
 import Navigation from "../components/Navigation";
-import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
-
+import { answersHeadlessConfig, baseUrl } from "../config/answersHeadlessConfig";
+import { JsonLd } from "react-schemaorg";
 import Footer from "../components/commons/Footer";
 import ENBRoundLogo from "../Images/ENB-round-logo.svg";
 import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
@@ -58,7 +58,8 @@ const universalResultsFilterConfig = {
 export const getPath: GetPath<TemplateProps> = () => {
   return "/index.html";
 };
-
+const metaTitle = "Ephrata National Bank | Find your Answers"
+const metaDescription = " Ephrata National Bank - get all information related to locations, branch details and all queries here."
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (): HeadConfig => {
   return {
     title: `Ephrata National Bank | AS`,
@@ -78,14 +79,94 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (): HeadConfig 
         type: "meta",
         attributes: {
           name: "title",
-          content: `Answers | Ephrata National Bank`,
+          content: `${metaTitle}`,
         },
       },
       {
         type: "meta",
         attributes: {
           name: "description",
-          content: `Answers | Ephrata National Bank`,
+          content: `${metaDescription}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "author",
+          content: "Ephrata National Bank",
+        },
+      },
+      {
+        type: "link",
+        attributes: {
+          rel: "canonical",
+          href: baseUrl,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:title",
+          content: `${metaTitle}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:description",
+          content: `${metaDescription}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:url",
+          content: baseUrl,
+        },
+      },
+
+      {
+        type: "meta",
+        attributes: {
+          property: "og:image",
+          content: `${ENBRoundLogo}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "twitter:title",
+          content: `${metaTitle}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:card",
+          content: "summary",
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:url",
+          content: baseUrl,
+        },
+      },
+
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:description",
+          content: `${metaDescription}`,
+        },
+      },
+
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:image",
+          content: `${ENBRoundLogo}`,
         },
       },
       // Meta Title and Description
@@ -94,34 +175,49 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (): HeadConfig 
 };
 
 const searcher = provideHeadless(answersHeadlessConfig);
-export interface SiteData{
-c_number: number;
-c_footerAddress: string;
-c_footerLabel: string;
-c_copyrightText: string;
-c_footerlinks: string;
-c_footerHeading: string;
-id: number;
+export interface SiteData {
+  c_number: number;
+  c_footerAddress: string;
+  c_footerLabel: string;
+  c_copyrightText: string;
+  c_footerlinks: string;
+  c_footerHeading: string;
+  id: number;
 }
 interface IndexData {
-  _site : SiteData
+  _site: SiteData
 }
-interface IndexPage extends TemplateRenderProps{
-  document : IndexData
+interface IndexPage extends TemplateRenderProps {
+  document: IndexData
 }
+interface LocatorType {
+  "@type": "BreadcrumbList";
+  name: string;
+  url: string;
+  logo: string;
+}
+
 
 const IndexPage: Template<IndexPage> = ({ document }) => {
   const { _site } = document;
 
   return (
     <>
-      
+      <JsonLd<LocatorType>
+        item={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          name: "Ephrata National Bank",
+          url: "https://www.epnb.com/answers/",
+          logo: ENBRoundLogo,
+        }}
+      />
       <SearchHeadlessProvider searcher={searcher}>
         <div className="container-custom px-5 py-4 xs:py-[1.875rem]">
           {/* Round Centered Logo */}
           <div className="Round-logo">
             <div className="centred-logo">
-              <img className="mx-auto" src={ENBRoundLogo} alt="logo"/>
+              <img className="mx-auto" src={ENBRoundLogo} alt="logo" />
             </div>
           </div>
           {/* Round Centered Logo */}
@@ -145,7 +241,7 @@ const IndexPage: Template<IndexPage> = ({ document }) => {
               verticalConfigs={universalResultsConfig}
             />
             <div className="location-info">
-              <img className="yextLogo" src={yext_logo} alt="footer logo"/>
+              <img className="yextLogo" src={yext_logo} alt="footer logo" />
               <LocationBias />
             </div>
           </div>
