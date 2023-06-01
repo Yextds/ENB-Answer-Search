@@ -266,11 +266,15 @@ function UnwrappedGoogleMaps({
 
       map.setZoom(6);
       // map.setZoom(12);
+      
       map.fitBounds(bounds);
-      // map.panToBounds(bounds);
-      // if (zoom > 8) {
-      //   map.setZoom(6);
-      // }
+       map.panToBounds(bounds);
+       if (zoom > 8) {
+         map.setZoom(6);
+       }
+       //var bounds = new google.maps.LatLngBounds();
+       
+    
       searchCenter = bounds.getCenter();
       // searchZoom = 6;
 
@@ -280,14 +284,9 @@ function UnwrappedGoogleMaps({
         if (!elements[index]?.classList.contains("markerEventBinded")) {
           elements[index].classList.add("markerEventBinded");
           elements[index].addEventListener("click", () => {
-            if (!openInfoWindow) {
-              openMapZoom = map?.getZoom();
-              openMapCenter = map?.getCenter();
-            } else {
-              openInfoWindow = false;
-              infoWindow.close();
-            }
+
             InfowindowContents(index, locationResults[index]);
+            
             addActiveGrid(index);
             addClickGrid(index);
             scrollToRow(index);
@@ -318,18 +317,21 @@ function UnwrappedGoogleMaps({
       if (!openInfoWindow) {
         openMapZoom = map?.getZoom();
         openMapCenter = map?.getCenter();
+        
       } else {
         openInfoWindow = false;
         infoWindow.close();
       }
-      scrollToRow(i);
-      addActiveGrid(i);
-      addClickGrid(i);
+
       InfowindowContents(i, locationResults[i]);
       const position = getPosition(locationResults[i]);
-      const latLng = new google.maps.LatLng(position.lat, position.lng);
-      map?.panTo(latLng);
-      zoomMapTo(map, 20, latLng);
+      //const latLng = new google.maps.LatLng(position.lat, position.lng);
+      var bounds = new google.maps.LatLngBounds();
+        bounds.extend(center);
+        map?.fitBounds(bounds);
+        map?.setCenter(center);
+      //map?.panTo(latLng);
+      //zoomMapTo(map, 20, latLng);
       infoWindow.open(map, markerPins.current[i]);
       openInfoWindow = true;
     });
@@ -360,7 +362,6 @@ function UnwrappedGoogleMaps({
           </div>
           <div className="address">
             <p>{result.address?.line1}</p>
-
             <p>{`${result.address?.city}, ${result.address?.region} `}</p>
             <p>{result.address?.postalCode}</p>
           </div>

@@ -9,7 +9,7 @@ import {GoogleMaps} from "./mapbox/MapGoogle";
 import * as React from 'react';
 import { Result, useSearchState } from '@yext/search-headless-react';
 import { CardConfig } from '../models/cardComponent';
-import { Loader } from 'rsuite';
+
 import LoadingSpinner from './commons/LoadingSpinner';
 
 type props = {

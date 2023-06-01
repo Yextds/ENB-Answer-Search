@@ -112,7 +112,7 @@ export default function VerticalResults(
 /**
  * Direct Answer code - Starts
  */
-  const directAnswer = useSearchState(state => state);
+
   
 /**
  * Direct Answer Code - Ends
