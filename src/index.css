@@ -376,7 +376,7 @@ li.vertical-navigation-item:nth-child(3) {
   @apply block;
 } */
 .vertical-navigation li.vertical-navigation-item a {
-  @apply uppercase text-[1rem] leading-5;
+  @apply text-[1rem] leading-5;
 }
 .vertical-navigation li.vertical-navigation-item.active {
   @apply border-b border-b-textRed;

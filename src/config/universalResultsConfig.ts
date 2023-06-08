@@ -10,7 +10,7 @@ export const universallimit = 3;
 export const universalResultsConfig: UniversalResultsConfig = {
   locations: {
     SectionComponent: LocationSection,
-    label: 'Locations',
+    label: 'LOCATIONS',
     viewAllButton: true,
     cardConfig: {
       CardComponent: LocationCard,

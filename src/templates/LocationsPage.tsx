@@ -209,7 +209,7 @@ const LocationsPage: Template<TemplateRenderProps> = ({
                 </div>
               </div>
               <div className="yext-search-bar">
-                <SearchBar placeholder="Locations Near Me" />
+                <SearchBar placeholder="Search ENB Locations" />
               </div>
               <Navigation />
               <DirectAnswer />
