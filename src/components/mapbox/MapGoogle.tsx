@@ -370,9 +370,11 @@ function UnwrappedGoogleMaps({
         <div className="addressphone flex justify-start gap-2 mb-2">
           {SvgIcons.locationPhone}
          
-            <a  className="phone" target="_blank"  rel="noreferrer" >
-              {result.mainPhone}
+            <button><a className="phone"  href={`tel:${result.mainPhone}`}>
+            {result.mainPhone}
             </a>
+              
+            </button>
           </div>
         </div>
         <div className="button-bx map-card ">
