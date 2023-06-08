@@ -204,7 +204,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
           </div>
           <div className="call-CTA">
             <a
-              target="_blank"
+             
               className="button"
               rel="noreferrer"
               href={`tel:${PhoneNumber}`}
