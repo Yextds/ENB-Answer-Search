@@ -379,15 +379,17 @@ function UnwrappedGoogleMaps({
           <a
             className="ctaBtn"
             target="_blank"
-            href={`https://www.google.com/maps/dir/?api=1&destination=${
-              result.address?.line1 + result.address?.line1
-            }`}
+            href={`https://www.google.com/maps/dir/?api=1&destination=${result.address?.line1 + "," + result.address.city}`}
             rel="noreferrer"
           >
             Get Direction
           </a>
-          <a className="ctaBtn" target="_blank" href="#">
-            See More
+          <a
+              target="_blank"
+              className="button"
+              rel="noreferrer"
+              href={`tel:${result.mainPhone}`}>
+            CALL
           </a>
         </div>
 

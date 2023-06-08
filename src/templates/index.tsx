@@ -230,7 +230,7 @@ const IndexPage: Template<IndexPage> = ({ document }) => {
               </div>
             </div>
             <div className="yext-search-bar">
-              <SearchBar placeholder="Location Near Me" />
+              <SearchBar placeholder="Search" />
             </div>
 
             <Navigation />

@@ -200,7 +200,7 @@ const ArticlesPage: Template<TemplateRenderProps> = ({
               </div>
             </div>
             <div className="yext-search-bar">
-              <SearchBar placeholder="Frequently Asked Question" />
+              <SearchBar placeholder="Search Frequently Asked Questions" />
             </div>
             <Navigation />
             <DirectAnswer />
