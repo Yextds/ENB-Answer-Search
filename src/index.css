@@ -80,6 +80,7 @@ body.menu-opened {
 }
 html {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -336,7 +337,10 @@ ul.mobile-callout-navigation li a {
 }
 
 .result-card .location-name h2 {
-  @apply flex text-xl  font-normal text-textRed mb-4 cursor-pointer;
+  @apply text-xl font-normal text-textRed mb-4 cursor-pointer relative inline-block after:absolute after:content-[""] after:bottom-0.5 after:block after:h-0.5 after:left-0 after:bg-primaryRed after:w-0 hover:after:w-full hover:after:right-full;
+}
+.result-card .location-name h2::after {
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
 }
 .result-card .location-address {
   @apply flex gap-3 mb-5 max-w-[12.5rem] w-[12.5rem];
@@ -502,10 +506,17 @@ li.vertical-navigation-item:nth-child(3) {
 }
 
 .faq-block .vertical-card-heading h2 {
-  @apply flex justify-between items-start after:bg-arrowDown after:bg-no-repeat after:content-[""] after:w-6 after:h-5 after:block after:flex-none;
+  @apply flex justify-between items-start;
 }
 .faq-block.opened .vertical-card-heading h2 {
   @apply after:bg-arrowUP;
+}
+.faq-block .faq-card-header{
+  @apply flex justify-between items-start;
+}
+
+.Vertical-arrow{
+  @apply after:bg-arrowDown after:bg-no-repeat after:content-[""] after:w-6 after:h-5 after:block after:flex-none
 }
 
 .vertical-card-heading h2 {
