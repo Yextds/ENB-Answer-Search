@@ -1,4 +1,4 @@
-import { useComposedCssClasses } from "../../hooks/useComposedCssClasses";
+import { useComposedCssClasses } from "../../";
 import { CardProps } from "../../models/cardComponent";
 
 import {
