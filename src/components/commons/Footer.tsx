@@ -141,8 +141,7 @@ export default function Footer(data: props) {
                       target="_blank"
                       href="#"
                       className=""
-                    >
-                       {SvgIcons.pinterest}
+                    >{SvgIcons.pinterest}
                     </a>
                   </li>
                 </ul>

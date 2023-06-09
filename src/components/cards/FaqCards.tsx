@@ -108,10 +108,13 @@ export function FaqCard(props: TrainerCardProps): JSX.Element {
     <>
       <div className={"faq-block vertical-card " + trainer.id + " " + faqClass}>
         <div
-          onClick={(e) => isShowContent(e, trainer.id)}
-          className="vertical-card-heading"
+         
+          className="vertical-card-heading faq-card-header"
         >
           {renderName(trainer.name)}
+          <button className="Vertical-arrow"
+           onClick={(e) => isShowContent(e, trainer.id)}
+          ></button>
         </div>
         <div className="faq-content vertical-card-content">
           {renderQuote(trainer.answer)}
