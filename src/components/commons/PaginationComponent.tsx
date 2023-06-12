@@ -79,10 +79,10 @@ export default function NewPagination(): JSX.Element | null  {
     }
     const pageNumber = (offset / limit) + 1;
     const paginationLabels: string[] = generatePaginationLabels(pageNumber, maxPageCount);
-    if(isLoading == true){
-      return(<LoadingSpinner />)
-    }
-  else{
+    // if(isLoading == true){
+    //   return(<LoadingSpinner />)
+    // }
+  
     return (
 
       
@@ -120,4 +120,4 @@ export default function NewPagination(): JSX.Element | null  {
       </div>
     );
   }
-  }
+  
