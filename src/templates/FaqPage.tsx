@@ -31,6 +31,7 @@ import NewPagination from "../components/commons/PaginationComponent";
 import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
 import ENBRoundLogo from "../Images/ENB-round-logo.svg";
 import favicon from "../Images/favicon.png"
+import HeaderLogo from "../components/commons/HeaderLogo";
 
 
 export const config: TemplateConfig = {
@@ -185,17 +186,14 @@ const ArticlesPage: Template<TemplateRenderProps> = ({
       <SearchHeadlessProvider searcher={searcher}>
         <div className="container-custom px-5 py-4 xs:py-[1.875rem]">
           {/* Round Centered Logo */}
-          <div className="Round-logo">
-            <div className="centred-logo">
-              <img className="mx-auto" src={ENBRoundLogo} alt="logo"/>
-            </div>
-          </div>
+<HeaderLogo/>
           {/* Round Centered Logo */}
         </div>
         <div className="py-4 xs:pb-14 pt-0 FAQ-page">
           <div className="container-custom px-5 pb-4 xs:pb-8 pt-0 xs:px-[4.375rem] bg-white rounded">
             <div className="polygon-logo mb-10">
               <div className="polygon-centred">
+              
                 <img className="mx-auto" src={ENBPolygonLogo} alt="logo"/>
               </div>
             </div>

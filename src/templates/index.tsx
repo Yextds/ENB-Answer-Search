@@ -31,6 +31,7 @@ import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
 import favicon from "../Images/favicon.png";
 import yext_logo from "../icons/yext_logo.svg";
 import LocationBias from "../components/LocationBias";
+import HeaderLogo from "../components/commons/HeaderLogo";
 
 export const config: TemplateConfig = {
   stream: {
@@ -215,11 +216,7 @@ const IndexPage: Template<IndexPage> = ({ document }) => {
       <SearchHeadlessProvider searcher={searcher}>
         <div className="container-custom px-5 py-4 xs:py-[1.875rem]">
           {/* Round Centered Logo */}
-          <div className="Round-logo">
-            <div className="centred-logo">
-              <img className="mx-auto" src={ENBRoundLogo} alt="logo" />
-            </div>
-          </div>
+         <HeaderLogo/>
           {/* Round Centered Logo */}
         </div>
         <div className="py-4 xs:pb-14 pt-0">

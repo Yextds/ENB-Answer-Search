@@ -36,6 +36,7 @@ import ENBRoundLogo from "../Images/ENB-round-logo.svg";
 import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
 import NewPagination from "../components/commons/PaginationComponent";
 import favicon from "../Images/favicon.png";
+import HeaderLogo from "../components/commons/HeaderLogo";
 
 export const config: TemplateConfig = {
   stream: {
@@ -194,11 +195,7 @@ const LocationsPage: Template<TemplateRenderProps> = ({
         <LocationProvider>
           <div className="container-custom px-5 py-4 xs:py-[1.875rem]">
             {/* Round Centered Logo */}
-            <div className="Round-logo">
-              <div className="centred-logo">
-                <img className="mx-auto" src={ENBRoundLogo} alt="logo"/>
-              </div>
-            </div>
+           <HeaderLogo/>
             {/* Round Centered Logo */}
           </div>
           <div className="py-4 xs:pb-14 pt-0">

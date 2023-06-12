@@ -221,7 +221,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
               href={`https://www.google.com/maps/dir/?api=1&destination=${CtaAddress}`}
               onClick={() => pagesAnalyticsCtaClick()}
             >
-              <span className="">Get Direction</span>
+              <span className="">GET DIRECTION</span>
             </a>
           </div>
         </div>
