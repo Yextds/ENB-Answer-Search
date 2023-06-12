@@ -120,9 +120,9 @@ export function FaqCard(props: TrainerCardProps): JSX.Element {
           {renderQuote(trainer.answer)}
         </div>
         <div className="vertical-card-button">
-          <a href={FaqLandingPage} className="button" onClick={(e) => isShowContent(e, trainer.id)}>
+          <button  className="button" onClick={(e) => isShowContent(e, trainer.id)}>
             Read more
-          </a>
+          </button>
         </div>
       </div>
     </>
