@@ -174,7 +174,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
           <div className="location-phone">
             <div className="phone-icon">{SvgIcons.locationPhone}</div>
             <div className="phone-content">
-              <a target="_blank"  rel="noreferrer" href={`tel:${PhoneNumber}`}>
+              <a target="_self"  rel="noreferrer" href={`tel:${PhoneNumber}`}>
                 <span>{formatPhoneNumber(PhoneNumber)}</span>
               </a>
             </div>
@@ -203,15 +203,14 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
 
           </div>
           <div className="call-CTA">
-            <a
-             
+          <a
+              target="_self"
               className="button"
               rel="noreferrer"
-              href={`tel:${PhoneNumber}`}
-              onClick={() => pagesAnalyticsCtaClick()}
-            >
-              <span className="">CALL</span>
-            </a>
+              href={`tel:${PhoneNumber}`}>
+            CALL
+          </a>
+           
           </div>
           <div className="location-CTA">
             <a

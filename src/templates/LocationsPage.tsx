@@ -14,7 +14,7 @@ import {
   provideHeadless,
   
 } from "@yext/search-headless-react";
-
+import { JsonLd } from "react-schemaorg";
 import {
   SearchBar,
   
@@ -180,6 +180,12 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
 answersHeadlessConfig.verticalKey = "locations";
 
 const searcher = provideHeadless(answersHeadlessConfig);
+interface LocationType {
+  "@type": "BreadcrumbList";
+  name: string;
+  url: string;
+  logo: string;
+}
 
 const LocationsPage: Template<TemplateRenderProps> = ({
  
@@ -190,6 +196,15 @@ const LocationsPage: Template<TemplateRenderProps> = ({
 
   return (
     <>
+    <JsonLd<LocationType>
+        item={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          name: "Ephrata National Bank",
+          url: "https://www.epnb.com/answers/",
+          logo: ENBRoundLogo,
+        }}
+      />
      
       <SearchHeadlessProvider searcher={searcher}>
         <LocationProvider>

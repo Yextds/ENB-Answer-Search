@@ -32,6 +32,7 @@ import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
 import ENBRoundLogo from "../Images/ENB-round-logo.svg";
 import favicon from "../Images/favicon.png"
 import HeaderLogo from "../components/commons/HeaderLogo";
+import { JsonLd } from "react-schemaorg";
 
 
 export const config: TemplateConfig = {
@@ -173,16 +174,26 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (): HeadConfig 
 
 answersHeadlessConfig.verticalKey = "faqs";
 const searcher = provideHeadless(answersHeadlessConfig);
-
-const ArticlesPage: Template<TemplateRenderProps> = ({
- 
-  document,
-}) => {
+interface FaqType {
+  "@type": "BreadcrumbList";
+  name: string;
+  url: string;
+  position:number
+}
+const ArticlesPage: Template<TemplateRenderProps> = ({document,}) => {
   const { _site } = document;
 
   return (
     <>
-     
+      <JsonLd<FaqType>
+        item={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          name: "Ephrata National Bank",
+          url: "https://www.epnb.com/answers/",
+          position: 2
+        }}
+      />
       <SearchHeadlessProvider searcher={searcher}>
         <div className="container-custom px-5 py-4 xs:py-[1.875rem]">
           {/* Round Centered Logo */}
