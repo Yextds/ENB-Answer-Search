@@ -384,7 +384,7 @@ function UnwrappedGoogleMaps({
             href={`https://www.google.com/maps/dir/?api=1&destination=${result.address?.line1 + "," + result.address.city}`}
             rel="noreferrer"
           >
-            Get Direction
+           GET DIRECTION
           </a>
           <a
               target="_blank"
