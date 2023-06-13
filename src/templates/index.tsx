@@ -191,7 +191,7 @@ interface IndexData {
 interface IndexPage extends TemplateRenderProps {
   document: IndexData
 }
-interface LocatorType {
+interface IndexType {
   "@type": "BreadcrumbList";
   name: string;
   url: string;
@@ -204,7 +204,7 @@ const IndexPage: Template<IndexPage> = ({ document }) => {
 
   return (
     <>
-      <JsonLd<LocatorType>
+      <JsonLd<IndexType>
         item={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",

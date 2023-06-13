@@ -1,6 +1,6 @@
 import * as React from "react";
 import { SvgIcons } from "../../SvgIcon";
-
+import { formatPhoneNumber } from "react-phone-number-input";
 
 type props = {
   footerHeading?: any;
@@ -87,7 +87,7 @@ export default function Footer(data: props) {
                 </div>
                 <div className="corporate-location-phone">
                   <span>Toll Free :</span>
-                  <a href={"tel:" + officeNumber}>{officeNumber}</a>
+                  <a href={"tel:" + officeNumber}>+8787366532</a>
                 </div>
               </div>
             </div>
