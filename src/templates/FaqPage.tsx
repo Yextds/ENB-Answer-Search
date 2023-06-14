@@ -187,7 +187,7 @@ interface FaqType {
   url: string;
   position:number
 }
-const ArticlesPage: Template<TemplateRenderProps> = ({document,}) => {
+const ArticlesPage: Template<TemplateRenderProps> = ({document}) => {
   const { _site } = document;
 
   return (
@@ -204,7 +204,7 @@ const ArticlesPage: Template<TemplateRenderProps> = ({document,}) => {
       <SearchHeadlessProvider searcher={searcher}>
         <div className="container-custom px-5 py-4 xs:py-[1.875rem]">
           {/* Round Centered Logo */}
-<HeaderLogo/>
+          <HeaderLogo/>
           {/* Round Centered Logo */}
         </div>
         <div className="py-4 xs:pb-14 pt-0 FAQ-page">

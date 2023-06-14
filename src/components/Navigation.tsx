@@ -211,7 +211,7 @@ function updateParam(latestUserInput: any) {
             ref={menuRef}
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <img src={KebabIcon} className={cssClasses.kebabIcon} /> More
+            <img alt='More' src={KebabIcon} className={cssClasses.kebabIcon} /> More
           </button>
           {menuOpen && 
             <div className={cssClasses.menuContainer}>

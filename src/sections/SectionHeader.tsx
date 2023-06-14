@@ -93,7 +93,7 @@ export default function SectionHeader(props: SectionHeaderConfig): JSX.Element {
       {/* </div> */}
       <div className="vertical-label">
         <div className="label-wrapper">
-          {verticalKey=="locations" ? <>< img src={locationMarker}/></> :<>< img src={faqicon}/></> }
+          {verticalKey=="locations" ? <><img alt="location marker" src={locationMarker}/></> :<><img alt="faq icon" src={faqicon}/></> }
          
           <h2>{label}</h2>
         </div>

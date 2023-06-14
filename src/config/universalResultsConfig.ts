@@ -26,3 +26,12 @@ export const universalResultsConfig: UniversalResultsConfig = {
     }
   }
 }
+
+export const socialLinks = {
+  facebook: "https://www.facebook.com/EphrataNationalBank",
+  twitter: "https://twitter.com/EphrataNational",
+  linkedin: "https://www.linkedin.com/company/ephrata-national-bank?trk=top_nav_home",
+  instagram: "https://www.instagram.com/ephratanationalbank/",
+  youtube: "https://www.youtube.com/channel/UCADIbDyVlqGR0JEMBKCddEA",
+  pinterest: "https://www.pinterest.com/EphrataNationalBank",
+}

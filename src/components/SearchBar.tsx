@@ -105,7 +105,7 @@ export default function SearchBar({
         screenReaderInstructions={SCREENREADER_INSTRUCTIONS}
         screenReaderText={screenReaderText}
         onSubmit={executeQuery}
-        onInputChange={value => {
+        onInputChange={(value:string) => {
           answersActions.setQuery(value);
         }}
         onInputFocus={() => {
