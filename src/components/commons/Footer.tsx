@@ -20,7 +20,7 @@ export default function Footer(data: props) {
   const houseLenderSubMenus = data.footerlinks.map((res: any) => {
     return (
       <>
-        <li><a href="#">{res.name}</a></li>
+        <li><a href={res.link}>{res.name}</a></li>
       </>
     );
   });
@@ -87,7 +87,7 @@ export default function Footer(data: props) {
                 </div>
                 <div className="corporate-location-phone">
                   <span>Toll Free :</span>
-                  <a href={"tel:" + officeNumber}>+8787366532</a>
+                  <a href={"tel:" + "+8787366532"}>{officeNumber}</a>
                 </div>
               </div>
             </div>
@@ -98,7 +98,7 @@ export default function Footer(data: props) {
               <div className="flex justify-center lg:justify-end">
                 <ul className="flex items-center">
                   <li>
-                    <a target="_blank" href="#">
+                    <a target="_blank" href="https://www.facebook.com/EphrataNationalBank">
                       {SvgIcons.faceBook}
                     </a>
                   </li>
@@ -106,7 +106,7 @@ export default function Footer(data: props) {
                   <li>
                     <a
                       target="_blank"
-                      href="#"
+                      href="https://twitter.com/EphrataNational"
                       className=""
                     >
                      {SvgIcons.twitter}
@@ -114,14 +114,14 @@ export default function Footer(data: props) {
                   </li>
 
                   <li>
-                    <a target="_blank" href="#" className=" text-gray-600">
+                    <a target="_blank" href="https://www.linkedin.com/company/ephrata-national-bank?trk=top_nav_home" className=" text-gray-600">
                     {SvgIcons.linkedin}
                     </a>
                   </li>
                   <li>
                     <a
                       target="_blank"
-                      href="#"
+                      href="https://www.instagram.com/ephratanationalbank/"
                       className=""
                     >
                        {SvgIcons.instagram}
@@ -130,7 +130,7 @@ export default function Footer(data: props) {
                   <li>
                     <a
                       target="_blank"
-                      href="#"
+                      href="https://www.youtube.com/channel/UCADIbDyVlqGR0JEMBKCddEA"
                       className=""
                     >
                        {SvgIcons.youTube}
@@ -139,7 +139,7 @@ export default function Footer(data: props) {
                   <li>
                     <a
                       target="_blank"
-                      href="#"
+                      href="https://www.pinterest.com/EphrataNationalBank"
                       className=""
                     >{SvgIcons.pinterest}
                     </a>
