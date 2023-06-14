@@ -201,8 +201,15 @@ interface IndexPage extends TemplateRenderProps {
 interface IndexType {
   "@type": "BreadcrumbList";
   name: string;
-  url: string;
-  logo: string;
+  url?: string;
+  logo?: string;
+}
+interface ListType {
+  "@type": "ListItem";
+  name: string;
+  position?: number;
+  logo?: string;
+  "@id":string
 }
 
 
@@ -216,8 +223,16 @@ const IndexPage: Template<IndexPage> = ({ document }) => {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           name: "Ephrata National Bank",
-          url: "https://www.epnb.com/answers/",
-          logo: ENBRoundLogo,
+        }}
+      />
+       <JsonLd<ListType>
+        item={{
+          "@context": "https://schema.org",
+           "@type": "ListItem",
+           "@id": "https://www.epnb.com/",
+           "position": 1,
+           name: "Ephrata National Bank",
+          
         }}
       />
       <SearchHeadlessProvider searcher={searcher}>
