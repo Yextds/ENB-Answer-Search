@@ -184,8 +184,15 @@ const searcher = provideHeadless(answersHeadlessConfig);
 interface FaqType {
   "@type": "BreadcrumbList";
   name: string;
-  url: string;
-  position:number
+  url?: string;
+  position?:number
+}
+interface ListType {
+  "@type": "ListItem";
+  name: string;
+  position?: number;
+  logo?: string;
+  "@id":string
 }
 const ArticlesPage: Template<TemplateRenderProps> = ({document,}) => {
   const { _site } = document;
@@ -197,8 +204,16 @@ const ArticlesPage: Template<TemplateRenderProps> = ({document,}) => {
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           name: "Ephrata National Bank",
-          url: "https://www.epnb.com/answers/",
-          position: 2
+        }}
+      />
+       <JsonLd<ListType>
+        item={{
+          "@context": "https://schema.org",
+           "@type": "ListItem",
+           "@id": "https://www.epnb.com/",
+           "position": 3,
+           name: "Ephrata National Bank",
+          
         }}
       />
       <SearchHeadlessProvider searcher={searcher}>
