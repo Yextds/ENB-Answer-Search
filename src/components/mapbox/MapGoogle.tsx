@@ -365,8 +365,7 @@ function UnwrappedGoogleMaps({
             <p>{`${result.address?.city}, ${result.address?.region} `}</p>
             <p>{result.address?.postalCode}</p>
           </div>
-        </div>
-        <div className="phone ">
+        </div>        
         <div className="addressphone flex justify-start gap-2 mb-2">
           {SvgIcons.locationPhone}
          
@@ -375,11 +374,10 @@ function UnwrappedGoogleMaps({
             </a>
               
             </button>
-          </div>
-        </div>
+          </div>        
         <div className="button-bx map-card ">
           <a
-            className="ctaBtn"
+            className="button"
             target="_blank"
             href={`https://www.google.com/maps/dir/?api=1&destination=${result.address?.line1 + "," + result.address.city}`}
             rel="noreferrer"
