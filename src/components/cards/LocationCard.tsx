@@ -182,9 +182,8 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
         </div>
         <div className="right-buttons">
           <div className="miles">
-           
-            {query === undefined || query.length === 0?  "": <>
-             
+            {(query === undefined || query.length === 0 || !distance) ?  "": <>
+             { }
             <svg
               width="8"
               height="13"
@@ -198,7 +197,7 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
                 fill="currentColor"
               />
             </svg>
-            {metersToMiles(distance ?? 0)} mi</>}
+            {metersToMiles(distance)} mi</>}
           
 
           </div>
