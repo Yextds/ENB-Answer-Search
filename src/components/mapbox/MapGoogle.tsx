@@ -381,7 +381,7 @@ function UnwrappedGoogleMaps({
         </div>
         <div className="button-bx map-card ">
           <a
-            className="ctaBtn"
+            className="button"
             target="_blank"
             href={`https://www.google.com/maps/dir/?api=1&destination=${result.address?.line1 + "," + result.address.city}`}
             rel="noreferrer"
@@ -390,7 +390,7 @@ function UnwrappedGoogleMaps({
           </a>
           <a
                target="_self"
-              className="button"
+               className="button"
               rel="noreferrer"
               href={`tel:${result.mainPhone}`}>
             CALL

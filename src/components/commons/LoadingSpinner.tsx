@@ -4,7 +4,7 @@ export default function LoadingSpinner() {
   return (
     <div className="spinner-main">
       <div className="spinner-container ">
-        <div className="loading-spinner"></div>
+        <div className="lds-dual-ring"></div>
       </div>
     </div>
   );
