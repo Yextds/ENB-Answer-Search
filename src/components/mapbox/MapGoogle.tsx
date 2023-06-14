@@ -1,10 +1,7 @@
 import { Wrapper } from "@googlemaps/react-wrapper";
-//  import { useSearchState, Result } from "@yext/search-headless-react";
 import * as React from "react";
 import { useRef, useEffect, useState, useContext } from "react";
-import {
-  /*twMerge,*/ useComposedCssClasses,
-} from "..//../hooks/useComposedCssClasses";
+import {  useComposedCssClasses } from "..//../hooks/useComposedCssClasses";
 import { renderToString } from "react-dom/server";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import { LocationContext } from "../LocationContext";
@@ -158,7 +155,6 @@ function UnwrappedGoogleMaps({
    *
    *
    */
-
   /* 
  userdeleteMarkers();
  const userlat = useSearchState((s) => s.location.locationBias) || [];
@@ -192,10 +188,10 @@ function UnwrappedGoogleMaps({
       position,
       map,
       icon: marker_icon,
-      label: {
-       
+      /* label: {
+        text: "",
         color: "#fff",
-      },
+      }, */
     });
 
     const location = new google.maps.LatLng(position.lat, position.lng);
@@ -262,14 +258,17 @@ function UnwrappedGoogleMaps({
 
   useEffect(()=>{
     if(map){
-      google.maps.event.addListener(map, 'zoom_changed', function() {
-        console.log("ZOOM CHANGED", infoWindow.position);
-        if(infoWindow){
-          infoWindow.close();
+      setTimeout(()=>{
+        var elements = document.getElementsByClassName("gm-control-active");
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].addEventListener('click', ()=>{
+            if(infoWindow){
+              infoWindow.close();
+            }
+          }, false);
         }
-      });
+      }, 1000);
     }
-    
   },[map])
 
   useEffect(() => {
