@@ -399,6 +399,9 @@ li.vertical-navigation-item:nth-child(3) {
 .markerContent .button-bx a {
   @apply w-full xs:w-2/4 text-center px-4 py-2 even:mt-2.5 xs:even:mt-0 xs:even:ml-2.5 bg-primaryBlue text-white border border-primaryBlue hover:bg-white hover:text-primaryBlue transition-all duration-300;
 }
+.markerContent .addressphone .phone{
+  @apply underline hover:no-underline;
+  }
 .gm-style-iw-d {
   @apply !max-h-[290px];
 }
@@ -646,7 +649,7 @@ li.vertical-navigation-item:nth-child(3) {
   z-index: 9999;
   letter-spacing: 4px;
   text-transform: uppercase;
-  text-shadow: 0 0 10px #0f425c;
+  text-shadow: 0 0 10px #004990;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -667,8 +670,25 @@ li.vertical-navigation-item:nth-child(3) {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #0f425c;
+  box-shadow: 0 0 20px #004990;
   top: -3px;
   right: -4px;
   box-shadow: 0 0 20px #0f425c;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
 }
