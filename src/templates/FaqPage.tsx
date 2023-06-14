@@ -167,7 +167,14 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (): HeadConfig 
          content: `${ENBRoundLogo}`,
        },
      },
-      // Meta Title and Description
+     {
+      type: "meta",
+      attributes: {
+        name: "robots",
+        content: "noindex, nofollow",
+      },
+    },
+      
     ],
   };
 };
