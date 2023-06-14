@@ -183,7 +183,6 @@ export function LocationCard(props: LocationCardProps): JSX.Element {
         <div className="right-buttons">
           <div className="miles">
             {(query === undefined || query.length === 0 || !distance) ?  "": <>
-             { }
             <svg
               width="8"
               height="13"
