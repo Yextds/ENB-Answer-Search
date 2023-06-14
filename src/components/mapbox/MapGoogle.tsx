@@ -387,7 +387,7 @@ function UnwrappedGoogleMaps({
            GET DIRECTION
           </a>
           <a
-              target="_blank"
+               target="_self"
               className="button"
               rel="noreferrer"
               href={`tel:${result.mainPhone}`}>

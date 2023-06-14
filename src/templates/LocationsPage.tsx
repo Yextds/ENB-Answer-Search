@@ -172,6 +172,13 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
        content: `${ENBRoundLogo}`,
      },
    },
+   {
+    type: "meta",
+    attributes: {
+      name: "robots",
+      content: "noindex, nofollow",
+    },
+  },
     
     ],
   };
