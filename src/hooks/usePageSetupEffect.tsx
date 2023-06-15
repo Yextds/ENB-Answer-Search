@@ -23,7 +23,6 @@ export default function usePageSetupEffect(verticalKey?: string, limit?:any) {
       ...stateToClear
     });
 
-    console.log("verticalKey", verticalKey)
     if(verticalKey){      
       answersActions.setVertical(verticalKey)
     }else{

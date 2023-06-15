@@ -133,7 +133,6 @@ function updateParam(latestUserInput: any) {
   const cssClasses = useComposedCssClasses(builtInCssClasses, customCssClasses, cssCompositionMethod);
   const currentVertical = useSearchState(state => state.vertical.verticalKey);
 
-  console.log("currentVertical", currentVertical);
   switch (currentVertical) {
     case 'faqs':{
       usePageSetupEffect(currentVertical, 10);
