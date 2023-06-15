@@ -9,10 +9,6 @@ import { universalResultsConfig } from '../config/universalResultsConfig';
 import * as React from 'react';
 import usePageSetupEffect from '../hooks/usePageSetupEffect';
 
-
-
-
-
 interface NavigationCssClasses {
   nav?: string,
   linksWrapper?: string,
@@ -59,9 +55,7 @@ interface NavigationProps {
 }
 
 export default function Navigation({ customCssClasses, cssCompositionMethod }: NavigationProps) {
-  // const verticalKey = "faqs"
-  // usePageSetupEffect(verticalKey, 6);
-  // Query - Starts
+
 const[navparmam,setNavParam]=useState('');
 const SearchQuery: any = useSearchState(state => state.query.input);
 
@@ -117,15 +111,12 @@ function updateParam(latestUserInput: any) {
   window.history.replaceState({}, '', newUrl);
 }
 
-//Query - Ends
-
+  // Query - Ends
   // Default Search Code -  Starts
-
-  const searchAction = useSearchActions();
+  /* const searchAction = useSearchActions();
   useEffect(() => {
     searchAction.executeVerticalQuery();  
-  }, [])
-
+  }, []) */
   // Default Search Code - Ends
 
   const links = [
@@ -141,13 +132,35 @@ function updateParam(latestUserInput: any) {
 
   const cssClasses = useComposedCssClasses(builtInCssClasses, customCssClasses, cssCompositionMethod);
   const currentVertical = useSearchState(state => state.vertical.verticalKey);
-  if(currentVertical==="faqs"){
+
+  switch (currentVertical) {
+    case 'faqs':{
+      usePageSetupEffect(currentVertical, 10);
+      break;
+    }
+    case 'locations':{
+      usePageSetupEffect(currentVertical, 10);
+      break;
+    }
+    case 'links':{
+      usePageSetupEffect(currentVertical, 5)
+      break;
+    }
+    default:{
+      usePageSetupEffect('', 5)
+      break;
+    }
+  }
+
+  /* if(currentVertical==="faqs"){
     usePageSetupEffect(currentVertical, 10);
   }else if(currentVertical==="locations"){
     usePageSetupEffect(currentVertical, 10);
   }else if(currentVertical==="links"){
     usePageSetupEffect(currentVertical, 5)
-  }
+  }else{
+    usePageSetupEffect('', 5)
+  } */
   
   // Close the menu when clicking the document
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -211,7 +224,7 @@ function updateParam(latestUserInput: any) {
             ref={menuRef}
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <img src={KebabIcon} className={cssClasses.kebabIcon} /> More
+            <img alt='More' src={KebabIcon} className={cssClasses.kebabIcon} /> More
           </button>
           {menuOpen && 
             <div className={cssClasses.menuContainer}>

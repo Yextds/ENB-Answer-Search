@@ -322,8 +322,6 @@ function UnwrappedGoogleMaps({
   for (let i = 0; i < markerPins.current.length; i++) {
     markerPins.current[i]?.addListener("click", () => {
 
-      //console.log("MARKER CLICK");
-      
       if (!openInfoWindow) {
         openMapZoom = map?.getZoom();
         openMapCenter = map?.getCenter();

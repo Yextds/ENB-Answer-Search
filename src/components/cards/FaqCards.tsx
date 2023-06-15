@@ -112,7 +112,7 @@ export function FaqCard(props: TrainerCardProps): JSX.Element {
           className="vertical-card-heading faq-card-header"
         >
           {renderName(trainer.name)}
-          <button className="Vertical-arrow"
+          <button className="Vertical-arrow" aria-label="click button"
            onClick={(e) => isShowContent(e, trainer.id)}
           ></button>
         </div>

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { SvgIcons } from "../../SvgIcon";
 import { formatPhoneNumber } from "react-phone-number-input";
+import { socialLinks } from "../../config/universalResultsConfig";
 
 type props = {
   footerHeading?: any;
@@ -72,7 +73,7 @@ export default function Footer(data: props) {
               <p>{houseLenderCopyrightText}</p>
             </div>
             <div className="corporate mt-10 lg:mt-0 order-2">
-              <a href="https://www.epnb.com/" className="corporate-logo">
+              <a href="https://www.epnb.com/" aria-label="tagline image" className="corporate-logo">
                 <img
                   src="https://www.epnb.com/wp-content/themes/epnb/img/logo/logo-without-tagline.svg"
                   height={"70"}
@@ -98,31 +99,31 @@ export default function Footer(data: props) {
               <div className="flex justify-center lg:justify-end">
                 <ul className="flex items-center">
                   <li>
-                    <a target="_blank" href="https://www.facebook.com/EphrataNationalBank">
+                    <a target="_blank" aria-label="facebook image" href={socialLinks.facebook}>
                       {SvgIcons.faceBook}
                     </a>
                   </li>
 
                   <li>
                     <a
+                      aria-label="twitter image"
                       target="_blank"
-                      href="https://twitter.com/EphrataNational"
-                      className=""
+                      href={socialLinks.twitter}
                     >
                      {SvgIcons.twitter}
                     </a>
                   </li>
 
                   <li>
-                    <a target="_blank" href="https://www.linkedin.com/company/ephrata-national-bank?trk=top_nav_home" className=" text-gray-600">
+                    <a aria-label="linkedin image" target="_blank" href={socialLinks.linkedin} className=" text-gray-600">
                     {SvgIcons.linkedin}
                     </a>
                   </li>
                   <li>
                     <a
                       target="_blank"
-                      href="https://www.instagram.com/ephratanationalbank/"
-                      className=""
+                      href={socialLinks.instagram}
+                      aria-label="instagram image"
                     >
                        {SvgIcons.instagram}
                     </a>
@@ -130,8 +131,8 @@ export default function Footer(data: props) {
                   <li>
                     <a
                       target="_blank"
-                      href="https://www.youtube.com/channel/UCADIbDyVlqGR0JEMBKCddEA"
-                      className=""
+                      href={socialLinks.youtube}
+                      aria-label="youtube image"
                     >
                        {SvgIcons.youTube}
                     </a>
@@ -139,8 +140,8 @@ export default function Footer(data: props) {
                   <li>
                     <a
                       target="_blank"
-                      href="https://www.pinterest.com/EphrataNationalBank"
-                      className=""
+                      href={socialLinks.pinterest}
+                      aria-label="pinterest image"
                     >{SvgIcons.pinterest}
                     </a>
                   </li>
@@ -151,8 +152,8 @@ export default function Footer(data: props) {
         </div>
         <div className="container-custom mobile-pad">
           <div className="powered-by-title">
-            <a href="https://www.scheffey.com/">Site by Scheffey</a>
-            <a href="https://www.scheffey.com/">{SvgIcons.scheffeyLogo}</a>
+            <a  href="https://www.scheffey.com/">Site by Scheffey</a>
+            <a aria-label="scheffy logo" href="https://www.scheffey.com/">{SvgIcons.scheffeyLogo}</a>
           </div>
         </div>
       </footer>

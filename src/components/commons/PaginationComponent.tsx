@@ -95,7 +95,7 @@ export default function NewPagination(): JSX.Element | null  {
             onClick={() => executeSearchWithNewOffset(offset - limit)} disabled={pageNumber === 1}
           >
             {/* <PageNavigationIcon className={cssClasses.icon + ' transform -rotate-90'} /> */}
-            <img className='w-4 transform rotate-90' src={arrowIcon}/>
+            <img alt='arrow icon' className='w-4 transform rotate-90' src={arrowIcon}/>
           </button>}
           
           {paginationLabels.map((label, index) => {
@@ -114,7 +114,7 @@ export default function NewPagination(): JSX.Element | null  {
             onClick={() => executeSearchWithNewOffset(offset + limit)} disabled={pageNumber === maxPageCount}
           >
             {/* <PageNavigationIcon className={cssClasses.icon + ' transform rotate-90'} /> */}
-            <img className='w-4 transform -rotate-90' src={arrowIcon}/>
+            <img alt='arrow icon' className='w-4 transform -rotate-90' src={arrowIcon}/>
           </button>}
           
         </nav>

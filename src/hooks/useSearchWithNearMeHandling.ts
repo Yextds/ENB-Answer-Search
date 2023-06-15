@@ -21,7 +21,7 @@ export default function useSearchWithNearMeHandling(
    * before the search execution in order to retrieve the search intents
    */
   const autocompletePromiseRef = useRef<Promise<AutocompleteResponse | undefined>>();
-  const isVertical = answersActions.state.meta.searchType === SearchTypeEnum.Vertical;
+  const isVertical = answersActions?.state?.meta?.searchType === SearchTypeEnum.Vertical;
 
   async function executeQuery() {
     let intents: SearchIntent[] = [];

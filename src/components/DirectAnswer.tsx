@@ -59,7 +59,7 @@ export default function DirectAnswer(props: DirectAnswerProps): JSX.Element | nu
 
     return <>
       {isSnippet && name && <div className={cssClasses.viewDetailsLinkContainer}>
-        Read more about <a className={cssClasses.viewDetailsLink} href={link}>
+        Read more about <a className={cssClasses.viewDetailsLink} href={link} >
           {directAnswerResult.relatedResult.name}
         </a>
       </div>}
