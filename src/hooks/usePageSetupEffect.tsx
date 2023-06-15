@@ -18,37 +18,29 @@ export default function usePageSetupEffect(verticalKey?: string, limit?:any) {
       vertical: {}
     }
     const key:any = verticalKey;
-    const universalverticalkey:any=[
-        'product',
-        'video',
-        'help_articles',
-        'provider_switching',
-        'locations'
-    ]
     answersActions.setState({
       ...answersActions.state,
       ...stateToClear
     });
-    if(verticalKey){
-       answersActions.setVertical(verticalKey)}
-      else{answersActions.setUniversal();
-     
-      const universalLimit: any= {};
-      universalverticalkey.map((res:any)=>{
-        return  universalLimit[res] = universalResultsConfig || null;
-      })
-       
-       const newuniversallimit: UniversalLimit =universalLimit;
-      searchActions.setUniversalLimit(
-        newuniversallimit);}
+
+    console.log("verticalKey", verticalKey)
+    if(verticalKey){      
+      answersActions.setVertical(verticalKey)
+    }else{
+      answersActions.setUniversal();
+      const universalLimit = {
+        'locations' : 10,
+        'faqs' : 10,
+        'links' : 10
+      };
+      searchActions.setUniversalLimit(universalLimit);
+    }
 
      
-       if(verticalKey == key){        
-        searchActions.setVerticalLimit(limit);
-       }
+    /* if(verticalKey == key){        
+      searchActions.setVerticalLimit(limit);
+    } */
       
-       
- 
     const executeQuery = async () => {
       let searchIntents: SearchIntent[] = [];
       if (!answersActions.state.location.userLocation) {

@@ -28,7 +28,7 @@ export default function LocationBias({
   cssCompositionMethod
 }: Props): JSX.Element | null {
   const answersActions = useSearchActions();
-  const isVertical = useSearchState(s => s.meta.searchType) === 'vertical';
+  const isVertical = useSearchState(s => s?.meta?.searchType) === 'vertical';
   const locationBias = useSearchState(s => s.location.locationBias)
   const cssClasses = useComposedCssClasses(builtInCssClasses, customCssClasses, cssCompositionMethod);
 

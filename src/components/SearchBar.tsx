@@ -64,7 +64,7 @@ export default function SearchBar({
   const answersActions = useSearchActions();
   const query = useSearchState(state => state.query.input);
   const isLoading = useSearchState(state => state.searchStatus.isLoading);
-  const isVertical = useSearchState(s => s.meta.searchType) === SearchTypeEnum.Vertical;
+  const isVertical = useSearchState(s => s?.meta?.searchType) === SearchTypeEnum.Vertical;
   const [autocompleteResponse, executeAutocomplete] = useSynchronizedRequest(() => {
     return isVertical
       ? answersActions.executeVerticalAutocomplete()

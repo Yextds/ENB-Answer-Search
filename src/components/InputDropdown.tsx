@@ -245,8 +245,7 @@ export default function InputDropdown({
           onKeyDown={handleInputElementKeydown}
           value={inputValue}
           ref={inputRef}
-          aria-describedby={screenReaderInstructionsId}
-          // aria-activedescendant={focusedOptionId}
+          aria-describedby={screenReaderInstructionsId} 
         />
         <div className={cssClasses.searchButtonContainer}>
           {renderSearchButton()}
