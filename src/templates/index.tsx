@@ -250,11 +250,11 @@ const IndexPage: Template<IndexPage> = ({ document }) => {
           <HeaderLogo />
           {/* Round Centered Logo */}
         </div>
-        <div className="py-4 xs:pb-14 pt-0">
-          <div className="container-custom px-5 pb-4 xs:pb-8 pt-0 xs:px-[4.375rem] bg-white rounded">
+        <div className="py-4 xs:pb-14 pt-0 min-h-screen">
+          <div className="container-custom px-5 pb-4 xs:pb-8 pt-0 xs:px-[4.375rem] bg-white rounded min-h-screen">
             <div className="polygon-logo mb-10">
               <div className="polygon-centred">
-                <img className="mx-auto" src={ENBPolygonLogo} alt="logo" />
+                <img className="mx-auto" src={ENBPolygonLogo} alt="logo" width={358}  height={63}/>
               </div>
             </div>
             <div className="yext-search-bar">
