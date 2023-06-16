@@ -270,12 +270,15 @@ const IndexPage: Template<IndexPage> = ({ document }) => {
             <Navigation />
             <SpellCheck />
             <DirectAnswer />
-            <UniversalResults
+            <div className="min-h-screen">
+              <UniversalResults
               appliedFiltersConfig={universalResultsFilterConfig}
               verticalConfigs={universalResultsConfig}
             />
+            </div>
+            
             <div className="location-info">
-              <img className="yextLogo" src={yext_logo} alt="footer logo" />
+              <img className="yextLogo" src={yext_logo} alt="Yext logo" width={40} height={40}/>
               <LocationBias />
             </div>
           </div>
