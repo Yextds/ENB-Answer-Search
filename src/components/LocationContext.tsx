@@ -1,3 +1,4 @@
+import * as React from "react";
 import { createContext, Dispatch, useReducer } from 'react';
 import {
   toggleShowMapReducer,
@@ -17,6 +18,7 @@ type LocationStateType = {
   mapLocations?: MapLocationData[],
   showMap: boolean,
   noGymsMessage?: string
+
 };
 
 const locationState = {

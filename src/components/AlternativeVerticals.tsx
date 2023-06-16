@@ -1,9 +1,10 @@
 import { processTranslation } from './utils/processTranslation';
-import { ReactComponent as Star } from '../icons/star.svg';
+
 import { useSearchState, VerticalResults } from '@yext/search-headless-react';
 import { CompositionMethod, useComposedCssClasses } from '../hooks/useComposedCssClasses';
 import classNames from 'classnames';
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 // import { Link } from 'react-router-dom';
 
 interface AlternativeVerticalsCssClasses {
@@ -152,9 +153,9 @@ export default function AlternativeVerticals ({
     return (
       <div className={cssClasses.categoriesText}>
         <span>View results across </span>
-        {/* <Link className={cssClasses.allCategoriesLink} to='/'>
+        <Link className={cssClasses.allCategoriesLink} to='/'>
           all search categories.
-        </Link> */}
+        </Link>
       </div>
     );
   }

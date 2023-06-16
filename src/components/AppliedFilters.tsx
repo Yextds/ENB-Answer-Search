@@ -1,5 +1,5 @@
 import { DisplayableFilter } from '../models/displayableFilter';
-import { ReactComponent as CloseX } from '../icons/x.svg';
+
 import { useSearchActions, AppliedQueryFilter, useSearchState, FiltersState } from '@yext/search-headless-react'
 import { isNearFilterValue } from '../utils/filterutils';
 import { CompositionMethod, useComposedCssClasses } from '../hooks/useComposedCssClasses';
@@ -7,6 +7,7 @@ import { GroupedFilters } from '../models/groupedFilters';
 import { getGroupedAppliedFilters } from '../utils/appliedfilterutils';
 import { useRef } from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 
 export interface AppliedFiltersCssClasses {
   appliedFiltersContainer?: string,
@@ -66,9 +67,9 @@ export default function AppliedFilters (
   const cssClasses = useComposedCssClasses(builtInCssClasses, customCssClasses, cssCompositionMethod);
   cssClasses.appliedFiltersContainer = classNames(cssClasses.appliedFiltersContainer, {
     [cssClasses.appliedFiltersContainer___loading ?? '']: isLoading
-  });
+  })
   return <AppliedFiltersDisplay displayableFilters={appliedFilters} cssClasses={cssClasses} {...otherProps}/>
-};
+}
 
 export function AppliedFiltersDisplay ({
   labelText,

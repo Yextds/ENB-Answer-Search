@@ -2,14 +2,15 @@ import { FaqCard } from '../components/cards/FaqCards';
 import { VerticalConfig } from '../components/UniversalResults';
 import { LocationCard } from '../components/cards/LocationCard';
 import LocationSection from '../sections/LocationSection';
-import { ProductsCard } from '../components/cards/ProductsCard';
+
 
 export type UniversalResultsConfig = Record<string, VerticalConfig>;
 export const universallimit = 3;
+
 export const universalResultsConfig: UniversalResultsConfig = {
   locations: {
     SectionComponent: LocationSection,
-    label: 'Locations',
+    label: 'LOCATIONS',
     viewAllButton: true,
     cardConfig: {
       CardComponent: LocationCard,
@@ -23,31 +24,14 @@ export const universalResultsConfig: UniversalResultsConfig = {
       CardComponent: FaqCard,
       showOrdinal: false
     }
-  },
-  insurances: {
-    label: 'Insurance',
-    viewAllButton: true,
-    cardConfig: {
-      CardComponent: ProductsCard,
-      showOrdinal: false
-    }
   }
-  // },
-  // video: {
-  //   label: 'Videos',
-  //   viewAllButton: true,
-  //   cardConfig: {
-  //     CardComponent: VideosCard,
-  //     showOrdinal: false
-  //   }
-  // },
-  // provider_switching: {
-  //   label: 'Provider Switching',
-  //   viewAllButton: true,
-  //   cardConfig: {
-  //     CardComponent: ProviderSwitchingCard,
-  //     showOrdinal: false
-  //   }
-  // }
-  //  
+}
+
+export const socialLinks = {
+  facebook: "https://www.facebook.com/EphrataNationalBank",
+  twitter: "https://twitter.com/EphrataNational",
+  linkedin: "https://www.linkedin.com/company/ephrata-national-bank?trk=top_nav_home",
+  instagram: "https://www.instagram.com/ephratanationalbank/",
+  youtube: "https://www.youtube.com/channel/UCADIbDyVlqGR0JEMBKCddEA",
+  pinterest: "https://www.pinterest.com/EphrataNationalBank",
 }

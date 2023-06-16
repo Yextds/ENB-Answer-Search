@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { provideHeadless, VerticalResults, HeadlessConfig, UniversalLimit } from '@yext/search-headless-react';
+import { provideHeadless, VerticalResults, UniversalLimit } from '@yext/search-headless-react';
 import { answersHeadlessConfig } from '../config/answersHeadlessConfig';
 import useDebouncedFunction from './useDebouncedFunction';
 import useComponentMountStatus from "./useComponentMountStatus";
@@ -60,4 +60,4 @@ export function useEntityPreviews(headlessId: string, debounceTime: number):[ En
     debouncedUniversalSearch();
   }
   return [{ verticalResultsArray, isLoading }, executeEntityPreviewsQuery];
-};
+}

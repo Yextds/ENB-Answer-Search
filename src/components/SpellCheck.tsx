@@ -1,6 +1,7 @@
 import { useSearchState, useSearchActions, SearchTypeEnum } from '@yext/search-headless-react'
 import classNames from 'classnames';
 import { CompositionMethod, useComposedCssClasses } from '../hooks/useComposedCssClasses';
+import * as React from 'react';
 
 interface SpellCheckCssClasses {
   container?: string,
@@ -22,7 +23,7 @@ interface Props {
 }
 
 export default function SpellCheck ({ customCssClasses, cssCompositionMethod }: Props): JSX.Element | null {
-  const isVertical = useSearchState(s => s.meta.searchType) === SearchTypeEnum.Vertical;
+  const isVertical = useSearchState(s => s?.meta?.searchType) === SearchTypeEnum.Vertical;
   const cssClasses = useComposedCssClasses(builtInCssClasses, customCssClasses, cssCompositionMethod);
   const correctedQuery = useSearchState(state => state.spellCheck.correctedQuery);
   const isLoading = useSearchState(state => state.searchStatus.isLoading);

@@ -1,8 +1,8 @@
 import { SectionComponent, SectionConfig } from '../models/sectionComponent';
-import { StandardCard } from '../components/cards/StandardCard';
-import { CompositionMethod, useComposedCssClasses } from '../hooks/useComposedCssClasses';
-import React, { useContext } from 'react';
-import { useSearchState } from "@yext/search-headless-react";
+
+import { CompositionMethod } from '../hooks/useComposedCssClasses';
+import React  from 'react';
+
 import LocationResults from '../components/LocationResults';
 import { LocationProvider } from '../components/LocationContext';
 
@@ -23,15 +23,15 @@ interface LocationSectionConfig extends SectionConfig {
 const LocationSection: SectionComponent = function (props: LocationSectionConfig): JSX.Element | null {
   const cssClasses = builtInCssClasses;
   const { results, cardConfig, header } = props;
-  const latestQuery = useSearchState((state) => state.query.mostRecentSearch);
-  console.log(results,"results");
+
+
 //   const screenSize = useContext(ResponsiveContext);
 
   if (results.length === 0) {
     return null;
   }
 
-  const cardComponent = cardConfig?.CardComponent || StandardCard;
+
 
   return (
     <LocationProvider>

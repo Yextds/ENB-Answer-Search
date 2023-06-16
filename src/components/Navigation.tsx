@@ -9,10 +9,6 @@ import { universalResultsConfig } from '../config/universalResultsConfig';
 import * as React from 'react';
 import usePageSetupEffect from '../hooks/usePageSetupEffect';
 
-
-
-
-
 interface NavigationCssClasses {
   nav?: string,
   linksWrapper?: string,
@@ -32,10 +28,10 @@ interface NavigationCssClasses {
 }
 
 const builtInCssClasses: NavigationCssClasses = {
-  nav: 'border-b border-gray-200 text-gray-600 flex space-x-6 font-medium mb-6',
-  navLinkContainer: 'whitespace-nowrap py-3 mt-1 font-medium text-md border-b-2 border-opacity-0 hover:border-gray-300',
-  navLink: 'py-3 px-2',
-  navLinkContainer___active: 'text-blue-600 border-blue-600 border-opacity-100 hover:border-blue-600',
+  nav: 'vertical-navigation',
+  navLinkContainer: 'vertical-navigation-item',
+  navLink: 'vertical-nav-link',
+  navLinkContainer___active: 'active',
   kebabIcon: 'pointer-events-none',
   menuButtonContainer: 'relative flex flex-grow justify-end mr-4',
   menuButton: 'flex items-center text-gray-600 font-medium text-md h-12 mt-1 p-3 border-opacity-0 rounded-md hover:bg-gray-200',
@@ -59,9 +55,7 @@ interface NavigationProps {
 }
 
 export default function Navigation({ customCssClasses, cssCompositionMethod }: NavigationProps) {
-  // const verticalKey = "faqs"
-  // usePageSetupEffect(verticalKey, 6);
-  // Query - Starts
+
 const[navparmam,setNavParam]=useState('');
 const SearchQuery: any = useSearchState(state => state.query.input);
 
@@ -78,7 +72,7 @@ const answersActions = useSearchActions();
 
 
 useEffect(() => {
-  console.log(getQueryParam(),"product")
+  
   if (getQueryParam() != null) {
     answersActions.setQuery(getQueryParam())
   }
@@ -117,15 +111,12 @@ function updateParam(latestUserInput: any) {
   window.history.replaceState({}, '', newUrl);
 }
 
-//Query - Ends
-
+  // Query - Ends
   // Default Search Code -  Starts
-
-  const searchAction = useSearchActions();
+  /* const searchAction = useSearchActions();
   useEffect(() => {
     searchAction.executeVerticalQuery();  
-  }, [])
-
+  }, []) */
   // Default Search Code - Ends
 
   const links = [
@@ -141,11 +132,35 @@ function updateParam(latestUserInput: any) {
 
   const cssClasses = useComposedCssClasses(builtInCssClasses, customCssClasses, cssCompositionMethod);
   const currentVertical = useSearchState(state => state.vertical.verticalKey);
-  if(currentVertical==="faqs"){
-    usePageSetupEffect(currentVertical, 6);
-  }else if(currentVertical==="insurances"){
-    usePageSetupEffect(currentVertical, 2);
+
+  switch (currentVertical) {
+    case 'faqs':{
+      usePageSetupEffect(currentVertical, 10);
+      break;
+    }
+    case 'locations':{
+      usePageSetupEffect(currentVertical, 10);
+      break;
+    }
+    case 'links':{
+      usePageSetupEffect(currentVertical, 5)
+      break;
+    }
+    default:{
+      usePageSetupEffect('', 5)
+      break;
+    }
   }
+
+  /* if(currentVertical==="faqs"){
+    usePageSetupEffect(currentVertical, 10);
+  }else if(currentVertical==="locations"){
+    usePageSetupEffect(currentVertical, 10);
+  }else if(currentVertical==="links"){
+    usePageSetupEffect(currentVertical, 5)
+  }else{
+    usePageSetupEffect('', 5)
+  } */
   
   // Close the menu when clicking the document
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -182,7 +197,7 @@ function updateParam(latestUserInput: any) {
         setNumOverflowLinks(0);
         handleResize()
       }, 50)
-    };
+    }
     window.addEventListener('resize', resizeListener);
     return () => window.removeEventListener('resize', resizeListener);
   }, [handleResize]);
@@ -200,7 +215,7 @@ function updateParam(latestUserInput: any) {
 
   return (
     <nav className={cssClasses.nav} ref={navigationRef}>
-      
+      <ul>
       {visibleLinks.map((l, index) => renderLink(l, index === activeVisibleLinkIndex, cssClasses,navparmam))}
       {numOverflowLinks > 0 &&
         <div className={cssClasses.menuButtonContainer}>
@@ -209,7 +224,7 @@ function updateParam(latestUserInput: any) {
             ref={menuRef}
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            <img src={KebabIcon} className={cssClasses.kebabIcon} /> More
+            <img alt='More' src={KebabIcon} className={cssClasses.kebabIcon} /> More
           </button>
           {menuOpen && 
             <div className={cssClasses.menuContainer}>
@@ -222,6 +237,7 @@ function updateParam(latestUserInput: any) {
           }
         </div>
       }
+</ul>
     </nav>
   )
 }
@@ -239,14 +255,14 @@ function renderLink(
   return (
     <>
     
-    <div className={navLinkContainerClasses} key={to}>
+    <li className={navLinkContainerClasses} key={to}>
       <a
         className={cssClasses.navLink}
         href={`${to}?query=${navparmam}`}
       >
         {label}
       </a>
-    </div>
+    </li>
     </>
   )
 }

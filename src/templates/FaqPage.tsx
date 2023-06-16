@@ -22,22 +22,28 @@ import {
 
 import DirectAnswer from "../components/DirectAnswer";
 import Navigation from "../components/Navigation";
-import { answersHeadlessConfig } from "../config/answersHeadlessConfig";
-import Header from "../components/commons/Header";
+import { answersHeadlessConfig, baseUrl } from "../config/answersHeadlessConfig";
+
 import Footer from "../components/commons/Footer";
 import { FaqCard } from "../components/cards/FaqCards";
 import VerticalResults from "../components/VerticalResults";
 import NewPagination from "../components/commons/PaginationComponent";
+import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
+import ENBRoundLogo from "../Images/ENB-round-logo.svg";
+import favicon from "../Images/favicon.png"
+import HeaderLogo from "../components/commons/HeaderLogo";
+import { JsonLd } from "react-schemaorg";
+
 
 export const config: TemplateConfig = {
   stream: {
-    $id: "header-and-footer",
+    $id: "global-config",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
     fields: ["id", "uid", "meta", "name"],
     // Defines the scope of entities that qualify for this stream.
     filter: {
-      entityIds: ["header-and-footer"],
+      entityIds: ["global-config"],
     },
     // The entity language profiles that documents will be generated for.
     localization: {
@@ -50,73 +56,168 @@ export const config: TemplateConfig = {
 export const getPath: GetPath<TemplateProps> = () => {
   return "/faqs";
 };
-
-export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
-  document,
-}): HeadConfig => {
+const metaTitle = "Ephrata National Bank | Frequesntly Asked Questions"
+const metaDescription = "Ephrata National Bank - How can we help you? please find all the answers to your queries here."
+export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (): HeadConfig => {
   return {
     title: `Ephrata National Bank | AS`,
     charset: "UTF-8",
-    viewport: "width=device-width, initial-scale=1",
+    viewport: "width=device-width, initial-scale=1, maximum-scale=1",
     tags: [
       {
         type: "link",
         attributes: {
           rel: "icon",
           type: "image/x-icon",
-          href: `https://www.epnb.com/wp-content/themes/epnb/img/logo/logo-full-no-tag.svg`,
+          href: favicon,
         },
       },
-      // Favicon
-      // Meta Title and Description
-      {
-        type: "meta",
-        attributes: {
-          name: "title",
-          content: `Answers | Ephrata National Bank`,
-        },
+  
+     {
+       type: "meta",
+       attributes: {
+         name: "title",
+         content: `Ephrata National Bank | Frequesntly Asked Questions`,
+       },
+     },
+     {
+       type: "meta",
+       attributes: {
+         name: "description",
+         content: `Ephrata National Bank - How can we help you? please find all the answers to your queries here.`,
+       },
+     },
+     {
+       type: "meta",
+       attributes: {
+         name: "author",
+         content: "Ephrata National Bank",
+       },
+     },
+     {
+       type: "link",
+       attributes: {
+         rel: "canonical",
+         href: baseUrl + "faqs",
+       },
+     },
+     {
+       type: "meta",
+       attributes: {
+         property: "og:title",
+         content: `${metaTitle}`,
+       },
+     },
+     {
+       type: "meta",
+       attributes: {
+         property: "og:description",
+         content: `${metaDescription}`,
+       },
+     },
+     {
+       type: "meta",
+       attributes: {
+         property: "og:url",
+         content: baseUrl,
+       },
+     },
+  
+     {
+       type: "meta",
+       attributes: {
+         property: "og:image",
+         content: `${ENBRoundLogo}`,
+       },
+     },
+     {
+       type: "meta",
+       attributes: {
+         property: "twitter:title",
+         content: `${metaTitle}`,
+       },
+     },
+     {
+       type: "meta",
+       attributes: {
+         name: "twitter:card",
+         content: "summary",
+       },
+     },
+     {
+       type: "meta",
+       attributes: {
+         name: "twitter:url",
+         content: baseUrl,
+       },
+     },
+  
+     {
+       type: "meta",
+       attributes: {
+         name: "twitter:description",
+         content: `${metaDescription}`,
+       },
+     },
+  
+     {
+       type: "meta",
+       attributes: {
+         name: "twitter:image",
+         content: `${ENBRoundLogo}`,
+       },
+     },
+     {
+      type: "meta",
+      attributes: {
+        name: "robots",
+        content: "noindex, nofollow",
       },
-      {
-        type: "meta",
-        attributes: {
-          name: "description",
-          content: `Answers | Ephrata National Bank`,
-        },
-      },
-      // Meta Title and Description
+    },
+      
     ],
   };
 };
 
 answersHeadlessConfig.verticalKey = "faqs";
 const searcher = provideHeadless(answersHeadlessConfig);
-
-const ArticlesPage: Template<TemplateRenderProps> = ({
-  relativePrefixToRoot,
-  path,
-  document,
-}) => {
+interface FaqType {
+  "@type": "BreadcrumbList";
+  name: string;
+  url: string;
+  position:number
+}
+const ArticlesPage: Template<TemplateRenderProps> = ({document}) => {
   const { _site } = document;
-  console.log(_site, "_site");
-  
-  // let headerProps = _site.c_header_links;
-  // console.log(_site.c_useful_links.headerLinksHeading,"Sites");
-  // const {
-  //   _site
-  // } = document;
 
   return (
     <>
-      <Header
-        upperHeaderLinks={_site.c_upperPart}
-        lowerHeaderLinks={_site.c_lowerPart}
+      <JsonLd<FaqType>
+        item={{
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          name: "Ephrata National Bank",
+          url: "https://www.epnb.com/answers/",
+          position: 2
+        }}
       />
       <SearchHeadlessProvider searcher={searcher}>
-        <div className="px-4 py-8">
-          <div className="mx-auto flex max-w-5xl flex-col">
-            <SearchBar placeholder="Search..." />
+        <div className="container-custom px-5 py-4 xs:py-[1.875rem]">
+          {/* Round Centered Logo */}
+          <HeaderLogo/>
+          {/* Round Centered Logo */}
+        </div>
+        <div className="py-4 xs:pb-14 pt-0 FAQ-page">
+          <div className="container-custom px-5 pb-4 xs:pb-8 pt-0 xs:px-[4.375rem] bg-white rounded">
+            <div className="polygon-logo mb-10">
+              <div className="polygon-centred">
+              
+                <img className="mx-auto" src={ENBPolygonLogo} alt="logo"/>
+              </div>
+            </div>
+            <div className="yext-search-bar">
+              <SearchBar placeholder="Search Frequently Asked Questions" />
+            </div>
             <Navigation />
             <DirectAnswer />
             <SpellCheck />
@@ -131,7 +232,7 @@ const ArticlesPage: Template<TemplateRenderProps> = ({
           <NewPagination />
         </div>
       </SearchHeadlessProvider>
-      <Footer houseLender={_site.c_housingLender} office={_site.c_office} />
+      <Footer footerHeading={_site.c_footerHeading} footerlinks={_site.c_footerlinks} CopyrightText={_site.c_copyrightText} FooterLabel={_site.c_footerLabel} FooterAddress={_site.c_footerAddress} number={_site.c_number}/>
     </>
   );
 };

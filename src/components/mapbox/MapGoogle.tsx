@@ -1,15 +1,13 @@
 import { Wrapper } from "@googlemaps/react-wrapper";
-// import { useSearchState, Result } from "@yext/search-headless-react";
 import * as React from "react";
 import { useRef, useEffect, useState, useContext } from "react";
-import {
-  /*twMerge,*/ useComposedCssClasses,
-} from "..//../hooks/useComposedCssClasses";
+import {  useComposedCssClasses } from "..//../hooks/useComposedCssClasses";
 import { renderToString } from "react-dom/server";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 import { LocationContext } from "../LocationContext";
 import chevron from "../../icons/pin.svg";
 import activePin from "../../icons/active_pin.svg";
+import { SvgIcons } from "../../SvgIcon";
 
 /**
  * CSS class interface for the {@link GoogleMaps} component
@@ -50,7 +48,7 @@ let currentMapZoom = 0;
 
 const builtInCssClasses: Readonly<GoogleMapsCssClasses> = {
   googleMapsContainer:
-    "w-full  h-96 lg:h-[calc(100vh_-_0px)] xl:h-[calc(100vh_-_0px)]  top-0   2xl:h-[calc(100vh_-_0px)] order-1 lg:order-none z-[99]",
+    "w-full h-[25.563rem] sm:h-[21.563rem] lg:h-[16.563rem] top-0 order-1 lg:order-none z-[1]",
 };
 
 /**
@@ -125,8 +123,7 @@ function UnwrappedGoogleMaps({
 
   function zoomMapTo(map: any, zoomTo: any, centerToSet: any = false) {
     currentMapZoom = typeof map?.getZoom() != "undefined" ? map?.getZoom() : 6;
-    const newZoom =
-      currentMapZoom > zoomTo ? currentMapZoom - 1 : currentMapZoom + 1;
+    const newZoom = currentMapZoom > zoomTo ? currentMapZoom - 1 : currentMapZoom + 1;
 
     map?.setZoom(newZoom);
     if (newZoom != zoomTo && !stopAnimation)
@@ -158,7 +155,6 @@ function UnwrappedGoogleMaps({
    *
    *
    */
-
   /* 
  userdeleteMarkers();
  const userlat = useSearchState((s) => s.location.locationBias) || [];
@@ -185,17 +181,17 @@ function UnwrappedGoogleMaps({
   let index = 0;
 
   for (const result of locationResults) {
-    // console.log('state.result', result.yextDisplayCoordinate);
+   
     const position = getPosition(result);
     const markerLabel = Number(index + 1);
     const marker = new google.maps.Marker({
       position,
       map,
       icon: marker_icon,
-      label: {
-        text: String(markerLabel),
+      /* label: {
+        text: "",
         color: "#fff",
-      },
+      }, */
     });
 
     const location = new google.maps.LatLng(position.lat, position.lng);
@@ -259,19 +255,35 @@ function UnwrappedGoogleMaps({
     }
   }, [center, map, providerOptions, zoom]);
 
+
+  useEffect(()=>{
+    if(map){
+      setTimeout(()=>{
+        var elements = document.getElementsByClassName("gm-control-active");
+        for (var i = 0; i < elements.length; i++) {
+          elements[i].addEventListener('click', ()=>{
+            if(infoWindow){
+              infoWindow.close();
+            }
+          }, false);
+        }
+      }, 1000);
+    }
+  },[map])
+
   useEffect(() => {
     if (markerPins.current.length > 0 && map) {
-      //  setTimeout(newZoom, 1000)
 
       map.setZoom(6);
-      // map.setZoom(12);
+      
       map.fitBounds(bounds);
-      // map.panToBounds(bounds);
-      // if (zoom > 8) {
-      //   map.setZoom(6);
-      // }
+       map.panToBounds(bounds);
+       if (zoom > 8) {
+         map.setZoom(6);
+       }
+       
+    
       searchCenter = bounds.getCenter();
-      // searchZoom = 6;
 
       const elements = refLcation.current.querySelectorAll(".result");
       for (let index = 0; index < elements.length; index++) {
@@ -279,14 +291,9 @@ function UnwrappedGoogleMaps({
         if (!elements[index]?.classList.contains("markerEventBinded")) {
           elements[index].classList.add("markerEventBinded");
           elements[index].addEventListener("click", () => {
-            if (!openInfoWindow) {
-              openMapZoom = map?.getZoom();
-              openMapCenter = map?.getCenter();
-            } else {
-              openInfoWindow = false;
-              infoWindow.close();
-            }
+
             InfowindowContents(index, locationResults[index]);
+            
             addActiveGrid(index);
             addClickGrid(index);
             scrollToRow(index);
@@ -314,6 +321,7 @@ function UnwrappedGoogleMaps({
 
   for (let i = 0; i < markerPins.current.length; i++) {
     markerPins.current[i]?.addListener("click", () => {
+
       if (!openInfoWindow) {
         openMapZoom = map?.getZoom();
         openMapCenter = map?.getCenter();
@@ -321,95 +329,69 @@ function UnwrappedGoogleMaps({
         openInfoWindow = false;
         infoWindow.close();
       }
-      scrollToRow(i);
-      addActiveGrid(i);
-      addClickGrid(i);
+
       InfowindowContents(i, locationResults[i]);
-      const position = getPosition(locationResults[i]);
-      const latLng = new google.maps.LatLng(position.lat, position.lng);
-      map?.panTo(latLng);
-      zoomMapTo(map, 20, latLng);
+      // const position = getPosition(locationResults[i]);
+      var bounds = new google.maps.LatLngBounds();
+      // bounds.extend(center);
+      // map?.fitBounds(bounds);
+      // map?.setCenter(center);
       infoWindow.open(map, markerPins.current[i]);
       openInfoWindow = true;
+
     });
-
-    // markerPins.current[i]?.addListener("mouseover", () => {
-    //   markerPins.current[i].setIcon(marker_hover_icon);
-    //   addActiveGrid(i);
-    // });
-
-    // markerPins.current[i]?.addListener("mouseout", () => {
-    //   markerPins.current[i].setIcon(marker_icon);
-    //   const markerLabel = Number(i + 1).toString();
-
-    //   markerPins.current[i].setLabel({
-    //     text: markerLabel,
-    //     color: "#fff",
-    //   });
-    // });
   }
 
   infoWindow.addListener("closeclick", () => {
     infoWindow.close();
-    removeActiveGrid();
-    console.log(searchZoom, "searchZoom2");
-    map?.setZoom(8);
-    map?.fitBounds(bounds);
-
+    // removeActiveGrid();
+    // map?.setZoom(8);
+    // map?.fitBounds(bounds);
     openInfoWindow = false;
   });
 
   function InfowindowContents(i: number, result: any): void {
+   
     const MarkerContent = (
-      <div className="markerContent  font-universpro font-normal text-darkgrey text-xs md:text-sm leading-6">
-        <div className="nameData font-bold text-sm md:text-base">
+      <div className="markerContent font-universpro font-normal text-darkgrey text-xs md:text-sm leading-6">
+        <div className="nameData text-base md:text-lg font-fontMyriadRegular text-primaryBlue mb-2">
           {result.name}
         </div>
-        <div className="addressData">
+        <div className="addressData flex justify-start gap-2 mb-2">
           <div>
-            <img
-              className="addressLogo absolute top-0 left-0 w-5"
-              src={"https://cdn-icons-png.flaticon.com/512/3082/3082383.png"}
-              width="5"
-              height="5"
-              alt=""
-            />
+            { SvgIcons.locationMarker }
           </div>
           <div className="address">
-            <div>{result.address?.line1}</div>
-
-            <div>{`${result.address?.city}, ${result.address?.region} `}</div>
-            <div>{result.address?.postalCode}</div>
+            <p>{ result.address?.line1 }</p>
+            <p>{ `${result.address?.city}, ${result.address?.region}` }</p>
+            <p>{ result.address?.postalCode }</p>
           </div>
         </div>
-
-        <div className="addressphone">
-          <img
-            className="addressLogo "
-            src={"https://cdn-icons-png.flaticon.com/512/455/455705.png"}
-            width="28"
-            height="28"
-            alt=""
-          />
-          <div className="phone ">
-            <a id="address" className="" href={`tel:${result.mainPhone}`}>
-              {result.mainPhone}
-            </a>
+        <div className="phone ">
+          <div className="addressphone flex justify-start gap-2 mb-2">
+            {SvgIcons.locationPhone}
+            <button>
+              <a className="phone"  href={`tel:${result.mainPhone}`}>
+                {result.mainPhone}
+              </a>
+            </button>
           </div>
         </div>
-        <div className="button-bx map-card">
+        <div className="button-bx map-card ">
           <a
-            className="ctaBtn"
+            className="button"
             target="_blank"
-            href={`https://www.google.com/maps/dir/?api=1&destination=${
-              result.address?.line1 + result.address?.line1
-            }`}
+            href={`https://www.google.com/maps/dir/?api=1&destination=${result.address?.line1 + "," + result.address.city}`}
             rel="noreferrer"
           >
-            Get Direction
+           GET DIRECTION
           </a>
-          <a className="ctaBtn" target="_blank" href="#">
-            See More
+          <a
+               target="_self"
+               className="button"
+              rel="noreferrer"
+              href={`tel:${result.mainPhone}`}>
+            CALL
           </a>
         </div>
 
@@ -431,7 +413,6 @@ function UnwrappedGoogleMaps({
 }
 
 // TEMPORARY FIX
-/* eslint-disable @typescript-eslint/no-explicit-any */
 function getPosition(result: any) {
   const lat = (result as any).yextDisplayCoordinate.latitude;
   const lng = (result as any).yextDisplayCoordinate.longitude;
@@ -463,18 +444,12 @@ function addClickGrid(index: any) {
 }
 
 function scrollToRow(index: any) {
-  const result: any = [].slice.call(
-    document.querySelectorAll(`.result`) || []
-  )[0];
-  const offset: any = [].slice.call(document.querySelectorAll(`.result`) || [])[
-    index
-  ];
-  //  alert( offsetTop);
+  const result: any = [].slice.call( document.querySelectorAll(`.result`) || [] )[0];
+  const offset: any = [].slice.call(document.querySelectorAll(`.result`) || [])[index];
   const o = offset.offsetTop - result.offsetTop;
-
   [].slice
     .call(document.querySelectorAll(".scrollbar-container") || [])
     .forEach(function (el: any) {
       el.scrollTop = o;
-    });
+  });
 }

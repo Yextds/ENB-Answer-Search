@@ -119,7 +119,7 @@ export default function VisualSearchBar({
     if (autocompleteResults.length === 0) {
       return null;
     }
-    let options: Option[] = [];
+    const options: Option[] = [];
     autocompleteResults.forEach(result => {
       options.push({
         value: result.value,
@@ -135,7 +135,7 @@ export default function VisualSearchBar({
         return;
       }
       const verticalKeys = result.verticalKeys;
-      let verticalLinks: VerticalLink[]|undefined = verticalKeys?.map(verticalKey => {
+      const verticalLinks: VerticalLink[]|undefined = verticalKeys?.map(verticalKey => {
         return { 
           label: verticalKeyToLabel ? verticalKeyToLabel(verticalKey) : verticalKey,
           verticalKey

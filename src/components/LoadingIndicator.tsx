@@ -1,5 +1,7 @@
 // import '../sass/LoadingIndicator.scss';
 
+import * as React from "react";
+
 export default function LoadingIndicator() {
   return (
     <div className="LoadingIndicator">

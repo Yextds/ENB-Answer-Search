@@ -6,6 +6,7 @@ import { processTranslation } from "./utils/processTranslation";
 import { useSynchronizedRequest } from "../hooks/useSynchronizedRequest";
 import renderAutocompleteResult, { AutocompleteResultCssClasses } from "./utils/renderAutocompleteResult";
 import { CompositionMethod, useComposedCssClasses } from "../hooks/useComposedCssClasses";
+import * as React from "react";
 
 const SCREENREADER_INSTRUCTIONS = 'When autocomplete results are available, use up and down arrows to review and enter to select.'
 

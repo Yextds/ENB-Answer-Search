@@ -10,6 +10,8 @@ import * as React from 'react';
 import { Result, useSearchState } from '@yext/search-headless-react';
 import { CardConfig } from '../models/cardComponent';
 
+import LoadingSpinner from './commons/LoadingSpinner';
+
 type props = {
   results?: Result[],
   cardConfig?: CardConfig,
@@ -29,7 +31,7 @@ export default function LocationResults(data :props){
     (state) => state.vertical.noResults?.alternativeVerticals
   );
   const isLoading = useSearchState(state => state.searchStatus.isLoading);
-  console.log(isLoading,"isLoading");
+  
    const filterVariable = aleternateVerticals?.filter(filtredResulta => filtredResulta.resultsCount > 0) || [];
     const filterVariableLength = filterVariable.length;
     const returnedAlternateVerticals = filterVariableLength> 0 &&  isLoading===false ? filterVariable.map((res:any)=>{
@@ -60,6 +62,7 @@ export default function LocationResults(data :props){
             id: enities.id ?? "",
             name: location.name,
             address: location.address,
+            mainPhone: location.mainPhone,
             yextDisplayCoordinate: {
               latitude: location.yextDisplayCoordinate.latitude,
               longitude: location.yextDisplayCoordinate.longitude,
@@ -95,21 +98,21 @@ export default function LocationResults(data :props){
   if(isLoading===false){
   return (
    
-    <div className="flex">
+    <div className="locator-wrapper">
       <div
         ref={refLcation}
-        className={classNames('overflow-y-auto sm:overflow-auto sm:border lg:w-1/4', {
+        className={classNames('overflow-auto location-box', {
           hidden: state.showMap,
           'w-full': !state.showMap,
         })}
-        style={{ maxHeight: '580px' }}>
+        >
         {state.mapLocations && state.mapLocations.length > 0 && isLoading===false ? (
           <VerticalResultsDisplay
           results={entityResults}
           CardComponent={cardComponent}
           {...(cardConfig && { cardConfig })}
           customCssClasses={{ container: 'px-4 sm:px-0' }}
-        />
+    />
 
         ) : state.noGymsMessage ? (
           <div className="flex h-full items-center justify-center">
@@ -119,7 +122,7 @@ export default function LocationResults(data :props){
           returnedAlternateVerticals
         )}
       </div>
-      <div className={classNames('w-full xl:w-3/4', { hidden: screenSize !== 'xl' && !state.showMap })}>
+      <div className={classNames('w-full map-box', { hidden: screenSize !== 'xl' && !state.showMap })}>
         {renderMap()}
       </div>
     </div>
@@ -128,7 +131,8 @@ export default function LocationResults(data :props){
   return (
    
     <div className="flex">
-      <div
+       <LoadingSpinner />
+      {/* <div
         ref={refLcation}
         className={classNames('overflow-y-auto sm:overflow-auto sm:border lg:w-1/4', {
           hidden: state.showMap,
@@ -150,10 +154,10 @@ export default function LocationResults(data :props){
         ) : (
           null
         )}
-      </div>
-      <div className={classNames('w-full xl:w-3/4', { hidden: screenSize !== 'xl' && !state.showMap })}>
+      </div> */}
+      {/* <div className={classNames('w-full xl:w-3/4', { hidden: screenSize !== 'xl' && !state.showMap })}>
         {renderMap()}
-      </div>
+      </div> */}
     </div>
   );
   

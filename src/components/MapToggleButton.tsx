@@ -3,6 +3,7 @@ import { LocationContext } from './LocationContext';
 import { LocationActionTypes } from './locationReducers';
 import { ReactComponent as MapIcon } from '../icons/map.svg';
 import { ReactComponent as ListIcon } from '../icons/list.svg';
+import * as React from 'react';
 
 export default function MapToggleButton() {
   const { state, dispatch } = useContext(LocationContext);

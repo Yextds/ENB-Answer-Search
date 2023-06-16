@@ -64,9 +64,9 @@ export default function InputDropdown({
   onlyAllowDropdownOptionSubmissions,
   forceHideDropdown,
   children,
-  onSubmit = () => {},
-  renderSearchButton = () => null,
-  renderLogo = () => null,
+  onSubmit = () => { console.log("on submit") },
+  renderSearchButton = () => { console.log("on submit") },
+  renderLogo = () => { console.log("on submit") },
   onInputChange,
   onInputFocus,
   onDropdownLeave,
@@ -102,12 +102,12 @@ export default function InputDropdown({
     const currentSectionIndex = numSections;
     numSections++;
 
-    let childProps = child.props as DropdownSectionProps;
+    const childProps = child.props as DropdownSectionProps;
     const modifiedOptions = childProps.options.map(option => {
       const modifiedOnSelect = () => {
         setLatestUserInput(option.value);
         dispatch({ type: 'HideSections' });
-        option.onSelect?.(); 
+        option.onSelect?.();
       }
       return { ...option, onSelect: modifiedOnSelect }
     });
@@ -193,7 +193,7 @@ export default function InputDropdown({
       evt.preventDefault();
     }
 
-    if (evt.key === 'Enter' 
+    if (evt.key === 'Enter'
       && focusedSectionIndex === undefined
       && !onlyAllowDropdownOptionSubmissions
     ) {
@@ -245,8 +245,7 @@ export default function InputDropdown({
           onKeyDown={handleInputElementKeydown}
           value={inputValue}
           ref={inputRef}
-          aria-describedby={screenReaderInstructionsId}
-          aria-activedescendant={focusedOptionId}
+          aria-describedby={screenReaderInstructionsId} 
         />
         <div className={cssClasses.searchButtonContainer}>
           {renderSearchButton()}
@@ -271,4 +270,4 @@ export default function InputDropdown({
       }
     </div>
   );
-};
+}

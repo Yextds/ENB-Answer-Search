@@ -1,6 +1,7 @@
 import { useSearchActions, useSearchState, LocationBiasMethod } from '@yext/search-headless-react';
 import { executeSearch, getUserLocation  } from '../utils/search-operations';
 import { CompositionMethod, useComposedCssClasses } from '../hooks/useComposedCssClasses';
+import * as React from 'react';
 
 interface LocationBiasCssClasses {
   container?: string,
@@ -27,7 +28,7 @@ export default function LocationBias({
   cssCompositionMethod
 }: Props): JSX.Element | null {
   const answersActions = useSearchActions();
-  const isVertical = useSearchState(s => s.meta.searchType) === 'vertical';
+  const isVertical = useSearchState(s => s?.meta?.searchType) === 'vertical';
   const locationBias = useSearchState(s => s.location.locationBias)
   const cssClasses = useComposedCssClasses(builtInCssClasses, customCssClasses, cssCompositionMethod);
 
@@ -55,6 +56,7 @@ export default function LocationBias({
     <div className={cssClasses.container}>
       <span className={cssClasses.location}>
         {locationBias.displayName}
+    
       </span>
       <span className={cssClasses.source}>
         {attributionMessage}

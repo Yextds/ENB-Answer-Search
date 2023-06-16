@@ -1,6 +1,7 @@
 import { useSearchState } from '@yext/search-headless-react';
 import classNames from 'classnames';
 import { CompositionMethod, useComposedCssClasses } from '../hooks/useComposedCssClasses';
+import * as React from 'react';
 
 interface ResultsCountCssClasses {
   container?: string,

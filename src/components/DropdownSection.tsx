@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import * as React from "react";
 import { useState, useEffect, useRef } from "react";
 
 export interface Option {
@@ -29,8 +30,8 @@ export default function DropdownSection({
   isFocused = false,
   options,
   optionIdPrefix,
-  onFocusChange = () => {},
-  onLeaveSectionFocus = () => {},
+  onFocusChange = () => {console.log("this is not a function")},
+  onLeaveSectionFocus = () => {console.log("this is not a function")},
   label = '',
   cssClasses = {}
 }: DropdownSectionProps): JSX.Element | null {
@@ -116,4 +117,4 @@ export default function DropdownSection({
       </div>
     </div>
   );
-};
+}

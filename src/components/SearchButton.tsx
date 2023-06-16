@@ -1,5 +1,6 @@
 import LoadingIndicator from './LoadingIndicator';
 import { ReactComponent as MagnifyingGlassIcon } from '../icons/magnifying_glass.svg';
+import * as React from 'react';
 
 interface Props {
   handleClick: () => void,
