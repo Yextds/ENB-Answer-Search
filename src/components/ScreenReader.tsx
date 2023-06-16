@@ -1,11 +1,10 @@
-import * as React from 'react';
-// import '../sass/ScreenReader.scss';
+import * as React from "react";
 
 interface Props {
-  instructionsId: string,
-  instructions: string,
-  announcementKey: number,
-  announcementText: string
+  instructionsId: string;
+  instructions: string;
+  announcementKey: number;
+  announcementText: string;
 }
 
 export default function ScreenReader({
@@ -14,19 +13,15 @@ export default function ScreenReader({
   announcementKey,
   announcementText,
 }: Props): JSX.Element | null {
-
   return (
     <>
-      <div
-        id={instructionsId}
-        className='ScreenReader__instructions'
-      >
+      <div id={instructionsId} className="ScreenReader__instructions">
         {instructions}
       </div>
       <div
-        className='ScreenReader__announcementText'
+        className="ScreenReader__announcementText"
         key={announcementKey}
-        aria-live='assertive'
+        aria-live="assertive"
       >
         {announcementText}
       </div>

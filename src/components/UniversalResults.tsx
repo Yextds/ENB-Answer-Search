@@ -59,9 +59,9 @@ export default function UniversalResults({
   );
   const resultsFromAllVerticals =
     useSearchState((state) => state?.universal?.verticals) || [];
- 
+
   const isLoading = useSearchState((state) => state.searchStatus.isLoading);
- 
+
   //UseEffect - Starts  - Code to get Default Initial Search
   const searchAction = useSearchActions();
   useEffect(() => {
@@ -72,12 +72,16 @@ export default function UniversalResults({
   if (resultsFromAllVerticals.length === 0) {
     return (
       <>
-      {isLoading == true ? <LoadingSpinner /> : <>
-      <div className="mb-6 pb-6 mt-6 pt-6">
-        <p className="text-2xl font-bold">No results found</p>
-      </div>
-    </>}
-    </>
+        {isLoading == true ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            <div className="mb-6 pb-6 mt-6 pt-6">
+              <p className="text-2xl font-bold">No results found</p>
+            </div>
+          </>
+        )}
+      </>
     );
   }
 
@@ -106,8 +110,6 @@ interface VerticalSectionsProps extends UniversalResultsProps {
  */
 function renderVerticalSections(props: VerticalSectionsProps): JSX.Element {
   const { resultsFromAllVerticals, verticalConfigs } = props;
-  // const latestQuery = useSearchState((state) => state.query.mostRecentSearch);
-
   return (
     <>
       {resultsFromAllVerticals

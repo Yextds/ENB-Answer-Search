@@ -22,7 +22,10 @@ import {
 
 import DirectAnswer from "../components/DirectAnswer";
 import Navigation from "../components/Navigation";
-import { answersHeadlessConfig, baseUrl } from "../config/answersHeadlessConfig";
+import {
+  answersHeadlessConfig,
+  baseUrl,
+} from "../config/answersHeadlessConfig";
 
 import Footer from "../components/commons/Footer";
 import { FaqCard } from "../components/cards/FaqCards";
@@ -30,11 +33,10 @@ import VerticalResults from "../components/VerticalResults";
 import NewPagination from "../components/commons/PaginationComponent";
 import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
 import ENBRoundLogo from "../Images/ENB-round-logo.svg";
-import favicon from "../Images/favicon.png"
+import favicon from "../Images/favicon.png";
 import HeaderLogo from "../components/commons/HeaderLogo";
 import { JsonLd } from "react-schemaorg";
 import { BreadcrumbList, WebSite } from "schema-dts";
-
 
 export const config: TemplateConfig = {
   stream: {
@@ -57,9 +59,12 @@ export const config: TemplateConfig = {
 export const getPath: GetPath<TemplateProps> = () => {
   return "/faqs";
 };
-const metaTitle = "Ephrata National Bank | Frequesntly Asked Questions"
-const metaDescription = "Ephrata National Bank - How can we help you? please find all the answers to your queries here."
-export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (): HeadConfig => {
+const metaTitle = "Ephrata National Bank | Frequesntly Asked Questions";
+const metaDescription =
+  "Ephrata National Bank - How can we help you? please find all the answers to your queries here.";
+export const getHeadConfig: GetHeadConfig<
+  TemplateRenderProps
+> = (): HeadConfig => {
   return {
     title: `Ephrata National Bank | AS`,
     charset: "UTF-8",
@@ -73,121 +78,119 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (): HeadConfig 
           href: favicon,
         },
       },
-  
-     {
-       type: "meta",
-       attributes: {
-         name: "title",
-         content: `Ephrata National Bank | Frequesntly Asked Questions`,
-       },
-     },
-     {
-       type: "meta",
-       attributes: {
-         name: "description",
-         content: `Ephrata National Bank - How can we help you? please find all the answers to your queries here.`,
-       },
-     },
-     {
-       type: "meta",
-       attributes: {
-         name: "author",
-         content: "Ephrata National Bank",
-       },
-     },
-     {
-       type: "link",
-       attributes: {
-         rel: "canonical",
-         href: baseUrl + "faqs",
-       },
-     },
-     {
-       type: "meta",
-       attributes: {
-         property: "og:title",
-         content: `${metaTitle}`,
-       },
-     },
-     {
-       type: "meta",
-       attributes: {
-         property: "og:description",
-         content: `${metaDescription}`,
-       },
-     },
-     {
-       type: "meta",
-       attributes: {
-         property: "og:url",
-         content: baseUrl,
-       },
-     },
-  
-     {
-       type: "meta",
-       attributes: {
-         property: "og:image",
-         content: `${ENBRoundLogo}`,
-       },
-     },
-     {
-       type: "meta",
-       attributes: {
-         property: "twitter:title",
-         content: `${metaTitle}`,
-       },
-     },
-     {
-       type: "meta",
-       attributes: {
-         name: "twitter:card",
-         content: "summary",
-       },
-     },
-     {
-       type: "meta",
-       attributes: {
-         name: "twitter:url",
-         content: baseUrl,
-       },
-     },
-  
-     {
-       type: "meta",
-       attributes: {
-         name: "twitter:description",
-         content: `${metaDescription}`,
-       },
-     },
-  
-     {
-       type: "meta",
-       attributes: {
-         name: "twitter:image",
-         content: `${ENBRoundLogo}`,
-       },
-     },
-     {
-      type: "meta",
-      attributes: {
-        name: "robots",
-        content: "noindex, nofollow",
+
+      {
+        type: "meta",
+        attributes: {
+          name: "title",
+          content: `Ephrata National Bank | Frequesntly Asked Questions`,
+        },
       },
-    },
-      
+      {
+        type: "meta",
+        attributes: {
+          name: "description",
+          content: `Ephrata National Bank - How can we help you? please find all the answers to your queries here.`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "author",
+          content: "Ephrata National Bank",
+        },
+      },
+      {
+        type: "link",
+        attributes: {
+          rel: "canonical",
+          href: baseUrl + "faqs",
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:title",
+          content: `${metaTitle}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:description",
+          content: `${metaDescription}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:url",
+          content: baseUrl,
+        },
+      },
+
+      {
+        type: "meta",
+        attributes: {
+          property: "og:image",
+          content: `${ENBRoundLogo}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "twitter:title",
+          content: `${metaTitle}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:card",
+          content: "summary",
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:url",
+          content: baseUrl,
+        },
+      },
+
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:description",
+          content: `${metaDescription}`,
+        },
+      },
+
+      {
+        type: "meta",
+        attributes: {
+          name: "twitter:image",
+          content: `${ENBRoundLogo}`,
+        },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "robots",
+          content: "noindex, nofollow",
+        },
+      },
     ],
   };
 };
 
 answersHeadlessConfig.verticalKey = "faqs";
 const searcher = provideHeadless(answersHeadlessConfig);
-const ArticlesPage: Template<TemplateRenderProps> = ({document}) => {
+const ArticlesPage: Template<TemplateRenderProps> = ({ document }) => {
   const { _site } = document;
 
   return (
     <>
-    
       <JsonLd<BreadcrumbList>
         item={{
           "@context": "https://schema.org",
@@ -200,30 +203,34 @@ const ArticlesPage: Template<TemplateRenderProps> = ({document}) => {
         item={{
           "@context": "https://schema.org",
           "@type": "WebSite",
-          "url": "https://www.epnb.com/",
-          "name": "Ephrata National Bank",
-          "potentialAction": {
+          url: "https://www.epnb.com/",
+          name: "Ephrata National Bank",
+          potentialAction: {
             "@type": "SearchAction",
-            "target": {
+            target: {
               "@type": "EntryPoint",
-              "urlTemplate": "https://www.epnb.com/search/{search_term_string}/",
+              urlTemplate: "https://www.epnb.com/search/{search_term_string}/",
             },
-            
-          }
+          },
         }}
       />
       <SearchHeadlessProvider searcher={searcher}>
         <div className="container-custom px-5 py-4 xs:py-[1.875rem]">
           {/* Round Centered Logo */}
-          <HeaderLogo/>
+          <HeaderLogo />
           {/* Round Centered Logo */}
         </div>
         <div className="py-4 xs:pb-14 pt-0 FAQ-page">
           <div className="container-custom px-5 pb-4 xs:pb-8 pt-0 xs:px-[4.375rem] bg-white rounded">
             <div className="polygon-logo mb-10">
               <div className="polygon-centred">
-              
-                <img className="mx-auto" src={ENBPolygonLogo} alt="logo" width={358} height={63}/>
+                <img
+                  className="mx-auto"
+                  src={ENBPolygonLogo}
+                  alt="logo"
+                  width={358}
+                  height={63}
+                />
               </div>
             </div>
             <div className="yext-search-bar">
@@ -238,12 +245,18 @@ const ArticlesPage: Template<TemplateRenderProps> = ({document}) => {
               displayAllOnNoResults={true}
               CardComponent={FaqCard}
             />
-            {/* <LocationBias /> */}
           </div>
           <NewPagination />
         </div>
       </SearchHeadlessProvider>
-      <Footer footerHeading={_site.c_footerHeading} footerlinks={_site.c_footerlinks} CopyrightText={_site.c_copyrightText} FooterLabel={_site.c_footerLabel} FooterAddress={_site.c_footerAddress} number={_site.c_number}/>
+      <Footer
+        footerHeading={_site.c_footerHeading}
+        footerlinks={_site.c_footerlinks}
+        CopyrightText={_site.c_copyrightText}
+        FooterLabel={_site.c_footerLabel}
+        FooterAddress={_site.c_footerAddress}
+        number={_site.c_number}
+      />
     </>
   );
 };

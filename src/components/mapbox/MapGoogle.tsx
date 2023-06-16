@@ -42,7 +42,6 @@ let openMapCenter: any = "";
 let openMapZoom: any = "";
 let openInfoWindow: any = false;
 let searchCenter: any = null;
-const searchZoom: any = null;
 let stopAnimation = false;
 let currentMapZoom = 0;
 
@@ -150,28 +149,6 @@ function UnwrappedGoogleMaps({
   const markerPins = useRef<google.maps.Marker[]>([]);
   deleteMarkers();
 
-  /**
-   * user marker for use my location and define center points.
-   *
-   *
-   */
-  /* 
- userdeleteMarkers();
- const userlat = useSearchState((s) => s.location.locationBias) || [];
-  const iplat = userlat.latitude;
-  const iplong = userlat.longitude;
-  const position = {
-    lat: iplat,
-    lng: iplong,
-  };
-  const Usermarker1 = new google.maps.Marker({
-    position,
-    map,
-    icon: UserMarker,
-  });
-  usermarker.current.push(Usermarker1);
-*/
-
   try {
     if (mapMarkerClusterer) {
       mapMarkerClusterer.clearMarkers();
@@ -188,10 +165,7 @@ function UnwrappedGoogleMaps({
       position,
       map,
       icon: marker_icon,
-      /* label: {
-        text: "",
-        color: "#fff",
-      }, */
+      label: markerLabel.toString(),
     });
 
     const location = new google.maps.LatLng(position.lat, position.lng);
@@ -259,8 +233,8 @@ function UnwrappedGoogleMaps({
   useEffect(()=>{
     if(map){
       setTimeout(()=>{
-        var elements = document.getElementsByClassName("gm-control-active");
-        for (var i = 0; i < elements.length; i++) {
+        const elements = document.getElementsByClassName("gm-control-active");
+        for (let i = 0; i < elements.length; i++) {
           elements[i].addEventListener('click', ()=>{
             if(infoWindow){
               infoWindow.close();
@@ -281,17 +255,13 @@ function UnwrappedGoogleMaps({
        if (zoom > 8) {
          map.setZoom(6);
        }
-       
-    
       searchCenter = bounds.getCenter();
-
       const elements = refLcation.current.querySelectorAll(".result");
       for (let index = 0; index < elements.length; index++) {
         /* Checking for the event binded or not if not then binding event */
         if (!elements[index]?.classList.contains("markerEventBinded")) {
           elements[index].classList.add("markerEventBinded");
           elements[index].addEventListener("click", () => {
-
             InfowindowContents(index, locationResults[index]);
             
             addActiveGrid(index);
@@ -323,7 +293,7 @@ function UnwrappedGoogleMaps({
     markerPins.current[i]?.addListener("click", () => {
 
       if (!openInfoWindow) {
-        openMapZoom = map?.getZoom();
+        openMapZoom = map?.getZoom();y
         openMapCenter = map?.getCenter();
       } else {
         openInfoWindow = false;
@@ -331,11 +301,6 @@ function UnwrappedGoogleMaps({
       }
 
       InfowindowContents(i, locationResults[i]);
-      // const position = getPosition(locationResults[i]);
-      var bounds = new google.maps.LatLngBounds();
-      // bounds.extend(center);
-      // map?.fitBounds(bounds);
-      // map?.setCenter(center);
       infoWindow.open(map, markerPins.current[i]);
       openInfoWindow = true;
 
@@ -344,9 +309,6 @@ function UnwrappedGoogleMaps({
 
   infoWindow.addListener("closeclick", () => {
     infoWindow.close();
-    // removeActiveGrid();
-    // map?.setZoom(8);
-    // map?.fitBounds(bounds);
     openInfoWindow = false;
   });
 
@@ -417,14 +379,6 @@ function getPosition(result: any) {
   const lat = (result as any).yextDisplayCoordinate.latitude;
   const lng = (result as any).yextDisplayCoordinate.longitude;
   return { lat, lng };
-}
-
-function removeActiveGrid() {
-  const elements = document.querySelectorAll(".result");
-  for (let index = 0; index < elements.length; index++) {
-    elements[index].classList.remove("active");
-    elements[index].classList.remove("click-active");
-  }
 }
 
 function addActiveGrid(index: any) {

@@ -1,4 +1,4 @@
-import { MapLocationData } from './mapbox/Mapbox';
+import { MapLocationData } from "./mapbox/Mapbox";
 
 // prettier-ignore
 type ActionMap<M extends { [index: string]: any }> = {
@@ -13,15 +13,15 @@ type ActionMap<M extends { [index: string]: any }> = {
 };
 
 export enum LocationActionTypes {
-  ToggleMap = 'TOGGLE_MAP',
-  SetHoveredLocation = 'SET_HOVERED_LOCATION',
-  SetSelectedLocation = 'SET_SELECTED_LOCATION',
-  ClearHoveredLocation = 'CLEAR_HOVERED_LOCATION',
-  ClearSelectedLocation = 'CLEAR_SELECTED_LOCATION',
-  SetMapLocations = 'SET_MAP_LOCATIONS',
-  ClearMapLocations = 'CLEAR_MAP_LOCATIONS',
-  SetNoGymsMessage = 'SET_NO_GYMS_MESSAGE',
-  ClearNoGymsMessage = 'CLEAR_NO_GYMS_MESSAGE',
+  ToggleMap = "TOGGLE_MAP",
+  SetHoveredLocation = "SET_HOVERED_LOCATION",
+  SetSelectedLocation = "SET_SELECTED_LOCATION",
+  ClearHoveredLocation = "CLEAR_HOVERED_LOCATION",
+  ClearSelectedLocation = "CLEAR_SELECTED_LOCATION",
+  SetMapLocations = "SET_MAP_LOCATIONS",
+  ClearMapLocations = "CLEAR_MAP_LOCATIONS",
+  SetNoGymsMessage = "SET_NO_GYMS_MESSAGE",
+  ClearNoGymsMessage = "CLEAR_NO_GYMS_MESSAGE",
 }
 
 // Map Toggle
@@ -35,7 +35,10 @@ type MapPayload = {
 
 export type MapActions = ActionMap<MapPayload>[keyof ActionMap<MapPayload>];
 
-export const toggleShowMapReducer = (state: boolean, action: MapActions | LocationActions) => {
+export const toggleShowMapReducer = (
+  state: boolean,
+  action: MapActions | LocationActions
+) => {
   switch (action.type) {
     case LocationActionTypes.ToggleMap:
       return action.payload.toggleMap;
@@ -64,9 +67,13 @@ type LocationPayload = {
   [LocationActionTypes.ClearNoGymsMessage]: undefined
 }
 
-export type LocationActions = ActionMap<LocationPayload>[keyof ActionMap<LocationPayload>];
+export type LocationActions =
+  ActionMap<LocationPayload>[keyof ActionMap<LocationPayload>];
 
-export const hoveredLocationReducer = (state: MapLocationData | undefined, action: MapActions | LocationActions) => {
+export const hoveredLocationReducer = (
+  state: MapLocationData | undefined,
+  action: MapActions | LocationActions
+) => {
   switch (action.type) {
     case LocationActionTypes.SetHoveredLocation:
       return action.payload.hoveredLocation;
@@ -77,7 +84,10 @@ export const hoveredLocationReducer = (state: MapLocationData | undefined, actio
   }
 };
 
-export const selectedLocationReducer = (state: MapLocationData | undefined, action: MapActions | LocationActions) => {
+export const selectedLocationReducer = (
+  state: MapLocationData | undefined,
+  action: MapActions | LocationActions
+) => {
   switch (action.type) {
     case LocationActionTypes.SetSelectedLocation:
       return action.payload.selectedLocation;
@@ -88,7 +98,10 @@ export const selectedLocationReducer = (state: MapLocationData | undefined, acti
   }
 };
 
-export const mapLocationsReducer = (state: MapLocationData[], action: MapActions | LocationActions) => {
+export const mapLocationsReducer = (
+  state: MapLocationData[],
+  action: MapActions | LocationActions
+) => {
   switch (action.type) {
     case LocationActionTypes.SetMapLocations:
       return action.payload.mapLocations;
@@ -99,7 +112,10 @@ export const mapLocationsReducer = (state: MapLocationData[], action: MapActions
   }
 };
 
-export const noGymsLocationReducer = (state: string | undefined, action: MapActions | LocationActions) => {
+export const noGymsLocationReducer = (
+  state: string | undefined,
+  action: MapActions | LocationActions
+) => {
   switch (action.type) {
     case LocationActionTypes.SetNoGymsMessage:
       return action.payload;

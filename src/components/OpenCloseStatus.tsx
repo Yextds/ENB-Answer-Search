@@ -1,7 +1,6 @@
 import * as React from "react";
 
 const openClose = {
-
   formatOpenNowString: (hoursData, utcOffset) => {
     const now = openClose.getYextTimeWithUtcOffset(utcOffset);
 
@@ -11,7 +10,10 @@ const openClose = {
 
     const intervalsToday = openClose.getIntervalOnDate(now, hoursData);
     const intervalsTomorrow = openClose.getIntervalOnDate(tomorrow, hoursData);
-    const intervalsYesterday = openClose.getIntervalOnDate(yesterday, hoursData);
+    const intervalsYesterday = openClose.getIntervalOnDate(
+      yesterday,
+      hoursData
+    );
     let openRightNow = false;
     let currentInterval = null;
     let nextInterval = null;
@@ -19,7 +21,9 @@ const openClose = {
     if (intervalsYesterday) {
       for (let i = 0; i < intervalsYesterday.length; i++) {
         const interval = intervalsYesterday[i];
-        const startIntervalNumber = openClose.timeStringToNumber(interval.start);
+        const startIntervalNumber = openClose.timeStringToNumber(
+          interval.start
+        );
         const endIntervalNumber = openClose.timeStringToNumber(interval.end);
 
         // If end overflows to the next day (i.e. today).
@@ -36,7 +40,9 @@ const openClose = {
     if (intervalsToday) {
       for (let i = 0; i < intervalsToday.length; i++) {
         const interval = intervalsToday[i];
-        const startIntervalNumber = openClose.timeStringToNumber(interval.start);
+        const startIntervalNumber = openClose.timeStringToNumber(
+          interval.start
+        );
         const endIntervalNumber = openClose.timeStringToNumber(interval.end);
 
         // If current time doesn't belong to one of yesterdays interval.
@@ -62,7 +68,8 @@ const openClose = {
         } else {
           if (
             startIntervalNumber > nowTimeNumber &&
-            startIntervalNumber < openClose.timeStringToNumber(nextInterval.start)
+            startIntervalNumber <
+              openClose.timeStringToNumber(nextInterval.start)
           ) {
             nextInterval = interval;
           }
@@ -82,21 +89,33 @@ const openClose = {
       }
     }
 
-    let hoursString = 'Closed';
+    let hoursString = "Closed";
     if (openRightNow) {
-      if (currentInterval.start === "00:00" && currentInterval.end === "23:59") {
-        hoursString = 'Open 24 Hours';
+      if (
+        currentInterval.start === "00:00" &&
+        currentInterval.end === "23:59"
+      ) {
+        hoursString = "Open 24 Hours";
       } else {
-        hoursString = 'Open - Closes at [closingTime]';
-        hoursString = hoursString.replace("[closingTime]", openClose.formatTime(currentInterval.end));
+        hoursString = "Open - Closes at [closingTime]";
+        hoursString = hoursString.replace(
+          "[closingTime]",
+          openClose.formatTime(currentInterval.end)
+        );
       }
     } else if (nextInterval) {
       if (nextIsTomorrow) {
-        hoursString = 'Closed - Open at [openingTime]';
-        hoursString = hoursString.replace("[openingTime]", openClose.formatTime(nextInterval.start));
+        hoursString = "Closed - Open at [openingTime]";
+        hoursString = hoursString.replace(
+          "[openingTime]",
+          openClose.formatTime(nextInterval.start)
+        );
       } else {
-        hoursString = 'Closed - Open at [openingTime]';
-        hoursString = hoursString.replace("[openingTime]", openClose.formatTime(nextInterval.start));
+        hoursString = "Closed - Open at [openingTime]";
+        hoursString = hoursString.replace(
+          "[openingTime]",
+          openClose.formatTime(nextInterval.start)
+        );
       }
     }
     return hoursString;
@@ -170,7 +189,10 @@ const openClose = {
     }
 
     // Not on holiday
-    if (hoursData[dayOfWeekString] && hoursData[dayOfWeekString].openIntervals) {
+    if (
+      hoursData[dayOfWeekString] &&
+      hoursData[dayOfWeekString].openIntervals
+    ) {
       return hoursData[dayOfWeekString].openIntervals;
     } else {
       return null;
@@ -182,35 +204,44 @@ const openClose = {
     return tempDate.toLocaleTimeString(localeString.replace("_", "-"), {
       hour: "numeric",
       minute: "numeric",
-      hour12: false
+      hour12: false,
     });
   },
   getUtcOffsetFromTimeZone: (timeZone: any, date = new Date()) => {
-    const tz = date.toLocaleString("en", { timeZone, timeStyle: "long" }).split(" ").slice(-1)[0];
+    const tz = date
+      .toLocaleString("en", { timeZone, timeStyle: "long" })
+      .split(" ")
+      .slice(-1)[0];
     const dateString = date.toString();
-    const offset = Date.parse(`${dateString} UTC`) - Date.parse(`${dateString} ${tz}`);
+    const offset =
+      Date.parse(`${dateString} UTC`) - Date.parse(`${dateString} ${tz}`);
     return openClose.msToTime(offset);
   },
   msToTime: (duration: any) => {
-
     let hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
-    hours = (hours < 10) ? hours : hours;
+    hours = hours < 10 ? hours : hours;
     return hours + ":00";
-  }
-}
+  },
+};
 
 export default function OpenCloseStatus(props: any) {
-  const parsedOffset = openClose.parseTimeZoneUtcOffset(openClose.getUtcOffsetFromTimeZone(props.timezone));
+  const parsedOffset = openClose.parseTimeZoneUtcOffset(
+    openClose.getUtcOffsetFromTimeZone(props.timezone)
+  );
 
   return (
     <>
       <div className="open-heading">
-        {props.hours && props.hours.reopenDate ?
-          <p className=" text-sm md:text-base">Temp Closed</p> : props.hours ?
-            <p className=" text-sm md:text-base closeing-div">&nbsp;{openClose.formatOpenNowString(props.hours, parsedOffset)}</p> :
-            <p className=" text-sm md:text-base">Closed</p>
-        }
+        {props.hours && props.hours.reopenDate ? (
+          <p className=" text-sm md:text-base">Temp Closed</p>
+        ) : props.hours ? (
+          <p className=" text-sm md:text-base closeing-div">
+            &nbsp;{openClose.formatOpenNowString(props.hours, parsedOffset)}
+          </p>
+        ) : (
+          <p className=" text-sm md:text-base">Closed</p>
+        )}
       </div>
     </>
-  )
+  );
 }

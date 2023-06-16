@@ -233,15 +233,15 @@ const IndexPage: Template<IndexPage> = ({ document }) => {
         item={{
           "@context": "https://schema.org",
           "@type": "WebSite",
-          "url": "https://www.epnb.com/",
-          "name": "Ephrata National Bank",
-          "potentialAction": {
+          url: "https://www.epnb.com/",
+          name: "Ephrata National Bank",
+          potentialAction: {
             "@type": "SearchAction",
-            "target": {
+            target: {
               "@type": "EntryPoint",
-              "urlTemplate": "https://www.epnb.com/search/{search_term_string}/",
+              urlTemplate: "https://www.epnb.com/search/{search_term_string}/",
             },
-          }
+          },
         }}
       />
       <SearchHeadlessProvider searcher={searcher}>
@@ -254,7 +254,13 @@ const IndexPage: Template<IndexPage> = ({ document }) => {
           <div className="container-custom px-5 pb-4 xs:pb-8 pt-0 xs:px-[4.375rem] bg-white rounded min-h-screen">
             <div className="polygon-logo mb-10">
               <div className="polygon-centred">
-                <img className="mx-auto" src={ENBPolygonLogo} alt="logo" width={358}  height={63}/>
+                <img
+                  className="mx-auto"
+                  src={ENBPolygonLogo}
+                  alt="logo"
+                  width={358}
+                  height={63}
+                />
               </div>
             </div>
             <div className="yext-search-bar">

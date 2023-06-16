@@ -1,34 +1,44 @@
-import { useContext } from 'react';
-import { PageView, PageViewContext } from '../context/PageViewContext';
-import { CompositionMethod, useComposedCssClasses } from '../hooks/useComposedCssClasses';
-import { ReactComponent as FiltersIcon } from '../icons/filters.svg';
-import * as React from 'react';
+import { useContext } from "react";
+import { PageView, PageViewContext } from "../context/PageViewContext";
+import {
+  CompositionMethod,
+  useComposedCssClasses,
+} from "../hooks/useComposedCssClasses";
+import { ReactComponent as FiltersIcon } from "../icons/filters.svg";
+import * as React from "react";
 
 interface ViewFiltersButtonCssClasses {
-  container?: string,
-  button?: string
+  container?: string;
+  button?: string;
 }
 
-const builtInCssClasses: ViewFiltersButtonCssClasses = { 
-  container: 'flex-grow justify-end flex',
-  button: 'p-1 mb-7'
-}
+const builtInCssClasses: ViewFiltersButtonCssClasses = {
+  container: "flex-grow justify-end flex",
+  button: "p-1 mb-7",
+};
 
 interface Props {
-  customCssClasses?: ViewFiltersButtonCssClasses,
-  cssCompositionMethod?: CompositionMethod
+  customCssClasses?: ViewFiltersButtonCssClasses;
+  cssCompositionMethod?: CompositionMethod;
 }
 
-
-
-export default function ViewFiltersButton ({ customCssClasses, cssCompositionMethod }: Props) {
+export default function ViewFiltersButton({
+  customCssClasses,
+  cssCompositionMethod,
+}: Props) {
   const { setPageView } = useContext(PageViewContext);
-  const cssClasses = useComposedCssClasses(builtInCssClasses, customCssClasses, cssCompositionMethod);
+  const cssClasses = useComposedCssClasses(
+    builtInCssClasses,
+    customCssClasses,
+    cssCompositionMethod
+  );
   return (
     <div className={cssClasses.container}>
       <button
         className={cssClasses.button}
-        onClick={() => { setPageView(PageView.FiltersVisibleMobile)}}
+        onClick={() => {
+          setPageView(PageView.FiltersVisibleMobile);
+        }}
       >
         <FiltersIcon />
       </button>
