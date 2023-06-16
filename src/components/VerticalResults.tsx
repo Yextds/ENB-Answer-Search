@@ -1,17 +1,11 @@
 import { CardComponent, CardConfigTypes } from "../models/cardComponent";
-import {
-  useSearchState,
-  Result,
- 
-} from "@yext/search-headless-react";
+import { useSearchState, Result } from "@yext/search-headless-react";
 import classNames from "classnames";
 import {
   CompositionMethod,
   useComposedCssClasses,
 } from "../hooks/useComposedCssClasses";
-// import { ReactComponent as PageNavigationIcon } from '../icons/chevron.svg';
 import * as React from "react";
-
 
 interface VerticalResultsCssClasses extends PaginationCssClasses {
   results___loading?: string;
@@ -95,29 +89,22 @@ function renderResult(
 interface VerticalResultsProps {
   CardComponent: CardComponent;
   cardConfig?: CardConfigTypes;
- 
+
   customCssClasses?: VerticalResultsCssClasses;
   cssCompositionMethod?: CompositionMethod;
- 
 }
 
 export default function VerticalResults(
   props: VerticalResultsProps
 ): JSX.Element | null {
-  const {
-   
-    
-    ...otherProps
-  } = props;
-/**
- * Direct Answer code - Starts
- */
+  const { ...otherProps } = props;
+  /**
+   * Direct Answer code - Starts
+   */
 
-  
-/**
- * Direct Answer Code - Ends
- */
-
+  /**
+   * Direct Answer Code - Ends
+   */
 
   const verticalResults =
     useSearchState((state) => state.vertical.results) || [];
@@ -125,31 +112,39 @@ export default function VerticalResults(
   const aleternateVerticals = useSearchState(
     (state) => state.vertical.noResults?.alternativeVerticals
   );
-   const filterVariable = aleternateVerticals?.filter(filtredResulta => filtredResulta.resultsCount > 0) || [];
-    const filterVariableLength = filterVariable.length;
-    const returnedAlternateVerticals = filterVariable.map((res:any)=>{
-        const verticalName = (res.verticalKey).toUpperCase();
-        const verticalSlug = res.verticalKey;
-        return(
-          <>
-            
-              <a href={'/'+verticalSlug} className="text-2xl font-semibold">
-                {verticalName}
-              </a><br>
-              </br>
-          </>
-        )
-    }) ;
+  const filterVariable =
+    aleternateVerticals?.filter(
+      (filtredResulta) => filtredResulta.resultsCount > 0
+    ) || [];
+  const filterVariableLength = filterVariable.length;
+  const returnedAlternateVerticals = filterVariable.map((res: any) => {
+    const verticalName = res.verticalKey.toUpperCase();
+    const verticalSlug = res.verticalKey;
+    return (
+      <>
+        <a href={"/" + verticalSlug} className="text-2xl font-semibold">
+          {verticalName}
+        </a>
+        <br></br>
+      </>
+    );
+  });
 
   const results = verticalResults;
-  
 
   return (
     <>
       {results.length === 0 && isLoading === false ? (
         <div className="alternateVerticals">
-          {filterVariableLength > 0 ? <p className="text-xl font-bold ">No result found in this vertical... Showing verticals related to this query<br></br>{returnedAlternateVerticals}</p>
-          : <p>OOps ! ..No results found in any vertical for this query.</p>}
+          {filterVariableLength > 0 ? (
+            <p className="text-xl font-bold ">
+              No result found in this vertical... Showing verticals related to
+              this query<br></br>
+              {returnedAlternateVerticals}
+            </p>
+          ) : (
+            <p>OOps ! ..No results found in any vertical for this query.</p>
+          )}
         </div>
       ) : (
         <VerticalResultsDisplay
@@ -171,8 +166,3 @@ interface PaginationCssClasses {
   rightIconContainer?: string;
   icon?: string;
 }
-
-
-
-
-

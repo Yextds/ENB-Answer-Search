@@ -86,7 +86,7 @@ const renderHours = (week: Week) => {
     dayDom.push(<DayRow key={k} dayName={k} day={v} isToday={isDayToday(k)} />);
   }
 
-  return <tbody className="font-normal">{dayDom}</tbody>; 
+  return <tbody className="font-normal">{dayDom}</tbody>;
 };
 
 function isDayToday(dayName: string) {

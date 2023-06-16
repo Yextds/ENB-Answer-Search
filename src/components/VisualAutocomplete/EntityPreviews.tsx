@@ -1,12 +1,16 @@
-import { Result, VerticalResults, UniversalLimit } from '@yext/search-headless-react';
+import {
+  Result,
+  VerticalResults,
+  UniversalLimit,
+} from "@yext/search-headless-react";
 
-import { isValidElement, ReactNode } from 'react';
-import recursivelyMapChildren from '../utils/recursivelyMapChildren';
+import { isValidElement, ReactNode } from "react";
+import recursivelyMapChildren from "../utils/recursivelyMapChildren";
 
 interface EntityPreviewsProps {
-  verticalKey: string,
-  children: (results: Result[]) => JSX.Element,
-  limit?: number
+  verticalKey: string;
+  children: (results: Result[]) => JSX.Element;
+  limit?: number;
 }
 
 /**
@@ -18,13 +22,15 @@ interface EntityPreviewsProps {
  * instances of EntityPreviews with the same verticalKey.
  */
 
-
 /**
  * Recursively passes vertical results into instances of EntityPreview.
  */
-export function transformEntityPreviews(entityPreviews: JSX.Element, verticalResultsArray: VerticalResults[]): ReactNode {
+export function transformEntityPreviews(
+  entityPreviews: JSX.Element,
+  verticalResultsArray: VerticalResults[]
+): ReactNode {
   const verticalKeyToResults = getVerticalKeyToResults(verticalResultsArray);
-  const renderedChildren = recursivelyMapChildren(entityPreviews, child => {
+  const renderedChildren = recursivelyMapChildren(entityPreviews, (child) => {
     if (!isValidElement(child) || child.type !== EntityPreviews) {
       return child;
     }
@@ -40,11 +46,16 @@ export function transformEntityPreviews(entityPreviews: JSX.Element, verticalRes
 /**
  * @returns a mapping of vertical key to VerticalResults
  */
-function getVerticalKeyToResults(verticalResultsArray: VerticalResults[]): Record<string, Result[]> {
-  return verticalResultsArray.reduce<Record<string, Result[]>>((prev, current) => {
-    prev[current.verticalKey] = current.results;
-    return prev;
-  }, {});
+function getVerticalKeyToResults(
+  verticalResultsArray: VerticalResults[]
+): Record<string, Result[]> {
+  return verticalResultsArray.reduce<Record<string, Result[]>>(
+    (prev, current) => {
+      prev[current.verticalKey] = current.results;
+      return prev;
+    },
+    {}
+  );
 }
 
 /**
@@ -52,7 +63,7 @@ function getVerticalKeyToResults(verticalResultsArray: VerticalResults[]): Recor
  */
 export function calculateRestrictVerticals(children: ReactNode): string[] {
   const restrictedVerticalsSet = new Set<string>();
-  recursivelyMapChildren(children, c => {
+  recursivelyMapChildren(children, (c) => {
     if (isValidElement(c) && c.type === EntityPreviews) {
       const { verticalKey } = c.props as EntityPreviewsProps;
       restrictedVerticalsSet.add(verticalKey);
@@ -67,16 +78,19 @@ export function calculateRestrictVerticals(children: ReactNode): string[] {
  */
 export function calculateUniversalLimit(children: ReactNode): UniversalLimit {
   const universallimit: Record<string, number | null> = {};
-  recursivelyMapChildren(children, c => {
+  recursivelyMapChildren(children, (c) => {
     if (isValidElement(c) && c.type === EntityPreviews) {
       const { verticalKey, limit } = c.props as EntityPreviewsProps;
       universallimit[verticalKey] = limit || null;
     }
     return c;
   });
-  return Object.keys(universallimit).reduce<UniversalLimit>((limitWithDefaults, verticalKey) => {
-    limitWithDefaults[verticalKey] = universallimit[verticalKey] ?? 5;
-   
-    return limitWithDefaults;
-  }, {})
+  return Object.keys(universallimit).reduce<UniversalLimit>(
+    (limitWithDefaults, verticalKey) => {
+      limitWithDefaults[verticalKey] = universallimit[verticalKey] ?? 5;
+
+      return limitWithDefaults;
+    },
+    {}
+  );
 }

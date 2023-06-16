@@ -1,5 +1,5 @@
 import * as React from "react";
-import { createContext, Dispatch, useReducer } from 'react';
+import { createContext, Dispatch, useReducer } from "react";
 import {
   toggleShowMapReducer,
   hoveredLocationReducer,
@@ -8,8 +8,8 @@ import {
   LocationActions,
   mapLocationsReducer,
   noGymsLocationReducer,
-} from './locationReducers';
-import { MapLocationData } from './mapbox/Mapbox';
+} from "./locationReducers";
+import { MapLocationData } from "./mapbox/Mapbox";
 
 //prettier-ignore
 type LocationStateType = {
@@ -32,7 +32,13 @@ export const LocationContext = createContext<{ state: LocationStateType, dispatc
 });
 
 const mainReducer = (
-  { hoveredLocation, selectedLocation, mapLocations, showMap, noGymsMessage }: LocationStateType,
+  {
+    hoveredLocation,
+    selectedLocation,
+    mapLocations,
+    showMap,
+    noGymsMessage,
+  }: LocationStateType,
   action: MapActions | LocationActions
 ): LocationStateType => {
   const newState = {
@@ -48,5 +54,9 @@ const mainReducer = (
 export const LocationProvider: React.FC = ({ children }: any) => {
   const [state, dispatch] = useReducer(mainReducer, locationState);
 
-  return <LocationContext.Provider value={{ state, dispatch }}>{children}</LocationContext.Provider>;
+  return (
+    <LocationContext.Provider value={{ state, dispatch }}>
+      {children}
+    </LocationContext.Provider>
+  );
 };

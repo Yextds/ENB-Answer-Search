@@ -1,4 +1,3 @@
-// import { Link } from "react-router-dom";
 import {
   AppliedFiltersCssClasses,
   AppliedFiltersDisplay,
@@ -30,8 +29,7 @@ const builtInCssClasses: SectionHeaderCssClasses = {
   sectionHeaderContainer: "vertical-heading",
   sectionHeaderIconContainer: "w-5 h-5",
   sectionHeaderLabel: "font-bold text-gray-800 text-base pl-3",
-  viewMoreContainer:
-    "view-more-btn",
+  viewMoreContainer: "view-more-btn",
   viewMoreLink: "text-white",
   appliedFiltersContainer: "ml-3 flex flex-wrap",
   nlpFilter:
@@ -48,14 +46,13 @@ interface SectionHeaderConfig {
   customCssClasses?: SectionHeaderCssClasses;
   cssCompositionMethod?: CompositionMethod;
   verticalKey: string;
-
 }
 
 export default function SectionHeader(props: SectionHeaderConfig): JSX.Element {
   const {
     label,
     verticalKey,
- 
+
     appliedFiltersConfig,
     customCssClasses,
     cssCompositionMethod,
@@ -88,28 +85,34 @@ export default function SectionHeader(props: SectionHeaderConfig): JSX.Element {
 
   return (
     <div className={cssClasses.sectionHeaderContainer}>
-      {/* <div className={cssClasses.sectionHeaderIconContainer}> */}
-      {/* <CollectionIcon></CollectionIcon> */}
-      {/* </div> */}
       <div className="vertical-label">
         <div className="label-wrapper">
-          {verticalKey=="locations" ? <><img alt="location marker" src={locationMarker} width={22} height={22}/></> :<><img alt="faq icon" src={faqicon} width={21} height={21}/></> }
-         
+          {verticalKey == "locations" ? (
+            <>
+              <img
+                alt="location marker"
+                src={locationMarker}
+                width={22}
+                height={22}
+              />
+            </>
+          ) : (
+            <>
+              <img alt="faq icon" src={faqicon} width={21} height={21} />
+            </>
+          )}
+
           <h2>{label}</h2>
         </div>
       </div>
-      
+
       {appliedFiltersConfig && (
         <AppliedFiltersDisplay
           displayableFilters={displayableFilters}
           cssClasses={cssClasses}
         />
       )}
- <div>
- 
+      <div></div>
     </div>
-    </div>
-   
-        
   );
 }
