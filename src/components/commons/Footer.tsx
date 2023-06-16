@@ -93,9 +93,9 @@ export default function Footer(data: props) {
               </div>
             </div>
             <div className="social order-1">
-              <h6 className="social-headline">
+              <h4 className="social-headline">
                 Connect with us!
-              </h6>
+              </h4>
               <div className="flex justify-center lg:justify-end">
                 <ul className="flex items-center">
                   <li>

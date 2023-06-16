@@ -7,7 +7,7 @@ const HeaderLogo = () =>{
           <div className="Round-logo">
             <div className="centred-logo">
                 <a href="https://www.epnb.com/">
-                <img className="mx-auto" src={ENBRoundLogo} alt="logo"/>
+                <img className="mx-auto" src={ENBRoundLogo} alt="logo" width={196} height={96}/>
                 </a>
               </div>
             </div>

@@ -223,7 +223,7 @@ const ArticlesPage: Template<TemplateRenderProps> = ({document}) => {
             <div className="polygon-logo mb-10">
               <div className="polygon-centred">
               
-                <img className="mx-auto" src={ENBPolygonLogo} alt="logo"/>
+                <img className="mx-auto" src={ENBPolygonLogo} alt="logo" width={358} height={63}/>
               </div>
             </div>
             <div className="yext-search-bar">
