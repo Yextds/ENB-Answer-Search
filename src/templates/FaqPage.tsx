@@ -33,6 +33,7 @@ import ENBRoundLogo from "../Images/ENB-round-logo.svg";
 import favicon from "../Images/favicon.png"
 import HeaderLogo from "../components/commons/HeaderLogo";
 import { JsonLd } from "react-schemaorg";
+import { BreadcrumbList, WebSite } from "schema-dts";
 
 
 export const config: TemplateConfig = {
@@ -181,24 +182,34 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (): HeadConfig 
 
 answersHeadlessConfig.verticalKey = "faqs";
 const searcher = provideHeadless(answersHeadlessConfig);
-interface FaqType {
-  "@type": "BreadcrumbList";
-  name: string;
-  url: string;
-  position:number
-}
 const ArticlesPage: Template<TemplateRenderProps> = ({document}) => {
   const { _site } = document;
 
   return (
     <>
-      <JsonLd<FaqType>
+    
+      <JsonLd<BreadcrumbList>
         item={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           name: "Ephrata National Bank",
           url: "https://www.epnb.com/answers/",
-          position: 2
+        }}
+      />
+      <JsonLd<WebSite>
+        item={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "url": "https://www.epnb.com/",
+          "name": "Ephrata National Bank",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.epnb.com/search/{search_term_string}/",
+            },
+            
+          }
         }}
       />
       <SearchHeadlessProvider searcher={searcher}>

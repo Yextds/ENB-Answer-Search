@@ -13,17 +13,15 @@ import {
   SearchHeadlessProvider,
   provideHeadless,
 } from "@yext/search-headless-react";
-import {
-  SearchBar,
-  SpellCheck,
-  Pagination,
-
-} from "@yext/search-ui-react";
+import { SearchBar, SpellCheck, Pagination } from "@yext/search-ui-react";
 import DirectAnswer from "../components/DirectAnswer";
 import { universalResultsConfig } from "../config/universalResultsConfig";
 import UniversalResults from "../components/UniversalResults";
 import Navigation from "../components/Navigation";
-import { answersHeadlessConfig, baseUrl } from "../config/answersHeadlessConfig";
+import {
+  answersHeadlessConfig,
+  baseUrl,
+} from "../config/answersHeadlessConfig";
 import { JsonLd } from "react-schemaorg";
 import Footer from "../components/commons/Footer";
 import ENBRoundLogo from "../Images/ENB-round-logo.svg";
@@ -32,6 +30,7 @@ import favicon from "../Images/favicon.png";
 import yext_logo from "../icons/yext_logo.svg";
 import LocationBias from "../components/LocationBias";
 import HeaderLogo from "../components/commons/HeaderLogo";
+import { BreadcrumbList, WebSite } from "schema-dts";
 
 export const config: TemplateConfig = {
   stream: {
@@ -55,13 +54,15 @@ const universalResultsFilterConfig = {
   show: false,
 };
 
-
 export const getPath: GetPath<TemplateProps> = () => {
   return "/index.html";
 };
-const metaTitle = "Ephrata National Bank | Find your Answers"
-const metaDescription = " Ephrata National Bank - get all information related to locations, branch details and all queries here."
-export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (): HeadConfig => {
+const metaTitle = "Ephrata National Bank | Find your Answers";
+const metaDescription =
+  " Ephrata National Bank - get all information related to locations, branch details and all queries here.";
+export const getHeadConfig: GetHeadConfig<
+  TemplateRenderProps
+> = (): HeadConfig => {
   return {
     title: `Ephrata National Bank | AS`,
     charset: "UTF-8",
@@ -193,52 +194,60 @@ export interface SiteData {
   id: number;
 }
 interface IndexData {
-  _site: SiteData
+  _site: SiteData;
 }
 interface IndexPage extends TemplateRenderProps {
-  document: IndexData
+  document: IndexData;
 }
-interface IndexType {
-  "@type": "BreadcrumbList";
-  name: string;
-  url?: string;
-  logo?: string;
-}
+
 interface ListType {
   "@type": "ListItem";
   name: string;
   position?: number;
   logo?: string;
-  "@id":string
+  "@id": string;
 }
-
 
 const IndexPage: Template<IndexPage> = ({ document }) => {
   const { _site } = document;
 
   return (
     <>
-      <JsonLd<IndexType>
+      <JsonLd<BreadcrumbList>
         item={{
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           name: "Ephrata National Bank",
         }}
       />
-       <JsonLd<ListType>
+      <JsonLd<ListType>
         item={{
           "@context": "https://schema.org",
-           "@type": "ListItem",
-           "@id": "https://www.epnb.com/",
-           "position": 1,
-           name: "Ephrata National Bank",
-          
+          "@type": "ListItem",
+          "@id": "https://www.epnb.com/",
+          position: 1,
+          name: "Ephrata National Bank",
+        }}
+      />
+      <JsonLd<WebSite>
+        item={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "url": "https://www.epnb.com/",
+          "name": "Ephrata National Bank",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.epnb.com/search/{search_term_string}/",
+            },
+          }
         }}
       />
       <SearchHeadlessProvider searcher={searcher}>
         <div className="container-custom px-5 py-4 xs:py-[1.875rem]">
           {/* Round Centered Logo */}
-         <HeaderLogo/>
+          <HeaderLogo />
           {/* Round Centered Logo */}
         </div>
         <div className="py-4 xs:pb-14 pt-0">
