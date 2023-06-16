@@ -400,8 +400,8 @@ li.vertical-navigation-item:nth-child(3) {
   @apply w-full xs:w-2/4 text-center px-4 py-2 even:mt-2.5 xs:even:mt-0 xs:even:ml-2.5 bg-primaryBlue text-white border border-primaryBlue hover:bg-white hover:text-primaryBlue transition-all duration-300;
 }
 .markerContent .addressphone .phone{
-  @apply underline hover:no-underline;
-  }
+@apply underline hover:no-underline;
+}
 .gm-style-iw-d {
   @apply !max-h-[290px];
 }
@@ -621,6 +621,7 @@ li.vertical-navigation-item:nth-child(3) {
   }
 }
 /*LoadingSpinner*/
+
 .spinner-main {
   position: fixed;
   top: 0;
@@ -670,11 +671,13 @@ li.vertical-navigation-item:nth-child(3) {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  box-shadow: 0 0 20px #004990;
+  background: #004990;
   top: -3px;
   right: -4px;
-  box-shadow: 0 0 20px #0f425c;
+  box-shadow: 0 0 20px #004990;
 }
+
+/* Spinner Animation */
 
 @keyframes spinner {
   0% {
