@@ -20,7 +20,7 @@ interface UniversalResultsCssClasses {
 }
 
 const builtInCssClasses: UniversalResultsCssClasses = {
-  container: "space-y-8 mt-6",
+  container: "space-y-8 mt-6 min-h-screen",
   results___loading: "opacity-50",
 };
 
@@ -76,7 +76,7 @@ export default function UniversalResults({
           <LoadingSpinner />
         ) : (
           <>
-            <div className="mb-6 pb-6 mt-6 pt-6">
+            <div className="mb-6 pb-6 mt-6 pt-6 min-h-screen">
               <p className="text-2xl font-bold">No results found</p>
             </div>
           </>

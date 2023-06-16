@@ -139,7 +139,7 @@ export default function LocationResults(data: props) {
           )}
         </div>
         <div
-          className={classNames("w-full map-box", {
+          className={classNames("w-full map-box min-h-[25.563rem] sm:min-h-[21.563rem] lg:min-h-[16.563rem]", {
             hidden: screenSize !== "xl" && !state.showMap,
           })}
         >
