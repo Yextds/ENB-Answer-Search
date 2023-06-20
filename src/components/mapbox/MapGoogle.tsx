@@ -42,6 +42,7 @@ let openMapCenter: any = "";
 let openMapZoom: any = "";
 let openInfoWindow: any = false;
 let searchCenter: any = null;
+const searchZoom: any = null;
 let stopAnimation = false;
 let currentMapZoom = 0;
 
@@ -160,12 +161,10 @@ function UnwrappedGoogleMaps({
   for (const result of locationResults) {
    
     const position = getPosition(result);
-    const markerLabel = Number(index + 1);
     const marker = new google.maps.Marker({
       position,
       map,
       icon: marker_icon,
-      label: markerLabel.toString(),
     });
 
     const location = new google.maps.LatLng(position.lat, position.lng);
@@ -233,8 +232,8 @@ function UnwrappedGoogleMaps({
   useEffect(()=>{
     if(map){
       setTimeout(()=>{
-        const elements = document.getElementsByClassName("gm-control-active");
-        for (let i = 0; i < elements.length; i++) {
+        var elements = document.getElementsByClassName("gm-control-active");
+        for (var i = 0; i < elements.length; i++) {
           elements[i].addEventListener('click', ()=>{
             if(infoWindow){
               infoWindow.close();
@@ -255,13 +254,17 @@ function UnwrappedGoogleMaps({
        if (zoom > 8) {
          map.setZoom(6);
        }
+       
+    
       searchCenter = bounds.getCenter();
+
       const elements = refLcation.current.querySelectorAll(".result");
       for (let index = 0; index < elements.length; index++) {
         /* Checking for the event binded or not if not then binding event */
         if (!elements[index]?.classList.contains("markerEventBinded")) {
           elements[index].classList.add("markerEventBinded");
           elements[index].addEventListener("click", () => {
+
             InfowindowContents(index, locationResults[index]);
             
             addActiveGrid(index);
@@ -293,7 +296,7 @@ function UnwrappedGoogleMaps({
     markerPins.current[i]?.addListener("click", () => {
 
       if (!openInfoWindow) {
-        openMapZoom = map?.getZoom();y
+        openMapZoom = map?.getZoom();
         openMapCenter = map?.getCenter();
       } else {
         openInfoWindow = false;
@@ -301,6 +304,7 @@ function UnwrappedGoogleMaps({
       }
 
       InfowindowContents(i, locationResults[i]);
+      var bounds = new google.maps.LatLngBounds();
       infoWindow.open(map, markerPins.current[i]);
       openInfoWindow = true;
 
@@ -379,6 +383,14 @@ function getPosition(result: any) {
   const lat = (result as any).yextDisplayCoordinate.latitude;
   const lng = (result as any).yextDisplayCoordinate.longitude;
   return { lat, lng };
+}
+
+function removeActiveGrid() {
+  const elements = document.querySelectorAll(".result");
+  for (let index = 0; index < elements.length; index++) {
+    elements[index].classList.remove("active");
+    elements[index].classList.remove("click-active");
+  }
 }
 
 function addActiveGrid(index: any) {
