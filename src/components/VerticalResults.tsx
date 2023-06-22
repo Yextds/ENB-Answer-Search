@@ -135,7 +135,7 @@ export default function VerticalResults(
   return (
     <>
       {results.length === 0 && isLoading === false ? (
-        <div className="alternateVerticals">
+        <div className="alternateVerticals min-h-screen">
           {filterVariableLength > 0 ? (
             <p className="text-xl font-bold ">
               No result found in this vertical... Showing verticals related to
