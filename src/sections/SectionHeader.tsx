@@ -112,7 +112,6 @@ export default function SectionHeader(props: SectionHeaderConfig): JSX.Element {
           cssClasses={cssClasses}
         />
       )}
-      <div></div>
     </div>
   );
 }

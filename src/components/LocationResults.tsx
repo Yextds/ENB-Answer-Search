@@ -149,7 +149,7 @@ export default function LocationResults(data: props) {
     );
   } else {
     return (
-      <div className="flex">
+      <div className="flex min-h-[25.563rem] sm:min-h-[21.563rem] lg:min-h-[16.563rem]">
         <LoadingSpinner />
       </div>
     );

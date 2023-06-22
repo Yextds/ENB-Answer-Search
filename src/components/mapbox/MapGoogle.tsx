@@ -61,11 +61,10 @@ const builtInCssClasses: Readonly<GoogleMapsCssClasses> = {
  */
 export function GoogleMaps(props: GoogleMapsProps) {
   return (
-    <div>
-      <Wrapper apiKey={props.apiKey}>
+    <Wrapper apiKey={props.apiKey}>
         <UnwrappedGoogleMaps {...props} />
       </Wrapper>
-    </div>
+    
   );
 }
 
@@ -304,7 +303,6 @@ function UnwrappedGoogleMaps({
       }
 
       InfowindowContents(i, locationResults[i]);
-      var bounds = new google.maps.LatLngBounds();
       infoWindow.open(map, markerPins.current[i]);
       openInfoWindow = true;
 
@@ -324,7 +322,7 @@ function UnwrappedGoogleMaps({
           {result.name}
         </div>
         <div className="addressData flex justify-start gap-2 mb-2">
-          <div>
+          <div className="icon">
             { SvgIcons.locationMarker }
           </div>
           <div className="address">
@@ -361,7 +359,7 @@ function UnwrappedGoogleMaps({
           </a>
         </div>
 
-        <div>{result.hours} </div>
+        <div className="hours">{result.hours} </div>
       </div>
     );
     const string = renderToString(MarkerContent);
@@ -385,13 +383,6 @@ function getPosition(result: any) {
   return { lat, lng };
 }
 
-function removeActiveGrid() {
-  const elements = document.querySelectorAll(".result");
-  for (let index = 0; index < elements.length; index++) {
-    elements[index].classList.remove("active");
-    elements[index].classList.remove("click-active");
-  }
-}
 
 function addActiveGrid(index: any) {
   const elements = document.querySelectorAll(".result");

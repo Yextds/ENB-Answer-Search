@@ -33,11 +33,11 @@ import { LocationCard } from "../components/cards/LocationCard";
 import LocationResults from "../components/LocationResults";
 import { LocationProvider } from "../components/LocationContext";
 import ENBRoundLogo from "../Images/ENB-round-logo.svg";
-import ENBPolygonLogo from "../Images/Answer-Head-logo.svg";
 import NewPagination from "../components/commons/PaginationComponent";
 import favicon from "../Images/favicon.png";
 import HeaderLogo from "../components/commons/HeaderLogo";
 import { BreadcrumbList, WebSite } from "schema-dts";
+import SearchLogo from "../components/commons/SearchLogo";
 
 export const config: TemplateConfig = {
   stream: {
@@ -226,17 +226,8 @@ const LocationsPage: Template<TemplateRenderProps> = ({ document }) => {
           </div>
           <div className="py-4 xs:pb-14 pt-0">
             <div className="container-custom px-5 pb-4 xs:pb-8 pt-0 xs:px-[4.375rem] bg-white rounded">
-              <div className="polygon-logo mb-10">
-                <div className="polygon-centred">
-                  <img
-                    className="mx-auto"
-                    src={ENBPolygonLogo}
-                    alt="logo"
-                    width={358}
-                    height={63}
-                  />
-                </div>
-              </div>
+            <SearchLogo/>
+
               <div className="yext-search-bar">
                 <SearchBar placeholder="Search ENB Locations" />
               </div>
@@ -249,9 +240,9 @@ const LocationsPage: Template<TemplateRenderProps> = ({ document }) => {
                 verticalKey="locations"
                 cardConfig={{ CardComponent: LocationCard }}
               />
-              <LocationBias />
+              <LocationBias/>
             </div>
-            <NewPagination />
+            <NewPagination/>
           </div>
         </LocationProvider>
       </SearchHeadlessProvider>
