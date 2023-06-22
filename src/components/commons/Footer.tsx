@@ -87,7 +87,7 @@ export default function Footer(data: props) {
                 </div>
                 <div className="corporate-location-phone">
                   <span>Toll Free :</span>
-                  <a href={"tel:" + "+18787366532"}>{officeNumber}</a>
+                  <a href={"tel:" + "+18777736605"}>{officeNumber}</a>
                 </div>
               </div>
             </div>
