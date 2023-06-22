@@ -150,7 +150,7 @@ export default function LocationResults(data: props) {
   } else {
     return (
       <div className="flex">
-        {/* <LoadingSpinner /> */}
+        <LoadingSpinner />
       </div>
     );
   }
