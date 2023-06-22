@@ -92,7 +92,7 @@ export default function NewPagination(): JSX.Element | null {
               {/* <PageNavigationIcon className={cssClasses.icon + ' transform -rotate-90'} /> */}
               <img
                 alt="arrow icon"
-                className="w-4 transform rotate-90"
+                className="w-4 h-4 transform rotate-90"
                 src={arrowIcon}
               />
             </button>
@@ -138,7 +138,7 @@ export default function NewPagination(): JSX.Element | null {
               {/* <PageNavigationIcon className={cssClasses.icon + ' transform rotate-90'} /> */}
               <img
                 alt="arrow icon"
-                className="w-4 transform -rotate-90"
+                className="w-4 h-4 transform -rotate-90"
                 src={arrowIcon}
               />
             </button>

@@ -61,11 +61,10 @@ const builtInCssClasses: Readonly<GoogleMapsCssClasses> = {
  */
 export function GoogleMaps(props: GoogleMapsProps) {
   return (
-    <div>
-      <Wrapper apiKey={props.apiKey}>
+    <Wrapper apiKey={props.apiKey}>
         <UnwrappedGoogleMaps {...props} />
       </Wrapper>
-    </div>
+    
   );
 }
 
@@ -324,7 +323,7 @@ function UnwrappedGoogleMaps({
           {result.name}
         </div>
         <div className="addressData flex justify-start gap-2 mb-2">
-          <div>
+          <div className="icon">
             { SvgIcons.locationMarker }
           </div>
           <div className="address">
@@ -361,7 +360,7 @@ function UnwrappedGoogleMaps({
           </a>
         </div>
 
-        <div>{result.hours} </div>
+        <div className="hours">{result.hours} </div>
       </div>
     );
     const string = renderToString(MarkerContent);

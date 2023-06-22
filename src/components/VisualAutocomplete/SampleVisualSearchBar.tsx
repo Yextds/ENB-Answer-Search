@@ -60,7 +60,7 @@ function FaqCard({ result }: CardProps) {
         <div className="text-gray-900 text-lg font-medium pb-1">
           {faqData.question}
         </div>
-        <div>{faqData.answer}</div>
+        <div className="Answers">{faqData.answer}</div>
       </div>
     </div>
   );

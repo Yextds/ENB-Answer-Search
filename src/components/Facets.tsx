@@ -85,7 +85,7 @@ export default function Facets (props: FacetsProps): JSX.Element {
 
   return (
     <div className={cssClasses.container}>
-      <div>
+      <div className='facetComponents'>
         {facetComponents}
       </div>
       <div className={cssClasses.buttonsContainer}>
