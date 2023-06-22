@@ -109,7 +109,7 @@ export default function LocationResults(data: props) {
       />
     );
   };
-  if (isLoading === false) {
+  // if (isLoading === false) {
     return (
       <div className="locator-wrapper">
         <div
@@ -147,11 +147,11 @@ export default function LocationResults(data: props) {
         </div>
       </div>
     );
-  } else {
-    return (
-      <div className="flex">
-        <LoadingSpinner />
-      </div>
-    );
-  }
+  // } else {
+  //   return (
+  //     <div className="flex">
+  //       <LoadingSpinner />
+  //     </div>
+  //   );
+  // }
 }
