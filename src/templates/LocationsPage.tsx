@@ -240,9 +240,9 @@ const LocationsPage: Template<TemplateRenderProps> = ({ document }) => {
                 verticalKey="locations"
                 cardConfig={{ CardComponent: LocationCard }}
               />
-              <LocationBias />
+              <LocationBias/>
             </div>
-            <NewPagination />
+            <NewPagination/>
           </div>
         </LocationProvider>
       </SearchHeadlessProvider>

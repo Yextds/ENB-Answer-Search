@@ -303,7 +303,6 @@ function UnwrappedGoogleMaps({
       }
 
       InfowindowContents(i, locationResults[i]);
-      var bounds = new google.maps.LatLngBounds();
       infoWindow.open(map, markerPins.current[i]);
       openInfoWindow = true;
 
@@ -384,13 +383,6 @@ function getPosition(result: any) {
   return { lat, lng };
 }
 
-function removeActiveGrid() {
-  const elements = document.querySelectorAll(".result");
-  for (let index = 0; index < elements.length; index++) {
-    elements[index].classList.remove("active");
-    elements[index].classList.remove("click-active");
-  }
-}
 
 function addActiveGrid(index: any) {
   const elements = document.querySelectorAll(".result");
